@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="script/scriptindex.js"></script>
+	<script type="text/javascript" src="script/jsonpratos.js"></script>
+	<style type="text/css">
+		.cont-pratos-feitos{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.cont-pratos{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.cont-pratos div, .cont-pratos-feitos div{
+			width: 300px;
+			height: 350px;
+			border: 2px solid #000000;
+		}
+	</style>
+</head>
+	<body>
+		<main>
+			<div>
+				
+				<h2 style="text-align: center;">Monte sua marmita</h2>
+				<div class="cont-pratos">
+					<div>arroz
+						<input type="button" data-id="0" class="bt-monte-prato" value="+">
+					</div>
+					<div>feijao
+						<input type="button" data-id="1" class="bt-monte-prato" value="+">
+					</div>
+					<div>frango
+						<input type="button" data-id="2" class="bt-monte-prato" value="+">
+					</div>
+					<div>carne vermelha
+						<input type="button" data-id="3" class="bt-monte-prato" value="+">
+					</div>
+				</div>
+
+			</div>
+			
+			<div>
+				<h2 style="text-align: center;">Pratos feitos</h2>
+				<div class="cont-pratos-feitos">
+					<div>
+						arroz vermelho com raspa de limão
+						<input type="button" data-id="0" class="bt-prato-feito" value="+">
+					</div>
+					<div>
+						purê de baroa com ervas
+						<input type="button" data-id="1" class="bt-prato-feito" value="+">
+					</div>
+					<div>
+						purê de baroa com pintada de gengibre
+						<input type="button" data-id="2" class="bt-prato-feito" value="+">
+					</div>
+					<div>
+						purê de inhame com beterraba
+						<input type="button" data-id="3" class="bt-prato-feito" value="+">
+					</div>
+				</div>
+			</div>
+		</main>
+		
+	</body>
+</html>

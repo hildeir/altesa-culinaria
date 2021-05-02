@@ -1,0 +1,120 @@
+window.onload = inicia;
+function inicia(){
+	let pratos1 = document.querySelectorAll(".bt-monte-prato");
+	pratos1.forEach((ele)=>{
+		let id = ele.getAttribute("data-id");
+		ele.addEventListener("click",()=>{
+			montaprato(id);
+		});
+	});
+
+	let pratos2 = document.querySelectorAll(".bt-prato-feito");
+	pratos2.forEach((ele2)=>{
+		let id2 = ele2.getAttribute("data-id");
+		ele2.addEventListener('click',()=>{
+			pratosFeitos(id2);
+		});
+	});
+}
+
+function montaprato(id){
+	let total = sessionStorage.getItem("totalmontar");
+	if(total == null){
+		let prato = JSON.stringify({id:id,quantidade:1});
+		sessionStorage.setItem("pm",prato);
+		sessionStorage.setItem("totalmontar",1);
+	
+	}else if(total < '3'){
+		let prato = sessionStorage.getItem("pm");
+		let r = prato.indexOf("-");
+
+		if(r == -1){
+			let prato = JSON.parse(sessionStorage.getItem("pm"));
+			if(prato.id == id){
+				let updateQuant = prato.quantidade += 1;
+				let x = JSON.stringify({id:prato.id,quantidade:updateQuant});
+				sessionStorage.setItem("pm",x);
+
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
+			}else{
+				let outroPrato = JSON.stringify({id:id,quantidade:1});
+				let pratoAnterior = sessionStorage.getItem("pm");
+				sessionStorage.setItem("pm",pratoAnterior+"-"+outroPrato);
+
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
+			}
+		}else{
+			let pratoUpdate = [];
+			let outroPrato = [];
+			let pratosArray = prato.split("-");
+			pratosArray.map((ele)=>{
+				let obj = JSON.parse(ele);
+				if(obj.id == id){
+					let updateQuant = obj.quantidade += 1;
+					pratoUpdate.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
+
+					let totalInt = parseInt(total,10);
+					sessionStorage.setItem('totalmontar',totalInt += 1);
+				}else{
+					outroPrato = JSON.stringify(obj);
+				}
+
+			});
+			sessionStorage.setItem("pm",outroPrato.concat("-",pratoUpdate));
+			
+		}
+
+	}else{
+		alert("so pode montar a marmita com 3 itens");
+	}
+}
+function pratosFeitos(id){
+	let pratos = sessionStorage.getItem("pf");
+	if(pratos == null){
+		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
+	}else{
+		let result = pratos.indexOf("-");
+		if(result == -1){
+			let x = JSON.parse(sessionStorage.getItem("pf"));
+			if(x.id == id){
+				//se enconttra oo mesmo prato, acrescenta a quantidadde
+				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=1});
+				sessionStorage.setItem("pf",updatePrato);
+			}else{
+				let pratoAnterior = sessionStorage.getItem('pf');
+				let novoPrato = JSON.stringify({id:id,quantidade:1});
+				sessionStorage.setItem('pf',pratoAnterior+"-"+novoPrato);
+			}
+		
+		}else{
+			//se existe ssessao ocom mais de 1 json desmembra e seta a session com vallor aatualizado
+			//let pratoUpdate = [];
+			let outroPrato = [];
+			let pratos2 = pratos.split("-");
+			let idExistente;
+			pratos2.map((ele)=>{
+				let obj = JSON.parse(ele);
+				if(obj.id == id){
+					let updateQuant = obj.quantidade += 1;
+					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
+					idExistente = obj.id;
+
+				}else{
+					outroPrato.push(JSON.stringify(obj));
+					
+				}
+
+			});
+			if(id != idExistente){
+				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+			}
+			
+			let x = outroPrato.join("-");
+			sessionStorage.setItem("pf",x);
+			
+		}	
+	}
+
+}
