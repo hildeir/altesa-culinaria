@@ -72,9 +72,12 @@ function montaprato(id){
 }
 function pratosFeitos(id){
 	let pratos = sessionStorage.getItem("pf");
-	if(pratos == null){
+	let totalPratosFeitos = sessionStorage.getItem("totalPratosFeitos");
+	if(totalPratosFeitos == null){
 		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
-	}else{
+		sessionStorage.setItem("totalPratosFeitos",1);
+
+	}else if(totalPratosFeitos < '7'){
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pf"));
@@ -82,10 +85,16 @@ function pratosFeitos(id){
 				//se enconttra oo mesmo prato, acrescenta a quantidadde
 				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=1});
 				sessionStorage.setItem("pf",updatePrato);
+				
+				let totalPFint = parseInt(totalPratosFeitos,10);
+				sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pf');
 				let novoPrato = JSON.stringify({id:id,quantidade:1});
 				sessionStorage.setItem('pf',pratoAnterior+"-"+novoPrato);
+
+				let totalPFint = parseInt(totalPratosFeitos,10);
+				sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
 			}
 		
 		}else{
@@ -113,8 +122,12 @@ function pratosFeitos(id){
 			
 			let x = outroPrato.join("-");
 			sessionStorage.setItem("pf",x);
+			let totalPFint = parseInt(totalPratosFeitos,10);
+			sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
 			
 		}	
+	}else{
+		alert("voce excedeu a quantidade de pedidos");
 	}
 
 }
