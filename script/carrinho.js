@@ -1,8 +1,14 @@
 window.onload = inicia;
 function inicia(){
-	if(sessionStorage.getItem("pm") == null || sessionStorage.getItem("pf") == null){
+	let pm = sessionStorage.getItem("pm");
+	let pf = sessionStorage.getItem("pf");
+	if(pm == null || pf  == null || pm == "" || pf == ""){
 		location.href = "/sitetair";
+	}else{
+		monta();
 	}
 	
 }	
+function monta(){
 
+}
