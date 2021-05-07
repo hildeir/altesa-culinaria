@@ -46,23 +46,31 @@ function montaprato(id){
 				sessionStorage.setItem('totalmontar',totalInt += 1);
 			}
 		}else{
-			let pratoUpdate = [];
+			//let pratoUpdate = [];
 			let outroPrato = [];
+			let idExistente;
 			let pratosArray = prato.split("-");
 			pratosArray.map((ele)=>{
 				let obj = JSON.parse(ele);
 				if(obj.id == id){
 					let updateQuant = obj.quantidade += 1;
-					pratoUpdate.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
+					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
 
 					let totalInt = parseInt(total,10);
 					sessionStorage.setItem('totalmontar',totalInt += 1);
+					idExistente = obj.id;
 				}else{
-					outroPrato = JSON.stringify(obj);
+					outroPrato.push(JSON.stringify(obj));
 				}
 
 			});
-			sessionStorage.setItem("pm",outroPrato.concat("-",pratoUpdate));
+			if(id != idExistente){
+				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
+			}
+			let unir = outroPrato.join("-");
+			sessionStorage.setItem("pm",unir);
 			
 		}
 
