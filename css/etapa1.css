@@ -1,0 +1,66 @@
+.cont-pratos-montados, .cont-outros-pratos{
+    display: flex;
+}
+.model-pratos-montados{
+    display: flex;
+    border:springgreen solid 2px;
+}
+.inf-pratos-montados ul{
+    list-style: none;
+}
+.img-prato-montados img{
+    width: 100px;
+    height: 100px;
+}
+.inf-pratos-montados ul{
+    padding-left: 5px;
+}
+.model-pratos-montados{
+    display: none;
+}
+.conteiner{
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.etapas{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.etapa-1{
+    margin-bottom: 50px;
+}
+.etapas .item{
+    width:40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.etapas .item1{
+    background-color: #633194ff;
+}
+.etapas .item2{
+    background-color: #ccc;
+}
+.etapas::after{
+    content: " ";
+    background-color: #ccc;
+    position: absolute;
+    width: 99%;
+    height: 5px;
+    top: 50%;
+    z-index: -1;
+    margin-left: 3px;
+}
+hr{
+    border: 0px;
+    height: 3px;
+    background-color: #633194ff;
+    margin-top: 50px;
+}
+.etapa-2{
+    display: none;
+}
