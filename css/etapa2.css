@@ -10,7 +10,7 @@
     background-color: #633194ff;
 }
 .etapas .item2{
-    background-color: #ccc;
+    background-color: #633194ff;
 }
 .etapas{
     display: flex;
@@ -19,7 +19,7 @@
 }
 .etapas::after{
     content: " ";
-    background-color: #ccc;
+    background-color: #633194ff;
     position: absolute;
     width: 99%;
     height: 5px;

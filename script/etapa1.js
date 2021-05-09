@@ -2,14 +2,24 @@ window.onload = inicia;
 function inicia(){
 	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
-	if(pm == null && pf == null && pm == "" && pf == ""){
+	if(pm == null && pf == null || pm == "" && pf == ""){
 		location.href = "/sitetair";
 	}else{
 		montar();
 	}
 	document.querySelector(".avancar").addEventListener("click",()=>{
 		location.href = "etapa2.html";
+	});
+	document.querySelector(".voltar").addEventListener("click",()=>{
+		location.href = "/sitetair/";
+	});
+	let remover = document.querySelectorAll(".remover");
+	remover.forEach((ele)=>{
+		ele.addEventListener('click',(event)=>{
+			removerPrato(event);
+		});
 	})
+
 }	
 function montar(){
 	let pm = sessionStorage.getItem('pm');
@@ -27,6 +37,26 @@ function montar(){
 		let img = clone.querySelector(".img-prato-montados img");
 		img.setAttribute("src",caminhoImg);
 		clone.style.display = "flex";
+		clone.setAttribute("id",pratosObj.id);
+		clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
 		document.querySelector(".cont-pratos-montados").appendChild(clone);
 	});
+}
+function removerPrato(e){
+	let p = e.target.closest(".model-pratos-montados");
+	let idPrato = p.id;
+	p.remove();
+	let pm = sessionStorage.getItem('pm');
+	let pratosArray = pm.split("-");
+	let objPexcluir;
+	pratosArray.forEach((ele)=>{
+		let obj = JSON.parse(ele);
+		if(obj.id == idPrato){
+			objPexcluir = JSON.stringify(obj);
+		}
+	});
+	let posPrato = pratosArray.indexOf(objPexcluir);
+	pratosArray.splice(posPrato,1);
+	let update = pratosArray.join("-");
+	sessionStorage.setItem("pm",update);
 }

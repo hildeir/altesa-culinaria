@@ -7,6 +7,9 @@ function inicia(){
 	}else{
 		montar();
 	}
+	document.querySelector(".voltar").addEventListener("click",()=>{
+		location.href = "etapa1.html";
+	});
 }
 function montar(){
     
