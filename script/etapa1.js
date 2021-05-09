@@ -41,6 +41,10 @@ function montar(){
 		clone.style.display = "flex";
 		clone.setAttribute("id",pratosObj.id);
 		clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
+		clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
+		clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+		clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
+		clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}`;
 		document.querySelector(".cont-pratos-montados").appendChild(clone);
 	});
 }

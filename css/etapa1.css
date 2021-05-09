@@ -22,7 +22,9 @@
     margin-left: 120px;
     margin-right: 120px;
 }
-
+.remover{
+    cursor: pointer;
+}
 .etapas{
     display: flex;
     justify-content: space-between;
