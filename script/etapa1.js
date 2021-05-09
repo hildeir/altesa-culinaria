@@ -59,4 +59,12 @@ function removerPrato(e){
 	pratosArray.splice(posPrato,1);
 	let update = pratosArray.join("-");
 	sessionStorage.setItem("pm",update);
+	let totalmontar = parseInt(sessionStorage.getItem("totalmontar"));
+	if(sessionStorage.getItem("pm") == ""){
+		sessionStorage.removeItem("pm");
+		sessionStorage.removeItem("totalmontar");
+	}else{
+		sessionStorage.setItem("totalmontar",totalmontar -= 1);
+	}
+	
 }
