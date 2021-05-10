@@ -46,7 +46,7 @@ function montar(){
 		clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
 		clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
 		clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
-		clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}`;
+		clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
 		document.querySelector(".cont-pratos-montados").appendChild(clone);
 		total += (prato.preco*pratosObj.quantidade);
 	});
