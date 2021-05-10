@@ -69,7 +69,7 @@ function enviar(){
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
     
-    let texto = "DADOS DO PEDIDO:"+pedidoMontado+"DADOS DO CLIENTE:"+cliente+"DADOS ENTREGA:"+entrega+"total:"+total;
+    let texto = "DADOS DO PEDIDO:"+pedidoMontado+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+"total:"+total;
     let url = "https://api.whatsapp.com/send?phone=5521968180811&text="+texto;
     sessionStorage.clear();
     location.href = url;
