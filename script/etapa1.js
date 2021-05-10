@@ -30,6 +30,8 @@ function montar(){
 	if(pm != null){
 		pratosArray = pm.split("-");
 	}
+
+	let total = 0;
 	pratosArray.map((ele)=>{
 		let pratosObj =	JSON.parse(ele);
 		let prato = jsonMontarPratos[pratosObj.id];
@@ -46,7 +48,11 @@ function montar(){
 		clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
 		clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}`;
 		document.querySelector(".cont-pratos-montados").appendChild(clone);
+		total += prato.preco;
 	});
+	document.querySelector(".total").innerHTML = `Valor total R$:${total.toFixed(2)}`;
+	sessionStorage.setItem("valorTotal",total);
+
 }
 function removerPrato(e){
 	let p = e.target.closest(".model-pratos-montados");

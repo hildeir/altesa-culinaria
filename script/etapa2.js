@@ -1,6 +1,7 @@
 window.onload = inicia;
 function inicia(){
-	sessionStorage.removeItem("dados");
+	sessionStorage.removeItem("dadosCliente");
+	sessionStorage.removeItem("dadosEntrega");
 	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
 	if(pm == null && pf == null){
@@ -31,13 +32,21 @@ function avanca(){
 		let objPessoa = {
 			nome:nome,
 			email:email,
-			phone:phone,
+			phone:phone
+			
+		};
+		let objEnd = {
 			regiao:regiao,
 			ende:ende,
 			numero:numero,
 			complemento:complemento
 		};
-		sessionStorage.setItem("dados",JSON.stringify(objPessoa));
+		sessionStorage.setItem("dadosCliente",JSON.stringify(objPessoa));
+		sessionStorage.setItem("dadosEntrega",JSON.stringify(objEnd));
+		
+		
 		location.href = "confirmacao.html";
+	
+		
 	}
 }
