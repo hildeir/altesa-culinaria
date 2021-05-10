@@ -1,5 +1,6 @@
 window.onload = inicia;
 function inicia(){
+	sessionStorage.clear();
 	let pratos1 = document.querySelectorAll(".bt-monte-prato");
 	pratos1.forEach((ele)=>{
 		let id = ele.getAttribute("data-id");

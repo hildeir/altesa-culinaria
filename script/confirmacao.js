@@ -26,6 +26,7 @@ function inicia(){
 function exibir(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
+    const total = parseInt(sessionStorage.getItem("valorTotal"));
 
     const cliente = document.querySelector(".dados-cliente");
     cliente.innerHTML = "<b>nome:</b> <br/>"+
@@ -44,4 +45,32 @@ function exibir(){
                         dadosEntrega.numero +"<br/>"+
                         "<b>Complemento:</b> <br/>"+
                         dadosEntrega.complemento +"<br/>";
+    document.querySelector(".total").innerHTML = `Valor total R$:${total.toFixed(2)}`;
+
+}
+function enviar(){
+    const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
+    const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
+    let total = parseInt(sessionStorage.getItem("valorTotal"),10).toFixed(2);
+    let pedidoMontado = "";
+    if(sessionStorage.getItem('pm') != null){
+        let pratos = sessionStorage.getItem("pm");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                pedidoMontado += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+        console.log(pedidoMontado);
+    }
+    let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
+    let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
+    
+    let texto = "DADOS DO PEDIDO:"+pedidoMontado+"DADOS DO CLIENTE:"+cliente+"DADOS ENTREGA:"+entrega+"total:"+total;
+    let url = "https://api.whatsapp.com/send?phone=5521968180811&text="+texto;
+    sessionStorage.clear();
+    location.href = url;
 }
