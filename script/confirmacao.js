@@ -53,6 +53,7 @@ function enviar(){
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
     let total = parseInt(sessionStorage.getItem("valorTotal"),10).toFixed(2);
     let pedidoMontado = "";
+    let pedidoPratoFeito = '';
     if(sessionStorage.getItem('pm') != null){
         let pratos = sessionStorage.getItem("pm");
         let pratosArray = pratos.split("-");
@@ -66,10 +67,24 @@ function enviar(){
         });
     
     }
+   
+    if(sessionStorage.getItem('pf') != null){
+        let pratos = sessionStorage.getItem("pf");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                pedidoPratoFeito += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+    
+    }
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
     
-    let texto = "DADOS DO PEDIDO:"+pedidoMontado+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+"total:"+total;
+    let texto = "DADOS DO PEDIDO PRATO MONTADO:"+pedidoMontado+"PEDIDO PRATO FEITOS:"+pedidoPratoFeito+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+"total:"+total;
     let url = "https://api.whatsapp.com/send?phone=5521968180811&text="+texto;
     sessionStorage.clear();
     location.href = url;
