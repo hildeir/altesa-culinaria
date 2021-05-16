@@ -85,7 +85,7 @@ function pratosFeitos(id){
 		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
 		sessionStorage.setItem("totalPratosFeitos",1);
 
-	}else if(totalPratosFeitos < '7'){
+	}else if(totalPratosFeitos < '4'){
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pf"));
