@@ -6,8 +6,8 @@ const jsonMontarPratos = [
 ];
 
 const jsonPratoFeito = [
-	{id:0,nome:"arroz vermelho com raspa de limão",preco:30.0,peso:"200gr"},
-	{id:1,nome:"purê de baroa com ervas",preco:12.0,peso:"200gr"},
-	{id:2,nome:"purê de baroa com pintada de gengibre",preco:42.0,peso:"200gr"},
-	{id:3,nome:"purê de inhame com beterraba",preco:112.0,peso:"200gr"}
+	{id:0,nome:"arroz vermelho com raspa de limão",preco:30.0,peso:"200gr",img:"imagens/grao.jpg"},
+	{id:1,nome:"purê de baroa com ervas",preco:12.0,peso:"200gr",img:"imagens/pure.jpg"},
+	{id:2,nome:"purê de baroa com pintada de gengibre",preco:42.0,peso:"200gr",img:"imagens/amarelo.jpg"},
+	{id:3,nome:"purê de inhame com beterraba",preco:112.0,peso:"200gr",img:"imagens/vermelho.jpg"}
 ];

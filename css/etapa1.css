@@ -69,3 +69,9 @@ hr{
 .total{
     font-size: 25px;
 }
+.prt-montados-h3{
+    display: none;
+}
+.prt-feitos-h3{
+    display: none;
+}
