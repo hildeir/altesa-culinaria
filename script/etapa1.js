@@ -3,7 +3,7 @@ function inicia(){
 	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
-	/* unica fforma de cconcerta o bug que encontrei foi essa do h3*/
+	/* unica fforma de cconcerta o bug do h3 que encontrei foi essa*/
 	if(pp == null){
 		document.querySelector(".promocao-h3").style.display = "none";
 	}

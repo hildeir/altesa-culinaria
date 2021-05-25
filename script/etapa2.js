@@ -2,11 +2,12 @@ window.onload = inicia;
 function inicia(){
 	sessionStorage.removeItem("dadosCliente");
 	sessionStorage.removeItem("dadosEntrega");
+	let pp = sessionStorage.getItem("pp");
 	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
-	if(pm == null && pf == null){
+	if(pm == null && pf == null && pp == null){
 		location.href = "/sitetair";
-	}else if(pm == "" && pf == ""){
+	}else if(pm == "" && pf == "" && pp == ""){
 		location.href = "/sitetair";
 	}
 	document.querySelector(".voltar").addEventListener("click",()=>{
