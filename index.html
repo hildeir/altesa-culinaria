@@ -6,17 +6,12 @@
 	<script type="text/javascript" src="script/scriptindex.js"></script>
 	<script type="text/javascript" src="script/jsonpratos.js"></script>
 	<style type="text/css">
-		.cont-pratos-feitos{
+		.cont-pratos-feitos, .cont-pratos, .cont-pratos-promocao{
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-		.cont-pratos{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		.cont-pratos div, .cont-pratos-feitos div{
+		.cont-pratos div, .cont-pratos-feitos div, .cont-pratos-promocao div{
 			width: 300px;
 			height: 350px;
 			border: 2px solid #000000;
@@ -66,6 +61,25 @@
 						purê de inhame com beterraba
 						<input type="button" data-id="3" class="bt-prato-feito" value="+">
 					</div>
+				</div>
+			</div>
+
+			<div>
+				<h2 style="text-align: center;">Pratos Promocionais</h2>
+				<div class="cont-pratos-promocao">
+					<div>
+						promocao 1
+						<input type="button" data-id="0" class="bt-prato-promocao" value="+">
+					</div>
+					<div>
+						promocao 2
+						<input type="button" data-id="1" class="bt-prato-promocao" value="+">
+					</div>
+					<div>
+						promocao 3
+						<input type="button" data-id="2" class="bt-prato-promocao" value="+">
+					</div>
+				
 				</div>
 			</div>
 		</main>

@@ -1,4 +1,4 @@
-.cont-pratos-montados, .cont-outros-pratos{
+.cont-pratos-montados, .cont-pratos-feitos, .cont-pratos-promocao{
     display: flex;
 }
 .model-pratos-montados{

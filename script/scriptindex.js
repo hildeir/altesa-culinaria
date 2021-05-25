@@ -15,6 +15,14 @@ function inicia(){
 			pratosFeitos(id2);
 		});
 	});
+
+	let pratos3 = document.querySelectorAll(".bt-prato-promocao");
+	pratos3.forEach((ele3)=>{
+		let id3 = ele3.getAttribute("data-id");
+		ele3.addEventListener('click',()=>{
+			pratosPromocao(id3);
+		});
+	});
 }
 
 function montaprato(id){
@@ -138,4 +146,64 @@ function pratosFeitos(id){
 		alert("voce excedeu a quantidade de pedidos");
 	}
 
+}
+function pratosPromocao(id){
+	let pratos = sessionStorage.getItem("pp");
+	let totalPratosFeitos = sessionStorage.getItem("totalPratosPromocao");
+	if(totalPratosFeitos == null){
+		sessionStorage.setItem("pp",JSON.stringify({id:id,quantidade:1}));
+		sessionStorage.setItem("totalPratosPromocao",1);
+
+	}else if(totalPratosFeitos < '4'){
+		let result = pratos.indexOf("-");
+		if(result == -1){
+			let x = JSON.parse(sessionStorage.getItem("pp"));
+			if(x.id == id){
+				//se enconttra oo mesmo prato, acrescenta a quantidadde
+				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=1});
+				sessionStorage.setItem("pp",updatePrato);
+				
+				let totalPFint = parseInt(totalPratosFeitos,10);
+				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+			}else{
+				let pratoAnterior = sessionStorage.getItem('pp');
+				let novoPrato = JSON.stringify({id:id,quantidade:1});
+				sessionStorage.setItem('pp',pratoAnterior+"-"+novoPrato);
+
+				let totalPFint = parseInt(totalPratosFeitos,10);
+				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+			}
+		
+		}else{
+			//se existe ssessao ocom mais de 1 json desmembra e seta a session com vallor aatualizado
+			//let pratoUpdate = [];
+			let outroPrato = [];
+			let pratos2 = pratos.split("-");
+			let idExistente;
+			pratos2.map((ele)=>{
+				let obj = JSON.parse(ele);
+				if(obj.id == id){
+					let updateQuant = obj.quantidade += 1;
+					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
+					idExistente = obj.id;
+
+				}else{
+					outroPrato.push(JSON.stringify(obj));
+					
+				}
+
+			});
+			if(id != idExistente){
+				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+			}
+			
+			let x = outroPrato.join("-");
+			sessionStorage.setItem("pp",x);
+			let totalPFint = parseInt(totalPratosFeitos,10);
+			sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+			
+		}	
+	}else{
+		alert("voce excedeu a quantidade de pedidos");
+	}
 }
