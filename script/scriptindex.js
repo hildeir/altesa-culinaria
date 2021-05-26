@@ -213,7 +213,16 @@ function pratosPromocao(id){
 		alert("voce excedeu a quantidade de pedidos");
 	}
 }
-let pratos = 1;
 function contaPratos(){	
-	document.querySelector(".quant-carr").innerHTML = pratos ++;
+	let quant = sessionStorage.getItem("quantidade");
+	if(quant == null){
+		sessionStorage.setItem("quantidade",1);
+		document.querySelector(".quant-carr").innerHTML = 1;
+	}else{
+		let x = parseInt(quant);
+		let y = x+=1;
+		sessionStorage.setItem("quantidade",y);
+		document.querySelector(".quant-carr").innerHTML = y;
+	}
+	
 }
