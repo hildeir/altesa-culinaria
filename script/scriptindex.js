@@ -24,6 +24,9 @@ function inicia(){
 			
 		});
 	});
+	if(sessionStorage.getItem("quantidade") != null){
+		document.querySelector(".quant-carr").innerHTML = sessionStorage.getItem("quantidade");
+	}
 }
 
 function montaprato(id){
