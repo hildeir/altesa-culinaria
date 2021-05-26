@@ -38,9 +38,10 @@
 .item img{
     width: 25px;
 }
-.dados-cliente{
-    margin-right: 60px;
-}
 .total{
     font-size: 25px;
+}
+.dados-cliente, .dados-entrega, .dados-pedido-pm, .dados-pedido-pf, .dados-pedido-pp{
+    border: aqua  2px solid;
+    margin-right: 15px;
 }
