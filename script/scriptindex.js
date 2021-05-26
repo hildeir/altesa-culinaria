@@ -35,8 +35,10 @@ function montaprato(id){
 		let prato = JSON.stringify({id:id,quantidade:1});
 		sessionStorage.setItem("pm",prato);
 		sessionStorage.setItem("totalmontar",1);
+		contaPratos();
 	
 	}else if(total < '3'){
+		contaPratos();
 		let prato = sessionStorage.getItem("pm");
 		let r = prato.indexOf("-");
 
@@ -96,8 +98,10 @@ function pratosFeitos(id){
 	if(totalPratosFeitos == null){
 		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
 		sessionStorage.setItem("totalPratosFeitos",1);
+		contaPratos();
 
 	}else if(totalPratosFeitos < '4'){
+		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pf"));

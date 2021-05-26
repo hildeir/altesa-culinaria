@@ -146,16 +146,18 @@ function removerPrato(e){
 		sessionStorage.setItem("pm",update);
 		let totalmontar = parseInt(sessionStorage.getItem("totalmontar"));
 
-
+		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
 		if(sessionStorage.getItem("pm") == ""){
 			sessionStorage.removeItem("pm");
 			sessionStorage.removeItem("totalmontar");
 			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
 			document.querySelector(".prt-montados-h3").style.display = "none";
+			sessionStorage.setItem("quantidade",quant -= objQuantPrato);
 
 		}else{
-			sessionStorage.setItem("totalmontar",totalmontar -= 1);
+			sessionStorage.setItem("totalmontar",totalmontar -= objQuantPrato);
 			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
+			sessionStorage.setItem("quantidade",quant -= objQuantPrato);
 		}
 
 	}
@@ -178,16 +180,19 @@ function removerPrato(e){
 		let updateFeitos = pratosArrayFeitos.join("-");
 		sessionStorage.setItem("pf",updateFeitos);
 		let totalPratosFeitos = parseInt(sessionStorage.getItem("totalPratosFeitos"));
-			
+		
+		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
 		if(sessionStorage.getItem("pf") == ""){
 			sessionStorage.removeItem("pf");
 			sessionStorage.removeItem("totalPratosFeitos");
 			calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			document.querySelector(".prt-feitos-h3").style.display = "none";
+			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
 
 		}else{
-			sessionStorage.setItem("totalPratosFeitos",totalPratosFeitos -= 1);
+			sessionStorage.setItem("totalPratosFeitos",totalPratosFeitos -= objQuantPratoFeitos);
 			calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
+			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
 		}
 		
 	}
@@ -211,15 +216,18 @@ function removerPrato(e){
 		let updateFeitos = pratosArrayFeitos.join("-");
 		sessionStorage.setItem("pp",updateFeitos);
 		let totalPratosPromocao = parseInt(sessionStorage.getItem("totalPratosPromocao"));
-			
+		
+		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
 		if(sessionStorage.getItem("pp") == ""){
 			sessionStorage.removeItem("pp");
 			sessionStorage.removeItem("totalPratosPromocao");
 			calculaTotalQuandoRemove(jsonPratoPromocao,idPrato,objQuantPratoFeitos);
 			document.querySelector(".promocao-h3").style.display = "none";
+			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
 		}else{
-			sessionStorage.setItem("totalPratosPromocao",totalPratosPromocao -= 1);
+			sessionStorage.setItem("totalPratosPromocao",totalPratosPromocao -= objQuantPratoFeitos);
 			calculaTotalQuandoRemove(jsonPratoPromocao,idPrato,objQuantPratoFeitos);
+			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
 		}
 		
 	}
