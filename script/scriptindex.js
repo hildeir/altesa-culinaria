@@ -21,6 +21,7 @@ function inicia(){
 		let id3 = ele3.getAttribute("data-id");
 		ele3.addEventListener('click',()=>{
 			pratosPromocao(id3);
+			
 		});
 	});
 }
@@ -153,8 +154,10 @@ function pratosPromocao(id){
 	if(totalPratosFeitos == null){
 		sessionStorage.setItem("pp",JSON.stringify({id:id,quantidade:1}));
 		sessionStorage.setItem("totalPratosPromocao",1);
+		contaPratos();
 
 	}else if(totalPratosFeitos < '4'){
+		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pp"));
@@ -165,6 +168,7 @@ function pratosPromocao(id){
 				
 				let totalPFint = parseInt(totalPratosFeitos,10);
 				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+				
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pp');
 				let novoPrato = JSON.stringify({id:id,quantidade:1});
@@ -172,6 +176,7 @@ function pratosPromocao(id){
 
 				let totalPFint = parseInt(totalPratosFeitos,10);
 				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+				
 			}
 		
 		}else{
@@ -186,6 +191,7 @@ function pratosPromocao(id){
 					let updateQuant = obj.quantidade += 1;
 					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
 					idExistente = obj.id;
+					
 
 				}else{
 					outroPrato.push(JSON.stringify(obj));
@@ -195,15 +201,19 @@ function pratosPromocao(id){
 			});
 			if(id != idExistente){
 				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+				
 			}
 			
 			let x = outroPrato.join("-");
 			sessionStorage.setItem("pp",x);
 			let totalPFint = parseInt(totalPratosFeitos,10);
 			sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
-			
 		}	
 	}else{
 		alert("voce excedeu a quantidade de pedidos");
 	}
+}
+let pratos = 1;
+function contaPratos(){	
+	document.querySelector(".quant-carr").innerHTML = pratos ++;
 }
