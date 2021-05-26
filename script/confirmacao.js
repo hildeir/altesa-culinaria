@@ -84,7 +84,16 @@ function exibir(){
                             "<b>Quantidade:</b>"+ppjson.quantidade+"<br><br>";
         });
     }
-
+    /* quando nao haver pratos oculta a div aonde mostra os pratos */ 
+    if(pp == null){
+        document.querySelector(".dados-pedido-pp").style.display = "none";
+    }
+    if(pf == null){
+        document.querySelector(".dados-pedido-pf").style.display = "none";
+    }
+    if(pm == null){
+        document.querySelector(".dados-pedido-pm").style.display = "none";
+    }
 }
 function enviar(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
@@ -136,6 +145,7 @@ function enviar(){
     
     }
     /* fim */
+    
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
     
