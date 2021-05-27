@@ -5,84 +5,219 @@
 	<meta charset="utf-8">
 	<script type="text/javascript" src="script/scriptindex.js"></script>
 	<script type="text/javascript" src="script/jsonpratos.js"></script>
-	<style type="text/css">
-		.cont-pratos-feitos, .cont-pratos, .cont-pratos-promocao{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		.cont-pratos div, .cont-pratos-feitos div, .cont-pratos-promocao div{
-			width: 300px;
-			height: 350px;
-			border: 2px solid #000000;
-		}
-	</style>
+	<link rel="stylesheet" href="css/layaout.css">
 </head>
 	<body>
-		<main>
-			<div style="background-color: #ccc;">
-				<div class="quant-carr"></div><h3 style="text-align: center;"><a href="etapa1.html">Carrinho de compras</a></h3>
+		<header>
+			<div class="cont-nav-e-carr">
+				<nav>
+					<ul>
+						<li>Monte seu prato</li>
+						<li>|</li>
+						<li>Promoção</li>
+						<li>|</li>
+						<li>Marmita feita</li>
+					</ul>
+				</nav>
+				<div class="cont-carr">
+					<div class="quant-carr"></div>
+					<div class="carr-img">
+						<a href="etapa1.html"><img src="imagens/carrinho.png"></a> 
+					</div>
+				</div>
 			</div>
+			<div class="cont-msg-foto">
+				<div>
+					<div class="bemvindo">Bem vindo ao meu web site</div>
+					<div>
+						<span class="viver-a-culinaria">viver a culinária</span> <br>
+						<span class="adoro">adoro fazer pratos com um toque brasileiro</span>
+					</div>
+					<div>
+						<div class="peca-o-seu">
+							<div>
+								peça o seu cardápio e faça o seu pedido<br>
+								(21)9999-888
+							</div>
+
+							<div>
+								<img src="imagens/whatsapp_sem_fundo.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			
 			<div>
-				<h2 style="text-align: center;">Monte sua marmita</h2>
-				<div class="cont-pratos">
-					<div>arroz
-						<input type="button" data-id="0" class="bt-monte-prato" value="+">
+				<h2 class="font-h2" style="text-align: center;">Monte sua marmita</h2>
+				<div style="text-align: center;">escolha 3 itens para cada marmita</div>
+			</div>
+			
+			<div class="cont-pratos">
+				<div>
+					<div class="item">
+						arroz
+						<div class="bt-mais">
+							<input type="button" data-id="0" class="bt-monte-prato" value="+">
+						</div>
 					</div>
-					<div>feijao
-						<input type="button" data-id="1" class="bt-monte-prato" value="+">
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+				<div>
+					<div class="item">
+						feijao
+						<div class="bt-mais">
+							<input type="button" data-id="1" class="bt-monte-prato" value="+">
+						</div>
 					</div>
-					<div>frango
-						<input type="button" data-id="2" class="bt-monte-prato" value="+">
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+				<div>
+					<div class="item">
+						frango
+						<div class="bt-mais">
+							<input type="button" data-id="2" class="bt-monte-prato" value="+">
+						</div>
+						
 					</div>
-					<div>carne vermelha
-						<input type="button" data-id="3" class="bt-monte-prato" value="+">
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+				<div>
+					<div class="item">
+						carne vermelha
+						<div class="bt-mais">
+							<input type="button" data-id="3" class="bt-monte-prato" value="+">
+						</div>
+					</div>
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+			</div>
+
+		
+			
+			<div class="fundo-prato-feito">
+				<h2 class="font-h2" style="text-align: center;">Pratos feitos</h2>
+				<div class="cont-pratos-feitos">
+					<div>
+						<div class="item">
+							arroz vermelho com raspa de limão
+							<div class="bt-mais">
+								<input type="button" data-id="0" class="bt-prato-feito" value="+">
+							</div>
+						</div>
+						<div class="preco-item">R$:500,00</div>
+					</div>
+					
+					<div>
+						<div class="item">
+							purê de baroa com ervas
+							<div class="bt-mais">
+								<input type="button" data-id="1" class="bt-prato-feito" value="+">
+							</div>
+						</div>
+						<div class="preco-item">R$:500,00</div>
+					</div>
+				
+					<div>
+						<div class="item">
+							purê de baroa com pintada de gengibre
+							<div class="bt-mais">
+								<input type="button" data-id="2" class="bt-prato-feito" value="+">
+							</div>
+							
+						</div>
+						<div class="preco-item">R$:500,00</div>
+					</div>
+				
+					<div>
+						<div class="item">
+							purê de inhame com beterraba
+							<div class="bt-mais">
+								<input type="button" data-id="3" class="bt-prato-feito" value="+">
+							</div>
+						</div>
+						<div class="preco-item">R$:500,00</div>
+					</div>
+				</div>
+			</div>
+
+		
+			<h2 class="font-h2" style="text-align: center;">Pratos Promocionais</h2>
+			<div class="cont-pratos-promocao">
+				<div>
+					<div class="item">
+						promocao 1
+						<div class="bt-mais">
+							<input type="button" data-id="0" class="bt-prato-promocao" value="+">
+						</div>
+					</div>
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+				<div>
+					<div class="item">
+						promocao 2
+						<div class="bt-mais">
+							<input type="button" data-id="1" class="bt-prato-promocao" value="+">
+						</div>
+					</div>
+					<div class="preco-item">R$:500,00</div>
+				</div>
+				
+				<div>
+					<div class="item">
+						promocao 3
+						<div class="bt-mais">
+							<input type="button" data-id="2" class="bt-prato-promocao" value="+">
+						</div>
+					</div>
+					<div class="preco-item">R$:500,00</div>
+				</div>
+			</div>
+			
+		</main>
+		<footer>
+			<div class="cont-contato">
+				<div class="contato">
+					<h3>Contato</h3>
+					<div class="cont-img-text">
+						<div>
+							<img src="imagens/whatsapp_sem_fundo.png">
+						</div>
+						<div class="text-contato">(21)9999-888</div>
+					</div>
+					<div class="cont-img-text cont-contato-margem">
+						<div>
+							<img class="img-email" src="imagens/email_sem_fundo.png">
+						</div>
+						<div class="text-contato-email">altair@empresa.com.br</div>
+					</div>
+				</div>
+	
+				<div class="traco">
+				</div>
+	
+				<div class="rede-social">
+					<div>
+						<h3>Rede Social</h3>
+					</div>
+					<div>
+						<img src="imagens/instagram_sem_fundo.png">
 					</div>
 				</div>
 
 			</div>
 			
-			<div>
-				<h2 style="text-align: center;">Pratos feitos</h2>
-				<div class="cont-pratos-feitos">
-					<div>
-						arroz vermelho com raspa de limão
-						<input type="button" data-id="0" class="bt-prato-feito" value="+">
-					</div>
-					<div>
-						purê de baroa com ervas
-						<input type="button" data-id="1" class="bt-prato-feito" value="+">
-					</div>
-					<div>
-						purê de baroa com pintada de gengibre
-						<input type="button" data-id="2" class="bt-prato-feito" value="+">
-					</div>
-					<div>
-						purê de inhame com beterraba
-						<input type="button" data-id="3" class="bt-prato-feito" value="+">
-					</div>
-				</div>
+			<div class="rodape">
+				todos os direitos reservados<br>
+				developed by hildeirdaniel@gmail.com
 			</div>
-
-			<div>
-				<h2 style="text-align: center;">Pratos Promocionais</h2>
-				<div class="cont-pratos-promocao">
-					<div>
-						promocao 1
-						<input type="button" data-id="0" class="bt-prato-promocao" value="+">
-					</div>
-					<div>
-						promocao 2
-						<input type="button" data-id="1" class="bt-prato-promocao" value="+">
-					</div>
-					<div>
-						promocao 3
-						<input type="button" data-id="2" class="bt-prato-promocao" value="+">
-					</div>
-				
-				</div>
-			</div>
-		</main>
-		
+		</footer>
 	</body>
 </html>

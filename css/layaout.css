@@ -1,0 +1,155 @@
+html{
+    font-size: 20px;
+}
+body{
+    margin: 0;
+    background-color: #efd8bbff;
+}
+.cont-pratos-feitos, .cont-pratos, .cont-pratos-promocao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fundo-prato-feito{
+    background-image: linear-gradient(120deg,#e8c291ff,#e8ae91ff);
+}
+.cont-pratos .item, .cont-pratos-feitos .item, .cont-pratos-promocao .item{
+    width: 300px;
+    height: 350px;
+    border: 2px solid #000000;
+}
+.carr-img img{
+    width: 40px;
+}
+.cont-carr{
+    display: flex;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    display: inline;
+}
+.cont-nav-e-carr{
+    display: flex;
+    background-color: #ffffff;
+    justify-content: flex-end;
+}
+.cont-msg-foto{
+    background-image: url("../imagens/topo.png"); 
+}
+.peca-o-seu{
+    background-color: #1a7f1cff;
+    width: 300px;
+    display: flex;
+}
+.peca-o-seu img{
+    width: 50px;
+}
+.item{
+    position: relative;
+}
+.bt-mais{
+    position: absolute;
+    bottom: -15px;
+    left: 42%;
+}
+.bt-mais input{
+    background-color: #633194ff;
+    border: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 50%;
+    color: azure;
+    font-size: 20px;
+}
+.preco-item{
+    text-align: center;
+    margin-top: 18px;
+    color: #ff0000ff;
+}
+.cont-img-text{
+    display: flex;
+}
+.cont-img-text img{
+    width: 30px;
+}
+.cont-img-text .img-email{
+    width: 25px;
+}
+.text-contato{
+    margin-top: 4px;
+    margin-left: 5px;
+}
+.text-contato-email{
+    margin-top: 1px;
+    margin-left: 5px;
+}
+footer{
+    background-image: linear-gradient(#f69657ff,#9468c0ff);
+    font-family: "caviar";
+}
+.traco{
+    border: solid 1px #b3b3b3ff;
+    height: 80px;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.rede-social img{
+    width: 25px;
+}
+.cont-contato-margem{
+    margin-top: 17px;
+}
+.rede-social{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.cont-contato{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    padding-top: 25px;
+    margin-top: 75px;
+}
+.rodape{
+    text-align: center;
+}
+
+.bemvindo{
+    font-family: "hunter";
+    font-style: normal;
+    font-size: 2rem;
+}
+.viver-a-culinaria{
+    font-family: "impact";
+}
+.adoro{
+    font-family: "Caladea";
+}
+main{
+    font-family: "caviar";
+}
+.font-h2{
+    font-family: "caviar bold";
+}
+@font-face{
+    font-family: "hunter";
+    src: url('../fonts/hunters/Hunters.otf') format("opentype");
+    font-style: normal;
+
+    font-family: "caviar";
+    src: url("../fonts/caviar dreams/CaviarDreams.ttf") format("truetype");
+    font-weight: normal;
+
+    
+}
+@font-face{
+    font-family: "caviar bold";
+    src: url("../fonts/caviar dreams/CaviarDreams_Bold.ttf") format('truetype');
+}
