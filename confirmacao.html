@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html lang="pt-br">
 <head>
     <title></title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="script/jsonpratos.js"></script>
     <script type="text/javascript" src="script/confirmacao.js"></script>
     <link rel="stylesheet" type="text/css" href="css/confirmacao.css">
@@ -10,10 +11,6 @@
 <body>
     <main>
         <div class="cont">
-            <div>
-                <h3>Home</h3>
-            </div>
-            
             <div class="etapas">
                 <div class="item item1">
                     <img src="imagens/ok.png">
@@ -22,27 +19,38 @@
                     <img src="imagens/ok.png">
                 </div>
             </div>
-            <div class="total">total</div>
-            <h3>Confirmação dos dados</h3>
-            <div class="cont-dados">
-                <div class="dados-cliente">
 
-                </div>
-                <div class="dados-entrega">
-
-                </div>
-                <div class="dados-pedido-pm">
-
-                </div>
-                <div class="dados-pedido-pf">
-
-                </div>
-                <div class="dados-pedido-pp">
-
-                </div>
+            <div class="cont-total">
+                Valor total:
+                <span class="total"></span>
             </div>
-            <button class="voltar">voltar</button>
-            <button class="enviar">enviar via WhatsApp</button>
+            <div class="cont-h3-e-dados">
+                <h3>Confirmação dos dados</h3>
+                <div class="cont-dados">
+                    <div class="dados-cliente">
+    
+                    </div>
+                    <div class="dados-entrega">
+    
+                    </div>
+                    <div class="dados-pedido-pm">
+    
+                    </div>
+                    <div class="dados-pedido-pf">
+    
+                    </div>
+                    <div class="dados-pedido-pp">
+    
+                    </div>
+                </div> 
+            </div>
+           
+            <div class="cont-bts">
+                <div>
+                    <button class="voltar">voltar</button>
+                    <button class="enviar">Enviar via Whatsapp</button>
+                </div>	
+            </div>
         </div>
        
     </main>
