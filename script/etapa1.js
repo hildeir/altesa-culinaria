@@ -232,6 +232,9 @@ function removerPrato(e){
 		
 	}
 	/* fim */
+	if(sessionStorage.getItem('valorTotal') == "0"){
+		location.href = "/sitetair/";
+	}
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	//subtrai o valor do prato excluido no total 
@@ -243,6 +246,6 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	let totalPratoFeito = valorTotal - subtrair;
 	
 	/* fim */
-	document.querySelector(".total").innerHTML = `Valor total R$:${totalPratoFeito.toFixed(2)}`;
+	document.querySelector(".total").innerHTML = `R$ ${totalPratoFeito.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",totalPratoFeito);
 }
