@@ -303,6 +303,9 @@ main{
         padding-left: 5%;
         padding-right: 5%;
     }
+    .imagem-whatsapp{
+        margin-top: 10%;
+    }
 }
 @media (min-width:768px) and (max-width:1024px){
     .cont-item{

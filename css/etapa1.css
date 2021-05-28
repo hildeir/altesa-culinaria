@@ -25,6 +25,9 @@
 .remover{
     cursor: pointer;
 }
+.cont-remover-quant{
+    margin-left: 30px;
+}
 .etapas{
     display: flex;
     justify-content: space-between;
