@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale= 1.0">
 	<script type="text/javascript" src="script/scriptindex.js"></script>
 	<script type="text/javascript" src="script/jsonpratos.js"></script>
 	<link rel="stylesheet" href="css/layaout.css">
@@ -12,15 +13,15 @@
 			<div class="cont-nav-e-carr">
 				<nav>
 					<ul>
-						<li>Monte seu prato</li>
+						<li><a href="#monte">Monte seu prato</a></li>
 						<li>|</li>
-						<li>Promoção</li>
+						<li><a href="#promocao">Pratos promocionais</a></li>
 						<li>|</li>
-						<li>Marmita feita</li>
+						<li><a href="#feitos">Pratos feitos</a></li>
 					</ul>
 				</nav>
 				<div class="cont-carr">
-					<div class="quant-carr"></div>
+					<div class="quant-carr">0</div>
 					<div class="carr-img">
 						<a href="etapa1.html"><img src="imagens/carrinho.png"></a> 
 					</div>
@@ -33,14 +34,14 @@
 						<span class="viver-a-culinaria">viver a culinária</span> <br>
 						<span class="adoro">adoro fazer pratos com um toque brasileiro</span>
 					</div>
-					<div>
+					<div class="cont-peca-o-seu">
 						<div class="peca-o-seu">
 							<div>
-								peça o seu cardápio e faça o seu pedido<br>
+								escolhe o seu cardápio e faça o seu pedido<br>
 								(21)9999-888
 							</div>
 
-							<div>
+							<div class="imagem-whatsapp">
 								<img src="imagens/whatsapp_sem_fundo.png">
 							</div>
 						</div>
@@ -49,34 +50,39 @@
 			</div>
 		</header>
 		<main>
-			
-			<div>
-				<h2 class="font-h2" style="text-align: center;">Monte sua marmita</h2>
+			<div style="margin-bottom: 20px;" id="monte">
+				<h2 class="font-h2" style="text-align: center; margin-bottom: 0;">Monte seu prato</h2>
 				<div style="text-align: center;">escolha 3 itens para cada marmita</div>
 			</div>
 			
-			<div class="cont-pratos">
-				<div>
+			<div class="cont-pratos" >
+				<div class="cont-item">
 					<div class="item">
 						arroz
 						<div class="bt-mais">
 							<input type="button" data-id="0" class="bt-monte-prato" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						
+						<span class="preco">$:500,00</span>
+					</div>
 				</div>
 				
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						feijao
 						<div class="bt-mais">
 							<input type="button" data-id="1" class="bt-monte-prato" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						
+						<span class="preco">$:500,00</span>
+					</div>
 				</div>
 				
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						frango
 						<div class="bt-mais">
@@ -84,17 +90,23 @@
 						</div>
 						
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+					
+						<span class="preco">$:500,00</span>
+					</div>
 				</div>
 				
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						carne vermelha
 						<div class="bt-mais">
 							<input type="button" data-id="3" class="bt-monte-prato" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						
+						<span class="preco">$:500,00</span>
+					</div>
 				</div>
 				
 			</div>
@@ -102,82 +114,96 @@
 		
 			
 			<div class="fundo-prato-feito">
-				<h2 class="font-h2" style="text-align: center;">Pratos feitos</h2>
+				<h2 class="font-h2" style="text-align: center;" id="feitos">Pratos feitos</h2>
 				<div class="cont-pratos-feitos">
-					<div>
-						<div class="item">
-							arroz vermelho com raspa de limão
+					<div class="cont-item">
+						<div class="item pf-1">
+							<div class="nome-prato-cor">arroz vermelho com raspa de limão</div>
 							<div class="bt-mais">
 								<input type="button" data-id="0" class="bt-prato-feito" value="+">
 							</div>
 						</div>
-						<div class="preco-item">R$:500,00</div>
+						<div class="legenda-item">
+							<span class="preco">R$:500,00</span>
+						</div>
 					</div>
 					
-					<div>
-						<div class="item">
-							purê de baroa com ervas
+					<div class="cont-item">
+						<div class="item pf-2">
+							<div class="nome-prato-cor">purê de baroa com ervas</div>
 							<div class="bt-mais">
 								<input type="button" data-id="1" class="bt-prato-feito" value="+">
 							</div>
 						</div>
-						<div class="preco-item">R$:500,00</div>
+						<div class="legenda-item">
+							<span class="preco">R$:500,00</span>
+						</div>
 					</div>
 				
-					<div>
-						<div class="item">
-							purê de baroa com pintada de gengibre
+					<div class="cont-item">
+						<div class="item pf-3">
+							<div class="nome-prato-cor">purê de baroa com pintada de gengibre</div>
 							<div class="bt-mais">
 								<input type="button" data-id="2" class="bt-prato-feito" value="+">
 							</div>
 							
 						</div>
-						<div class="preco-item">R$:500,00</div>
+						<div class="legenda-item">
+							<span class="preco">R$:500,00</span>
+						</div>
 					</div>
 				
-					<div>
-						<div class="item">
-							purê de inhame com beterraba
+					<div class="cont-item">
+						<div class="item pf-3">
+							<div class="nome-prato-cor">purê de inhame com beterraba</div>
 							<div class="bt-mais">
 								<input type="button" data-id="3" class="bt-prato-feito" value="+">
 							</div>
 						</div>
-						<div class="preco-item">R$:500,00</div>
+						<div class="legenda-item">
+							<span class="preco">R$:500,00</span>
+						</div>
 					</div>
 				</div>
 			</div>
 
 		
-			<h2 class="font-h2" style="text-align: center;">Pratos Promocionais</h2>
+			<h2 class="font-h2" style="text-align: center;" id="promocao">Pratos Promocionais</h2>
 			<div class="cont-pratos-promocao">
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						promocao 1
 						<div class="bt-mais">
 							<input type="button" data-id="0" class="bt-prato-promocao" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						<span class="preco">R$:500,00</span>
+					</div>
 				</div>
 				
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						promocao 2
 						<div class="bt-mais">
 							<input type="button" data-id="1" class="bt-prato-promocao" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						<span class="preco">R$:500,00</span>
+					</div>
 				</div>
 				
-				<div>
+				<div class="cont-item">
 					<div class="item">
 						promocao 3
 						<div class="bt-mais">
 							<input type="button" data-id="2" class="bt-prato-promocao" value="+">
 						</div>
 					</div>
-					<div class="preco-item">R$:500,00</div>
+					<div class="legenda-item">
+						<span class="preco">R$:500,00</span>
+					</div>
 				</div>
 			</div>
 			
