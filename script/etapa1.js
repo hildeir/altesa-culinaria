@@ -115,7 +115,7 @@ function montar(){
 	
 	
 	let total = totalMontados + totalFeitos + totalPromocao;
-	document.querySelector(".total").innerHTML = `Valor total R$:${total.toFixed(2)}`;
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",total);
 
 }
