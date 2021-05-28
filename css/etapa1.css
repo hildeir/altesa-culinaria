@@ -10,6 +10,8 @@ html{
     margin-right: 20px;
     height: 100px;
     border-radius: 10px;
+    padding-right: 4px;
+    display: none;
 }
 .inf-pratos-montados ul{
     list-style: none;
@@ -22,9 +24,6 @@ html{
 }
 .inf-pratos-montados ul{
     padding-left: 5px;
-}
-.model-pratos-montados{
-    display: none;
 }
 .conteiner{
     margin-left: 120px;
@@ -101,4 +100,26 @@ html{
 }
 .avancar:hover{
     box-shadow: 0px 0px 5px #000000;
+}
+@media (max-width: 425px){
+    .conteiner{
+        margin-left: 14px;
+        margin-right: 0px;
+    }
+    .model-pratos-montados{
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .img-prato-montados img{
+        border-bottom-left-radius: 0px;
+    }
+}
+@media (min-width:768px) and (max-width:1024px){
+    .model-pratos-montados{
+        margin-bottom: 10px;
+    }
+    .conteiner{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
 }
