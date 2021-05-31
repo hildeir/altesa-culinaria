@@ -99,6 +99,7 @@ function pratosFeitos(id){
 		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
 		sessionStorage.setItem("totalPratosFeitos",1);
 		contaPratos();
+		
 
 	}else if(totalPratosFeitos < '4'){
 		contaPratos();
@@ -112,6 +113,7 @@ function pratosFeitos(id){
 				
 				let totalPFint = parseInt(totalPratosFeitos,10);
 				sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
+
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pf');
 				let novoPrato = JSON.stringify({id:id,quantidade:1});
@@ -149,11 +151,12 @@ function pratosFeitos(id){
 			let totalPFint = parseInt(totalPratosFeitos,10);
 			sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
 			
+			
 		}	
 	}else{
 		alert("voce excedeu a quantidade de pedidos");
 	}
-
+	
 }
 function pratosPromocao(id){
 	let pratos = sessionStorage.getItem("pp");
