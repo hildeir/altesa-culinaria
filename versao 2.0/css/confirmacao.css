@@ -1,0 +1,120 @@
+html{
+    font-family: "caladea";
+}
+.etapas .item{
+    width:40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.etapas .item1{
+    background-color: #633194ff;
+}
+.etapas .item2{
+    background-color: #633194ff;
+}
+.etapas{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.etapas::after{
+    content: " ";
+    background-color: #633194ff;
+    position: absolute;
+    width: 99%;
+    height: 5px;
+    top: 50%;
+    z-index: -1;
+    margin-left: 3px;
+}
+.cont{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.cont-dados{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+    margin-top: 30px;
+}
+.cont-h3-e-dados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.item img{
+    width: 25px;
+}
+.cont-total{
+    margin-top: 30px;
+    font-size: 25px;
+    margin-left: 26%;
+}
+.total{
+    color: #ff0000;
+}
+.dados-cliente, .dados-entrega, .dados-pedido-pm, .dados-pedido-pf, .dados-pedido-pp{
+    border: #1a7f1cff 2px solid;
+    margin-right: 15px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.cont-bts{
+    display: flex;
+    justify-content: center;
+}
+.cont-bts button{
+    border: none;
+    background-color: #1a7f1cff;
+    padding: 15px;
+    cursor: pointer;
+    color: #ffffff;
+}
+.voltar:hover{
+    box-shadow: 0px 0px 5px #000000;
+}
+.avancar:hover{
+    box-shadow: 0px 0px 5px #000000;
+}
+@media (max-width: 425px){
+    .cont-dados{
+        flex-direction: column;
+    }
+    .cont{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .cont-total{
+        margin-left: 5%;
+    }
+    .dados-cliente, .dados-entrega, .dados-pedido-pm, .dados-pedido-pf, .dados-pedido-pp{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px){
+    .cont-total{
+        margin-left: 0px;
+    }
+    .dados-cliente, .dados-entrega, .dados-pedido-pm, .dados-pedido-pf, .dados-pedido-pp{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 1024px){
+    .cont-total{
+        margin-left: 2%;
+    }
+}
+@media (min-width: 2560px){
+    .cont-total{
+        margin-left: 26%;
+    }
+    .cont{
+        margin-left: 350px;
+        margin-right: 350px;
+    }
+}

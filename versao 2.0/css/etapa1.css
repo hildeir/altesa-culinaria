@@ -1,0 +1,125 @@
+html{
+    font-family: "caladea";
+}
+.cont-pratos-montados, .cont-pratos-feitos, .cont-pratos-promocao{
+    display: flex;
+    flex-wrap: wrap;
+}
+.model-pratos-montados{
+    border: #1a7f1cff solid 2px;
+    margin-right: 20px;
+    height: 100px;
+    border-radius: 10px;
+    padding-right: 4px;
+    display: none;
+}
+.inf-pratos-montados ul{
+    list-style: none;
+}
+.img-prato-montados img{
+    width: 100px;
+    height: 100px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.inf-pratos-montados ul{
+    padding-left: 5px;
+}
+.conteiner{
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+.remover{
+    cursor: pointer;
+}
+.cont-remover-quant{
+    margin-left: 30px;
+}
+.etapas{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.etapa-1{
+    margin-bottom: 50px;
+}
+.etapas .item{
+    width:40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.etapas .item1{
+    background-color: #633194ff;
+}
+.etapas .item2{
+    background-color: #ccc;
+}
+.etapas::after{
+    content: " ";
+    background-color: #ccc;
+    position: absolute;
+    width: 99%;
+    height: 5px;
+    top: 50%;
+    z-index: -1;
+    margin-left: 3px;
+}
+.etapa-2{
+    display: none;
+}
+.cont-total{
+    font-size: 25px;
+    margin-top: 30px;
+}
+.total{
+    color: #ff0000;
+}
+.prt-montados-h3{
+    display: none;
+}
+.prt-feitos-h3{
+    display: none;
+}
+.cont-bts{
+    display: flex;
+    justify-content: center;
+}
+.cont-bts button{
+    border: none;
+    background-color: #1a7f1cff;
+    padding: 15px;
+    cursor: pointer;
+    color: #ffffff;
+}
+.voltar:hover{
+    box-shadow: 0px 0px 5px #000000;
+}
+.avancar:hover{
+    box-shadow: 0px 0px 5px #000000;
+}
+@media (max-width: 425px){
+    .conteiner{
+        margin-left: 14px;
+        margin-right: 0px;
+    }
+    .model-pratos-montados{
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .img-prato-montados img{
+        border-bottom-left-radius: 0px;
+    }
+}
+@media (min-width:768px) and (max-width:1024px){
+    .model-pratos-montados{
+        margin-bottom: 10px;
+    }
+    .conteiner{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+}
