@@ -27,6 +27,15 @@ function inicia(){
 	if(sessionStorage.getItem("quantidade") != null){
 		document.querySelector(".quant-carr").innerHTML = sessionStorage.getItem("quantidade");
 	}
+	if(sessionStorage.getItem("pf") != null){
+		montarQuant(sessionStorage.getItem("pf"),"pf");
+	}
+	if(sessionStorage.getItem("pp") != null){
+		montarQuant(sessionStorage.getItem("pp"),"pp");
+	}
+	if(sessionStorage.getItem("pm") != null){
+		montarQuant(sessionStorage.getItem("pm"),"pm");
+	}
 }
 
 function montaprato(id){
@@ -91,6 +100,9 @@ function montaprato(id){
 	}else{
 		alert("so pode montar a marmita com 3 itens");
 	}
+	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
+	montarQuant(sessionStorage.getItem("pm"),"pm");
+	/* fim */
 }
 function pratosFeitos(id){
 	let pratos = sessionStorage.getItem("pf");
@@ -156,6 +168,9 @@ function pratosFeitos(id){
 	}else{
 		alert("voce excedeu a quantidade de pedidos");
 	}
+	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
+	montarQuant(sessionStorage.getItem("pf"),"pf");
+	/* fim */
 	
 }
 function pratosPromocao(id){
@@ -222,6 +237,9 @@ function pratosPromocao(id){
 	}else{
 		alert("voce excedeu a quantidade de pedidos");
 	}
+	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
+	montarQuant(sessionStorage.getItem("pp"),"pp");
+	/* fim */
 }
 function contaPratos(){	
 	let quant = sessionStorage.getItem("quantidade");
@@ -235,4 +253,51 @@ function contaPratos(){
 		document.querySelector(".quant-carr").innerHTML = y;
 	}
 	
+}
+function montarQuant(pratos,categoria){
+	if(categoria == "pf"){
+		let pratoFeito = document.querySelectorAll(".cont-pratos-feitos .quant-item");
+		let identificaQuantPratos = pratos.indexOf("-");
+		
+		if(identificaQuantPratos == -1){
+			let obj = JSON.parse(pratos);
+			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+		}else{
+			let array = pratos.split("-");
+			array.forEach((elem)=>{
+				let obj = JSON.parse(elem);
+				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+			});
+		}
+	}
+	if(categoria == "pp"){
+		let pratoFeito = document.querySelectorAll(".cont-pratos-promocao .quant-item");
+		let identificaQuantPratos = pratos.indexOf("-");
+		
+		if(identificaQuantPratos == -1){
+			let obj = JSON.parse(pratos);
+			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+		}else{
+			let array = pratos.split("-");
+			array.forEach((elem)=>{
+				let obj = JSON.parse(elem);
+				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+			});
+		}
+	}
+	if(categoria == "pm"){
+		let pratoFeito = document.querySelectorAll(".cont-pratos .quant-item");
+		let identificaQuantPratos = pratos.indexOf("-");
+		
+		if(identificaQuantPratos == -1){
+			let obj = JSON.parse(pratos);
+			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+		}else{
+			let array = pratos.split("-");
+			array.forEach((elem)=>{
+				let obj = JSON.parse(elem);
+				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
+			});
+		}
+	}
 }

@@ -155,6 +155,9 @@ nav ul li:hover{
     color: #ff0000ff;
     font-size: 0.8rem;
 }
+.quant-item{
+    font-size: 0.8rem;
+}
 .cont-img-text{
     display: flex;
 }
