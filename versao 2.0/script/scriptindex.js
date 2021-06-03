@@ -42,8 +42,12 @@ function inicia(){
 		elem.style.display = "none";
 	})
 	*/
+	/* ocultaa o connteiner da monte sua  marmita */
 	document.querySelector(".cont-marm").style.display = "none";
+	/* fim */
 }
+/* essa parte ee o sisttema de escolhaa dad quantidaadee de marmita
+e quantiaddaded de item para ccada marmitta*/
 function quantPrato(elem){
 	let quant  =  parseInt(elem.value);
 	switch (quant){
@@ -62,6 +66,7 @@ function quantPrato(elem){
 			break;
 	}
 }
+/* fim */
 function montaprato(id){
 	let total = sessionStorage.getItem("totalmontar");
 	if(total == null){
