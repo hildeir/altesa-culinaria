@@ -36,87 +36,93 @@ function inicia(){
 	if(sessionStorage.getItem("pm") != null){
 		montarQuant(sessionStorage.getItem("pm"),"pm");
 	}
+	/*
+	let marm  = document.querySelectorAll(".marm");
+	marm.forEach((elem)=>{
+		elem.style.display = "none";
+	})
+	*/
+	document.querySelector(".cont-marm").style.display = "none";
 }
-
+function quantPrato(elem){
+	let quant  =  parseInt(elem.value);
+	switch (quant){
+		case 0:
+			document.querySelector(".cont-marm").style.display = "none";
+			break;
+		case 1:
+			document.querySelector(".cont-marm").style.display = "block";
+			document.querySelector(".marm-1").style.display = "block";
+			document.querySelector(".marm-2").style.display = "none";
+			break;
+		case 2:
+			document.querySelector(".cont-marm").style.display = "block";
+			document.querySelector(".marm-1").style.display = "block";
+			document.querySelector(".marm-2").style.display = "block";
+			break;
+	}
+}
 function montaprato(id){
 	let total = sessionStorage.getItem("totalmontar");
-	let permissaoDeQuantMarmita = sessionStorage.getItem("permQuantMarm"); 
-	let marcadoMarm =  sessionStorage.getItem("marcadoMarm");
-	if(permissaoDeQuantMarmita == null){
+	if(total == null){
 		let prato = JSON.stringify({id:id,quantidade:1});
 		sessionStorage.setItem("pm",prato);
 		sessionStorage.setItem("totalmontar",1);
-		sessionStorage.setItem('permQuantMarm',1);
-		sessionStorage.setItem("marcadoMarm",1);
 		contaPratos();
 	
-	}else if(permissaoDeQuantMarmita < 4){
-		if(total == '3'){
-			let x = confirm('uma marmita foi montada, continua montando');
-			console.log(x);
-			let perInt = parseInt(permissaoDeQuantMarmita);
-			let marcador = parseInt(marcadoMarm);
-			sessionStorage.setItem("permQuantMarm",perInt += 1);
-			sessionStorage.setItem("marcadoMarm",1);
-		}
-		if(marcadoMarm < '3'){
-			contaPratos();
-			let prato = sessionStorage.getItem("pm");
-			let r = prato.indexOf("-");
+	}else if(total < '3'){
+		contaPratos();
+		let prato = sessionStorage.getItem("pm");
+		let r = prato.indexOf("-");
 
-			if(r == -1){
-				let prato = JSON.parse(sessionStorage.getItem("pm"));
-				if(prato.id == id){
-					let updateQuant = prato.quantidade += 1;
-					let x = JSON.stringify({id:prato.id,quantidade:updateQuant});
-					sessionStorage.setItem("pm",x);
+		if(r == -1){
+			let prato = JSON.parse(sessionStorage.getItem("pm"));
+			if(prato.id == id){
+				let updateQuant = prato.quantidade += 1;
+				let x = JSON.stringify({id:prato.id,quantidade:updateQuant});
+				sessionStorage.setItem("pm",x);
 
-					let totalInt = parseInt(total,10);
-					sessionStorage.setItem('totalmontar',totalInt += 1);
-				}else{
-					let outroPrato = JSON.stringify({id:id,quantidade:1});
-					let pratoAnterior = sessionStorage.getItem("pm");
-					sessionStorage.setItem("pm",pratoAnterior+"-"+outroPrato);
-
-					let totalInt = parseInt(total,10);
-					sessionStorage.setItem('totalmontar',totalInt += 1);
-				}
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
 			}else{
-				//let pratoUpdate = [];
-				let outroPrato = [];
-				let idExistente;
-				let pratosArray = prato.split("-");
-				pratosArray.map((ele)=>{
-					let obj = JSON.parse(ele);
-					if(obj.id == id){
-						let updateQuant = obj.quantidade += 1;
-						outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
+				let outroPrato = JSON.stringify({id:id,quantidade:1});
+				let pratoAnterior = sessionStorage.getItem("pm");
+				sessionStorage.setItem("pm",pratoAnterior+"-"+outroPrato);
 
-						let totalInt = parseInt(total,10);
-						sessionStorage.setItem('totalmontar',totalInt += 1);
-						idExistente = obj.id;
-					}else{
-						outroPrato.push(JSON.stringify(obj));
-					}
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
+			}
+		}else{
+			//let pratoUpdate = [];
+			let outroPrato = [];
+			let idExistente;
+			let pratosArray = prato.split("-");
+			pratosArray.map((ele)=>{
+				let obj = JSON.parse(ele);
+				if(obj.id == id){
+					let updateQuant = obj.quantidade += 1;
+					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
 
-				});
-				if(id != idExistente){
-					outroPrato.push(JSON.stringify({id:id,quantidade:1}));
 					let totalInt = parseInt(total,10);
 					sessionStorage.setItem('totalmontar',totalInt += 1);
+					idExistente = obj.id;
+				}else{
+					outroPrato.push(JSON.stringify(obj));
 				}
-				let unir = outroPrato.join("-");
-				sessionStorage.setItem("pm",unir);
-				
+
+			});
+			if(id != idExistente){
+				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+				let totalInt = parseInt(total,10);
+				sessionStorage.setItem('totalmontar',totalInt += 1);
 			}
-			let marcador = parseInt(marcadoMarm);
-			sessionStorage.setItem("marcadoMarm",marcador += 1);
+			let unir = outroPrato.join("-");
+			sessionStorage.setItem("pm",unir);
 			
-		
 		}
 
 	}else{
-		alert("so pode pedir 4 marmita por pedido");
+		alert("so pode montar a marmita com 3 itens");
 	}
 	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
 	montarQuant(sessionStorage.getItem("pm"),"pm");
