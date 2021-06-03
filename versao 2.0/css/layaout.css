@@ -75,20 +75,20 @@ a:hover{
     margin-top: 14px;
     margin-left: 3px;
 }
-.pf-1,.pf-2,.pf-3,.pf-4{
+.pm-1,.pm-2,.pm-3,.pm-4{
     background-size: cover;
     background-repeat: no-repeat;
 }
-.pf-1{
+.pm-1{
     background-image: url("../imagens/grao.jpg");
 }
-.pf-2{
+.pm-2{
     background-image: url("../imagens/amarelo.jpg");
 }
-.pf-3{
+.pm-3{
     background-image: url("../imagens/pure.jpg");
 }
-.pf-4{
+.pm-4{
     background-image: url("../imagens/vermelho.jpg");
 }
 .nome-prato-cor{
