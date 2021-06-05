@@ -107,14 +107,27 @@ function montaMarmita(){
 		}
 		let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3];
 	
-
-		for (let i = 0; i < marmita_1.length; i++) {
-			if(marmita_1[i] == undefined){
-				console.log(marmita_1[i]);
-				marmita_1.splice(i,1);
+		/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
+		marmita_1.filter((item,index)=>{
+			if(item == undefined){
+				marmita_1.splice(index,1);
 			}
+		});
+		marmita_1.filter((item,index)=>{
+			if(item == undefined){
+				marmita_1.splice(index,1);
+			}
+		});
+		/* fim */
+		let uni = "";
+		if(marmita_1.length == 1){
+			uni = marmita_1.join("");
+		}else if(marmita_1.length > 1){
+			uni = marmita_1.join("-");
 		}
 		console.log(marmita_1);
+		console.log(uni);
+	
 	}
 	
 }
