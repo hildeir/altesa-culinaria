@@ -141,7 +141,6 @@ function montaMarmita(quantMarm){
 				uni = marmita_1.join("-");
 			}
 			sessionStorage.setItem("marmitas-"+index,uni);
-			
 		}
 		/* marmita 2*/
 		if(index == "2"){
@@ -254,7 +253,10 @@ function montaMarmita(quantMarm){
 			}else if(marmita_1.length > 1){
 				uni = marmita_1.join("-");
 			}
-			sessionStorage.setItem("marmitas-"+index,uni);
+			if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
+				sessionStorage.setItem("marmitas-"+index,uni);
+				contaPratos();
+			}
 			
 		}
 		/* se os todos os ccampos dos itens fforr vazios exclui a sessao da marmita */
