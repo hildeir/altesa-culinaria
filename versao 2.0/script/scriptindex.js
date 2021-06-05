@@ -46,27 +46,78 @@ function inicia(){
 	document.querySelector(".cont-marm").style.display = "none";
 	/* fim */
 }
-/* essa parte ee o sisttema de escolhaa dad quantidaadee de marmita
-e quantiaddaded de item para ccada marmitta*/
+/* essa parte ee o sisttema de escolhaa dad quantidaadee de marmita*/
 function quantPrato(elem){
-	let quant  =  parseInt(elem.value);
+	let quant  =  elem.value;
 	switch (quant){
-		case 0:
+		case 'null':
 			document.querySelector(".cont-marm").style.display = "none";
 			break;
-		case 1:
+		case "1":
 			document.querySelector(".cont-marm").style.display = "block";
 			document.querySelector(".marm-1").style.display = "block";
 			document.querySelector(".marm-2").style.display = "none";
 			break;
-		case 2:
+		case "2":
 			document.querySelector(".cont-marm").style.display = "block";
 			document.querySelector(".marm-1").style.display = "block";
 			document.querySelector(".marm-2").style.display = "block";
 			break;
 	}
 }
-/* fim */
+/* fim*/
+function montaMarmita(){
+	const marm_1_item_1 = document.querySelector(".marm-1-item-1").value;
+	const marm_1_item_2 = document.querySelector(".marm-1-item-2").value;
+	const marm_1_item_3 = document.querySelector(".marm-1-item-3").value;
+	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
+
+		const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
+		const encontrar_0 = marmitas_temp.filter((item)=>{
+			if(item == "0"){
+				return true;
+			}
+		});
+		const encontrar_1 = marmitas_temp.filter((item)=>{
+			if(item == "1"){
+				return true;
+			}
+		});
+		const encontrar_2 = marmitas_temp.filter((item)=>{
+			if(item == "2"){
+				return true;
+			}
+		});
+		const encontrar_3 = marmitas_temp.filter((item)=>{
+			if(item == "3"){
+				return true;
+			}
+		});
+		if(encontrar_0.length != "0"){
+			var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
+		}
+		if(encontrar_1.length != "0"){
+			var m_1_item_1 = JSON.stringify({id:1,quantidade:encontrar_1.length});
+		}
+		if(encontrar_2.length != "0"){
+			var m_1_item_2 = JSON.stringify({id:2,quantidade:encontrar_2.length});
+		}
+		if(encontrar_3.length != "0"){
+			var m_1_item_3 = JSON.stringify({id:3,quantidade:encontrar_3.length});
+		}
+		let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3];
+	
+
+		for (let i = 0; i < marmita_1.length; i++) {
+			if(marmita_1[i] == undefined){
+				console.log(marmita_1[i]);
+				marmita_1.splice(i,1);
+			}
+		}
+		console.log(marmita_1);
+	}
+	
+}
 function montaprato(id){
 	let total = sessionStorage.getItem("totalmontar");
 	if(total == null){

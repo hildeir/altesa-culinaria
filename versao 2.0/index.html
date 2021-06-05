@@ -51,14 +51,15 @@
 		</header>
 		<main>
 			<div style="margin-bottom: 20px;" id="monte">
-				<h2 class="font-h2" style="text-align: center; margin-bottom: 0;">Monte seu prato</h2>
+				<h2 class="font-h2" style="text-align: center; margin-bottom: 0;">Monte sua marmita</h2>
 				<div style="text-align: center;">escolha até 3 itens para cada marmita</div>
 			</div>
 			<!-- a escolha de quantas marmitas e quanntos ittens-->
+			
 			<div>
 				quantas marmita voce quer?
 				<select onchange="quantPrato(this)">
-					<option value="0">---</option>
+					<option value= "null">---</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -67,14 +68,58 @@
 			</div>
 			<div class="cont-marm">
 				<div class="marm-1">
-					<select>
-						<option value="0">---</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
+					item 1:
+					<select class="marm-1-item-1">
+						<option value="null">---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
+					</select>
+					item 2:
+					<select class="marm-1-item-2">
+						<option value="null">---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
+					</select>
+					item 3:
+					<select class="marm-1-item-3">
+						<option value='null'>---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
 					</select>
 				</div>
+				<div class="marm-2">
+					item 1:
+					<select class="marm-2-item-1">
+						<option value='null'>---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
+					</select>
+					item 2:
+					<select class="marm-2-item-2">
+						<option value='null'>---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
+					</select>
+					item 3:
+					<select class="marm-2-item-2">
+						<option value='null'>---</option>
+						<option value="0">arroz com raspa de limão</option>
+						<option value="1">purê de baroa com ervas</option>
+						<option value="2">purê de baroa com pintada de gengibre</option>
+						<option value="3">purê de inhame com beterraba</option>
+					</select>
+				</div>
+				<button onclick="montaMarmita()">Adicionar ao carrinnho</button>
 			</div>
 			<!-- fimm -->
 			<div class="cont-pratos" >
