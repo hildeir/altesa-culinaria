@@ -1,16 +1,19 @@
 window.onload = inicia;
 function inicia(){
-	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
+	let m1 = sessionStorage.getItem("marmitas-1");
+	let m2 = sessionStorage.getItem("marmitas-2");
+	let m3 = sessionStorage.getItem("marmitas-3");
+	let m4 = sessionStorage.getItem("marmitas-4");
 	/* unica fforma de cconcerta o bug do h3 que encontrei foi essa*/
 	if(pp == null){
 		document.querySelector(".promocao-h3").style.display = "none";
 	}
 	/* fim */
-	if(pm == null && pf == null && pp == null){
-		location.href = "/sitetair/versao 2.0"/;
-	}else if(pm == "" && pf == "" && pp == ""){
+	if(pf == null && pp == null && m1 == null && m2 == null && m3 == null && m4 == null){
+		location.href = "/sitetair/versao 2.0/";
+	}else if(pf == "" && pp == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
 		location.href = "/sitetair/versao 2.0/";
 	}else{
 		montar();
@@ -19,7 +22,7 @@ function inicia(){
 		location.href = "etapa2.html";
 	});
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		location.href = "/sitetair/";
+		location.href = "/sitetair/versao2.0/";
 	});
 	let remover = document.querySelectorAll(".remover");
 	remover.forEach((ele)=>{
@@ -30,15 +33,21 @@ function inicia(){
 
 }	
 function montar(){
-	let pm = sessionStorage.getItem('pm');
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
-	let totalMontados = 0;
+	let m1 = sessionStorage.getItem("marmitas-1");
+	let m2 = sessionStorage.getItem("marmitas-2");
+	let m3 = sessionStorage.getItem("marmitas-3");
+	let m4 = sessionStorage.getItem("marmitas-4");
+	let totalM1 = 0;
+	let totalM2 = 0;
+	let totalM3 = 0;
+	let totalM4 = 0;
 	let totalFeitos = 0;
 	let totalPromocao = 0;
-	
-	if(pm != null){
-		let pratosArray = pm.split("-");
+	/* maarmitas */
+	if(m1 != null){
+		let pratosArray = m1.split("-");
 		pratosArray.map((ele)=>{
 			let pratosObj =	JSON.parse(ele);
 			let prato = jsonMontarPratos[pratosObj.id];
@@ -54,10 +63,74 @@ function montar(){
 			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
 			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
 			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
-			document.querySelector(".cont-pratos-montados").appendChild(clone);
-			totalMontados += (prato.preco*pratosObj.quantidade);
+			document.querySelector(".cont-marm-1").appendChild(clone);
+			totalM1 += (prato.preco*pratosObj.quantidade);
 		});
 	}
+	if(m2 != null){
+		let pratosArray = m2.split("-");
+		pratosArray.map((ele)=>{
+			let pratosObj =	JSON.parse(ele);
+			let prato = jsonMontarPratos[pratosObj.id];
+			let modelo = document.querySelector(".model-pratos-montados");
+			let clone = modelo.cloneNode(true);
+			let caminhoImg = prato.img;
+			let img = clone.querySelector(".img-prato-montados img");
+			img.setAttribute("src",caminhoImg);
+			clone.style.display = "flex";
+			clone.setAttribute("id",pratosObj.id);
+			clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
+			clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
+			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
+			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
+			document.querySelector(".cont-marm-2").appendChild(clone);
+			totalM2 += (prato.preco*pratosObj.quantidade);
+		});
+	}
+	if(m3 != null){
+		let pratosArray = m3.split("-");
+		pratosArray.map((ele)=>{
+			let pratosObj =	JSON.parse(ele);
+			let prato = jsonMontarPratos[pratosObj.id];
+			let modelo = document.querySelector(".model-pratos-montados");
+			let clone = modelo.cloneNode(true);
+			let caminhoImg = prato.img;
+			let img = clone.querySelector(".img-prato-montados img");
+			img.setAttribute("src",caminhoImg);
+			clone.style.display = "flex";
+			clone.setAttribute("id",pratosObj.id);
+			clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
+			clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
+			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
+			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
+			document.querySelector(".cont-marm-3").appendChild(clone);
+			totalM3 += (prato.preco*pratosObj.quantidade);
+		});
+	}
+	if(m4 != null){
+		let pratosArray = m4.split("-");
+		pratosArray.map((ele)=>{
+			let pratosObj =	JSON.parse(ele);
+			let prato = jsonMontarPratos[pratosObj.id];
+			let modelo = document.querySelector(".model-pratos-montados");
+			let clone = modelo.cloneNode(true);
+			let caminhoImg = prato.img;
+			let img = clone.querySelector(".img-prato-montados img");
+			img.setAttribute("src",caminhoImg);
+			clone.style.display = "flex";
+			clone.setAttribute("id",pratosObj.id);
+			clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
+			clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
+			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
+			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
+			document.querySelector(".cont-marm-4").appendChild(clone);
+			totalM4 += (prato.preco*pratosObj.quantidade);
+		});
+	}
+	/* fim marmitaas */
 	if(pf != null){
 		let pratosArrayFeitos = pf.split("-");
 			/* pratos feitos */
@@ -106,30 +179,55 @@ function montar(){
 	if(pp != null){
 		document.querySelector(".promocao-h3").style.display = "block";
 	}
-	if(pm != null){
-		document.querySelector(".prt-montados-h3").style.display = "block";
-	}
 	if(pf != null){
 		document.querySelector(".prt-feitos-h3").style.display = "block";
 	}
-	
-	
-	let total = totalMontados + totalFeitos + totalPromocao;
+	if(m1 != null || m2 != null || m3 != null || m4 != null){
+		document.querySelector(".prt-montados-h3").style.display = "block";
+	}
+	if(m1 != null){
+		document.querySelector(".marmitas-1-h4").style.display = "block";
+	}
+	if(m2 != null){
+		document.querySelector(".marmitas-2-h4").style.display = "block";
+	}
+	if(m3 != null){
+		document.querySelector(".marmitas-3-h4").style.display = "block";
+	}
+	if(m4 != null){
+		document.querySelector(".marmitas-4-h4").style.display = "block";
+	}
+	let total = totalM1 + totalM2 + totalM3 + totalM4 + totalFeitos + totalPromocao;
 	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",total);
 
 }
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
-	let pratoMontado = e.target.closest(".cont-pratos-montados");
 	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
+	let m1 = e.target.closest(".cont-marm-1");
+	let m2 = e.target.closest(".cont-marm-2");
+	let m3 = e.target.closest(".cont-marm-3");
+	let m4 = e.target.closest(".cont-marm-4");
 	let p = e.target.closest(".model-pratos-montados");
 	let idPrato = p.id;
 	p.remove();
-
-	if(pratoMontado != null){
-		let pm = sessionStorage.getItem('pm');
-		let pratosArray = pm.split("-");
+	/* marmitas */
+	if(m1 != null){
+		var atual = 1;
+	}
+	if(m2 != null){
+		var atual = 2;
+	}
+	if(m3 != null){
+		var atual = 3;
+	}
+	if(m4 != null){
+		var atual = 4;
+	}
+	let marmita = sessionStorage.getItem('marmitas-'+atual);
+	if(marmita != undefined){
+		let pratosArray = marmita.split("-");
 		let objPexcluir;
 		let objQuantPrato;
 		pratosArray.forEach((ele)=>{
@@ -139,28 +237,27 @@ function removerPrato(e){
 				objQuantPrato = obj.quantidade;
 			}
 		});
-
+	
 		let posPrato = pratosArray.indexOf(objPexcluir);
 		pratosArray.splice(posPrato,1);
 		let update = pratosArray.join("-");
-		sessionStorage.setItem("pm",update);
-		let totalmontar = parseInt(sessionStorage.getItem("totalmontar"));
-
+		sessionStorage.setItem("marmitas-"+atual,update);
+	
+		let quantMarm = parseInt(sessionStorage.getItem("quantMarm"));//quantidade das marmitas
 		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
-		if(sessionStorage.getItem("pm") == ""){
-			sessionStorage.removeItem("pm");
-			sessionStorage.removeItem("totalmontar");
+		if(sessionStorage.getItem("marmitas-"+atual) == ""){
+			sessionStorage.removeItem("marmitas-"+atual);
 			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			document.querySelector(".prt-montados-h3").style.display = "none";
-			sessionStorage.setItem("quantidade",quant -= objQuantPrato);
-
+			document.querySelector(".marmitas-"+atual+"-h4").style.display = "none";
+			sessionStorage.setItem("quantMarm",quantMarm -= 1);
+			sessionStorage.setItem("quantidade",quant -= 1);
+	
 		}else{
-			sessionStorage.setItem("totalmontar",totalmontar -= objQuantPrato);
 			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			sessionStorage.setItem("quantidade",quant -= objQuantPrato);
 		}
-
 	}
+
+	/* marmitas */
 	/* pratos feitos */
 	if(pratoFeito != null){
 		let pf = sessionStorage.getItem('pf');
@@ -233,7 +330,7 @@ function removerPrato(e){
 	}
 	/* fim */
 	if(sessionStorage.getItem('valorTotal') == "0"){
-		location.href = "/sitetair/";
+		location.href = "/sitetair/versao2.0/";
 	}
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){

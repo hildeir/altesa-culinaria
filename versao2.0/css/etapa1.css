@@ -1,7 +1,7 @@
 html{
     font-family: "caladea";
 }
-.cont-pratos-montados, .cont-pratos-feitos, .cont-pratos-promocao{
+.cont-pratos-feitos, .cont-pratos-promocao, .cont-marm-1, .cont-marm-2, .cont-marm-3, .cont-marm-4{
     display: flex;
     flex-wrap: wrap;
 }
@@ -82,6 +82,9 @@ html{
     display: none;
 }
 .prt-feitos-h3{
+    display: none;
+}
+.marmitas-1-h4, .marmitas-2-h4, .marmitas-3-h4, .marmitas-4-h4{
     display: none;
 }
 .cont-bts{
