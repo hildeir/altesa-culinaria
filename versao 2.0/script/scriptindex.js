@@ -27,14 +27,15 @@ function inicia(){
 	}
 	
 	/* ocultaa o connteiner da monte sua  marmita */
-	document.querySelector(".cont-marm").style.display = "none";
+	//document.querySelector(".cont-marm").style.display = "none";
 	/* fim */
 	document.querySelector(".bt-add-carrinho").addEventListener('click',function(){
-		let quantMarm = sessionStorage.getItem("quant-marm");
-		montaMarmita(quantMarm);
+		//let quantMarm = sessionStorage.getItem("quant-marm");
+		montaMarmita();
 	});
 }
 /* essa parte ee o sisttema de escolhaa dad quantidaadee de marmita*/
+/*
 function quantPrato(elem){
 	let quant  =  elem.value;
 	switch (quant){
@@ -79,35 +80,43 @@ function quantPrato(elem){
 	}
 }
 /* fim*/
-function montaMarmita(quantMarm){
-	for (let index = 1; index <= quantMarm; index++){
-		const marm_1_item_1 = document.querySelector(".marm-"+index+"-item-1").value;
-		const marm_1_item_2 = document.querySelector(".marm-"+index+"-item-2").value;
-		const marm_1_item_3 = document.querySelector(".marm-"+index+"-item-3").value;
+function montaMarmita(){
+	let x = sessionStorage.getItem("quantMarm");
+	if(x == null){
+		var quantMarm = 0;
+	}else{
+		quantMarm = parseInt(sessionStorage.getItem("quantMarm"),10);
+	}
+	const marm_1_item_1 = document.querySelector(".marm-1-item-1").value;
+	const marm_1_item_2 = document.querySelector(".marm-1-item-2").value;
+	const marm_1_item_3 = document.querySelector(".marm-1-item-3").value;
+
+	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
+		if(quantMarm < 4){
+
+			const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
+			const encontrar_0 = marmitas_temp.filter((item)=>{
+				if(item == "0"){
+					return true;
+				}
+			});
+			const encontrar_1 = marmitas_temp.filter((item)=>{
+				if(item == "1"){
+					return true;
+				}
+			});
+			const encontrar_2 = marmitas_temp.filter((item)=>{
+				if(item == "2"){
+					return true;
+				}
+			});
+			const encontrar_3 = marmitas_temp.filter((item)=>{
+				if(item == "3"){
+					return true;
+				}
+			});
+			/*  marmita 1 */
 		
-		const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
-		const encontrar_0 = marmitas_temp.filter((item)=>{
-			if(item == "0"){
-				return true;
-			}
-		});
-		const encontrar_1 = marmitas_temp.filter((item)=>{
-			if(item == "1"){
-				return true;
-			}
-		});
-		const encontrar_2 = marmitas_temp.filter((item)=>{
-			if(item == "2"){
-				return true;
-			}
-		});
-		const encontrar_3 = marmitas_temp.filter((item)=>{
-			if(item == "3"){
-				return true;
-			}
-		});
-		/*  marmita 1 */
-		if(index == "1"){
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
 			}
@@ -140,9 +149,19 @@ function montaMarmita(quantMarm){
 			}else if(marmita_1.length > 1){
 				uni = marmita_1.join("-");
 			}
-			sessionStorage.setItem("marmitas-"+index,uni);
+		
+			sessionStorage.setItem("quantMarm",quantMarm += 1);
+			sessionStorage.setItem("marmitas-"+quantMarm,uni);
+		
+			
+			
+		}else{
+			alert("apenass 4 marmita por pedido");
 		}
-		/* marmita 2*/
+	}
+	
+		/*
+		 marmita 2
 		if(index == "2"){
 			if(encontrar_0.length != "0"){
 				var m_2_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -159,7 +178,7 @@ function montaMarmita(quantMarm){
 			
 			
 			let marmita_1 = [m_2_item_0, m_2_item_1, m_2_item_2, m_2_item_3];
-			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
+			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos
 			marmita_1.filter((item,index)=>{
 				if(item == undefined){
 					marmita_1.splice(index,1);
@@ -170,7 +189,7 @@ function montaMarmita(quantMarm){
 					marmita_1.splice(index,1);
 				}
 			});
-			/* fim */
+			
 			let uni = "";
 			if(marmita_1.length == 1){
 				uni = marmita_1.join("");
@@ -180,7 +199,7 @@ function montaMarmita(quantMarm){
 			sessionStorage.setItem("marmitas-"+index,uni);
 			
 		}
-		/* marmita 3*/
+		
 		if(index == "3"){
 			if(encontrar_0.length != "0"){
 				var m_3_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -197,7 +216,7 @@ function montaMarmita(quantMarm){
 			
 			
 			let marmita_1 = [m_3_item_0, m_3_item_1, m_3_item_2, m_3_item_3];
-			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
+			// remove os unndefined do array deixando no arraay apenas os prratos escolhidos
 			marmita_1.filter((item,index)=>{
 				if(item == undefined){
 					marmita_1.splice(index,1);
@@ -208,7 +227,7 @@ function montaMarmita(quantMarm){
 					marmita_1.splice(index,1);
 				}
 			});
-			/* fim */
+			
 			let uni = "";
 			if(marmita_1.length == 1){
 				uni = marmita_1.join("");
@@ -218,7 +237,7 @@ function montaMarmita(quantMarm){
 			sessionStorage.setItem("marmitas-"+index,uni);
 			
 		}
-		/* marmita 4 */
+		
 		if(index == "4"){
 			if(encontrar_0.length != "0"){
 				var m_4_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -235,7 +254,7 @@ function montaMarmita(quantMarm){
 			
 			
 			let marmita_1 = [m_4_item_0, m_4_item_1, m_4_item_2, m_4_item_3];
-			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
+			//remove os unndefined do array deixando no arraay apenas os prratos escolhidos
 			marmita_1.filter((item,index)=>{
 				if(item == undefined){
 					marmita_1.splice(index,1);
@@ -246,7 +265,7 @@ function montaMarmita(quantMarm){
 					marmita_1.splice(index,1);
 				}
 			});
-			/* fim */
+			
 			let uni = "";
 			if(marmita_1.length == 1){
 				uni = marmita_1.join("");
@@ -259,7 +278,7 @@ function montaMarmita(quantMarm){
 			}
 			
 		}
-		/* se os todos os ccampos dos itens fforr vazios exclui a sessao da marmita */
+		//se os todos os ccampos dos itens fforr vazios exclui a sessao da marmita 
 		if(marm_1_item_1 == "null" && marm_1_item_2 == "null" && marm_1_item_3 == "null"){
 			if(sessionStorage.getItem("marmitas-1") == ""){
 				sessionStorage.removeItem("marmitas-1");
@@ -274,8 +293,7 @@ function montaMarmita(quantMarm){
 				sessionStorage.removeItem("marmitas-4");
 			}
 		}
-		/* fim */
-	}
+		*/
 	
 }
 function pratosFeitos(id){
