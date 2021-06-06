@@ -9,9 +9,9 @@ function inicia(){
 	}
 	/* fim */
 	if(pm == null && pf == null && pp == null){
-		location.href = "/sitetair";
+		location.href = "/sitetair/versao 2.0"/;
 	}else if(pm == "" && pf == "" && pp == ""){
-		location.href = "/sitetair";
+		location.href = "/sitetair/versao 2.0/";
 	}else{
 		montar();
 	}

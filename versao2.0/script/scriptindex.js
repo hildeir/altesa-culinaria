@@ -115,7 +115,6 @@ function montaMarmita(){
 					return true;
 				}
 			});
-			/*  marmita 1 */
 		
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -152,9 +151,7 @@ function montaMarmita(){
 		
 			sessionStorage.setItem("quantMarm",quantMarm += 1);
 			sessionStorage.setItem("marmitas-"+quantMarm,uni);
-		
-			
-			
+			contaPratos();
 		}else{
 			alert("apenass 4 marmita por pedido");
 		}
