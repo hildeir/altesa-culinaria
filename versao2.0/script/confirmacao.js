@@ -150,23 +150,10 @@ function enviar(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
     let total = parseInt(sessionStorage.getItem("valorTotal"),10).toFixed(2);
-    let pedidoMontado = "";
     let pedidoPratoFeito = '';
     let pedidoPratoPromocao = ""
-    if(sessionStorage.getItem('pm') != null){
-        let pratos = sessionStorage.getItem("pm");
-        let pratosArray = pratos.split("-");
-        pratosArray.map((ele)=>{
-            let obj = JSON.parse(ele);
-            let idInt = parseInt(obj.id,10);
-            if(idInt == jsonMontarPratos[idInt].id){
-                pedidoMontado += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
-            }
-           
-        });
-    
-    }
-   
+
+    let textoPf = "";
     if(sessionStorage.getItem('pf') != null){
         let pratos = sessionStorage.getItem("pf");
         let pratosArray = pratos.split("-");
@@ -174,6 +161,7 @@ function enviar(){
             let obj = JSON.parse(ele);
             let idInt = parseInt(obj.id,10);
             if(idInt == jsonMontarPratos[idInt].id){
+                textoPf = "PRATO FEITO: "
                 pedidoPratoFeito += jsonPratoFeito[idInt].nome+" quant:"+obj.quantidade+"; ";
             }
            
@@ -182,6 +170,7 @@ function enviar(){
     }
     
     /* praato de promocao */
+    let textoPp = "";
     if(sessionStorage.getItem('pp') != null){
         let pratos = sessionStorage.getItem("pp");
         let pratosArray = pratos.split("-");
@@ -189,6 +178,7 @@ function enviar(){
             let obj = JSON.parse(ele);
             let idInt = parseInt(obj.id,10);
             if(idInt == jsonPratoPromocao[idInt].id){
+                textoPp = "PEDIDO PRATO PROMOÇÃO: "
                 pedidoPratoPromocao += jsonPratoPromocao[idInt].nome+" quant:"+obj.quantidade+"; ";
             }
            
@@ -196,11 +186,86 @@ function enviar(){
     
     }
     /* fim */
+    let tituloMarmita = "";
+    if(sessionStorage.getItem('marmitas-1') ==  null && sessionStorage.getItem('marmitas-2') == null && sessionStorage.getItem('marmitas-3') == null && sessionStorage.getItem('marmitas-4') == null){
+        tituloMarmita = "";
+    }else{
+        tituloMarmita = "MARMITAS:";
+    }
+    /* maarmitaas */
+    let textoM1 = '';
+    let marmita_1 = "";
+    if(sessionStorage.getItem('marmitas-1') != null){
+        let pratos = sessionStorage.getItem("marmitas-1");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                textoM1 = "MARMITA 1: ";
+                marmita_1 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+    
+    }
+
+    let textoM2 = '';
+    let marmita_2 = "";
+    if(sessionStorage.getItem('marmitas-2') != null){
+        let pratos = sessionStorage.getItem("marmitas-2");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                textoM2 = "MARMITA 2: ";
+                marmita_2 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+    
+    }
+
+    let textoM3 = '';
+    let marmita_3 = "";
+    if(sessionStorage.getItem('marmitas-3') != null){
+        let pratos = sessionStorage.getItem("marmitas-3");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                textoM3 = "MARMITA 3: ";
+                marmita_3 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+    
+    }
+
+    let textoM4 = '';
+    let marmita_4 = "";
+    if(sessionStorage.getItem('marmitas-4') != null){
+        let pratos = sessionStorage.getItem("marmitas-4");
+        let pratosArray = pratos.split("-");
+        pratosArray.map((ele)=>{
+            let obj = JSON.parse(ele);
+            let idInt = parseInt(obj.id,10);
+            if(idInt == jsonMontarPratos[idInt].id){
+                textoM4 = "MARMITA 4: S";
+                marmita_4 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+            }
+           
+        });
+    
+    }
+    //* fim */
     
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
     
-    let texto = "DADOS DO PEDIDO: PRATO MONTADO:"+pedidoMontado+"PEDIDO PRATO FEITOS:"+pedidoPratoFeito+"PEDIDO PRATO DE PROMOCAO:"+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+" TOTAL:"+total;
+    let texto = "DADOS DO PEDIDO:"+tituloMarmita+""+textoM1+""+marmita_1+""+textoM2+""+marmita_2+""+textoM3+""+marmita_3+""+textoM4+""+marmita_4+""+textoPf+""+pedidoPratoFeito+""+textoPp+""+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+" TOTAL:"+total;
     let url = "https://api.whatsapp.com/send?phone=5521968180811&text="+texto;
     sessionStorage.clear();
     location.href = url;
