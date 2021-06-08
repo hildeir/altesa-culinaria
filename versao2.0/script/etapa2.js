@@ -3,13 +3,18 @@ function inicia(){
 	sessionStorage.removeItem("dadosCliente");
 	sessionStorage.removeItem("dadosEntrega");
 	let pp = sessionStorage.getItem("pp");
-	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
-	if(pm == null && pf == null && pp == null){
-		location.href = "/sitetair";
-	}else if(pm == "" && pf == "" && pp == ""){
-		location.href = "/sitetair";
+	let m1 = sessionStorage.getItem("marmitas-1");
+	let m2 = sessionStorage.getItem("marmitas-2");
+	let m3 = sessionStorage.getItem("marmitas-3");
+	let m4 = sessionStorage.getItem("marmitas-4");
+	
+	if(pf == null && pp == null && m1 == null && m2 == null && m3 == null && m4 == null){
+		location.href = "/sitetair/versao2.0/";
+	}else if(pf == "" && pp == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
+		location.href = "/sitetair/versao2.0/";
 	}
+	
 	document.querySelector(".voltar").addEventListener("click",()=>{
 		location.href = "etapa1.html";
 	});

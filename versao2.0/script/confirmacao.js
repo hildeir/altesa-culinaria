@@ -1,24 +1,23 @@
 window.onload = inicia;
 function inicia(){
 	sessionStorage.removeItem("dados");
-	let pm = sessionStorage.getItem("pm");
 	let pf = sessionStorage.getItem("pf");
     let pp = sessionStorage.getItem("pp");
+    let m1 = sessionStorage.getItem("marmitas-1");
+	let m2 = sessionStorage.getItem("marmitas-2");
+	let m3 = sessionStorage.getItem("marmitas-3");
+	let m4 = sessionStorage.getItem("marmitas-4");
     let cliente = sessionStorage.getItem("dadosCliente");
     let entrega = sessionStorage.getItem("dadosEntrega");
-	if(pm == null && pf == null && pp == null){
-		location.href = "/sitetair";
-	}else if(pm == "" && pf == "" && pp == ""){
-		location.href = "/sitetair";
-	}else if(cliente == null && entrega == null){
-        location.href = "/sitetair";
-    }else if(cliente == "" && entrega == ""){
-        location.href = "/sitetair";
-    }else{
+	if(pf == null && pp == null && cliente == null && entrega == null && m1 == null && m2 == null && m3 == null && m4 == null){
+		location.href = "/sitetair/versao2.0";
+	}else if(pf == "" && pp == "" && cliente == "" && entrega == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
+		location.href = "/sitetair/versao2.0";
+	}else{
         exibir();
     }
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		location.href = "etapa2.html";
+		location.href = "/sitetair/versao2.0/etapa2.html";
 	});
 	document.querySelector(".enviar").addEventListener("click",()=>{
 		enviar();
@@ -27,6 +26,10 @@ function inicia(){
 function exibir(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
+    let m1 = sessionStorage.getItem("marmitas-1");
+    let m2 = sessionStorage.getItem("marmitas-2");
+    let m3 = sessionStorage.getItem("marmitas-3");
+    let m4 = sessionStorage.getItem("marmitas-4");
     const total = parseInt(sessionStorage.getItem("valorTotal"));
     let pm  = sessionStorage.getItem("pm");
     let pf = sessionStorage.getItem("pf");
@@ -52,17 +55,56 @@ function exibir(){
     
     document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 
-    if(pm != null){
-        let array = pm.split("-");
+   /* marmitaas */
+   if(m1 != null){
+    let array = m1.split("-");
         array.map((ele)=>{
-            let pmjson = JSON.parse(ele);
-            const pedido = document.querySelector(".dados-pedido-pm");
+            let pfjson = JSON.parse(ele);
+            const  pedido = document.querySelector(".dados-pedido-marmitas-1");
             pedido.innerHTML += "<b>prato</b><br>"+
-                            jsonMontarPratos[pmjson.id].nome+"<br>"+
-                            "<b>Quantidade:</b>"+pmjson.quantidade+"<br><br>";
+                            jsonMontarPratos[pfjson.id].nome+"<br>"+
+                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
+                           
+        });
+  
+    }
+    if(m2 != null){
+    let array = m2.split("-");
+        array.map((ele)=>{
+            let pfjson = JSON.parse(ele);
+            const  pedido = document.querySelector(".dados-pedido-marmitas-2");
+            pedido.innerHTML += "<b>prato</b><br>"+
+                            jsonMontarPratos[pfjson.id].nome+"<br>"+
+                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
+                            
+        });
+      
+    }
+    if(m3 != null){
+    let array = m3.split("-");
+        array.map((ele)=>{
+            let pfjson = JSON.parse(ele);
+            const  pedido = document.querySelector(".dados-pedido-marmitas-3");
+            pedido.innerHTML += "<b>prato</b><br>"+
+                            jsonMontarPratos[pfjson.id].nome+"<br>"+
+                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
+                            
         });
         
     }
+    if(m4 != null){
+    let array = m4.split("-");
+        array.map((ele)=>{
+            let pfjson = JSON.parse(ele);
+            const  pedido = document.querySelector(".dados-pedido-marmitas-4");
+            pedido.innerHTML += "<b>prato</b><br>"+
+                            jsonMontarPratos[pfjson.id].nome+"<br>"+
+                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
+                            
+        });
+        
+    }
+   /* fim mmarmitas */
     if(pf != null){
         let array = pf.split("-");
         array.map((ele)=>{
@@ -91,8 +133,17 @@ function exibir(){
     if(pf == null){
         document.querySelector(".dados-pedido-pf").style.display = "none";
     }
-    if(pm == null){
-        document.querySelector(".dados-pedido-pm").style.display = "none";
+    if(m1 == null){
+        document.querySelector(".dados-pedido-marmitas-1").style.display = "none";
+    }
+    if(m2 == null){
+        document.querySelector(".dados-pedido-marmitas-2").style.display = "none";
+    }
+    if(m3 == null){
+        document.querySelector(".dados-pedido-marmitas-3").style.display = "none";
+    }
+    if(m4 == null){
+        document.querySelector(".dados-pedido-marmitas-4").style.display = "none";
     }
 }
 function enviar(){

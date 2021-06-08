@@ -19,7 +19,7 @@ function inicia(){
 		montar();
 	}
 	document.querySelector(".avancar").addEventListener("click",()=>{
-		location.href = "etapa2.html";
+		location.href = "/sitetair/versao2.0/etapa2.html";
 	});
 	document.querySelector(".voltar").addEventListener("click",()=>{
 		location.href = "/sitetair/versao2.0/";
