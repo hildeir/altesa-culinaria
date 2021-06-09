@@ -91,7 +91,23 @@ a:hover{
 .pm-4{
     background-image: url("../imagens/vermelho.jpg");
 }
-.nome-prato-cor{
+.pf-1, .pf-2, .pf-3, .pf-4{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.pf-1{
+    background-image: url("../imagens/marmitas-prontas/arroz com cenoura, grão de bico e purê batata doce - vegano.jpg");
+}
+.pf-2{
+    background-image: url("../imagens/marmitas-prontas/arroz de amendoim com creme de abóbora, couve flor e feijão - vegano.jpg");
+}
+.pf-3{
+    background-image: url("../imagens/marmitas-prontas/baião de 2 com grão de soja e purê de batata baroa - vegano.jpg");
+}
+.pf-4{
+    background-image: url("../imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg");
+}
+.tipo-prato{
     background-color: rgba(26, 127, 28, 0.7);
     width: 230px;
     color: #ffffff;
@@ -99,6 +115,20 @@ a:hover{
     padding-top: 5px;
     padding-bottom: 5px;
     border-top-left-radius: 30px;
+}
+.tipo-prato-marmita{
+    background-color: rgba(26, 127, 28, 0.7);
+    width: 150px;
+    color: #ffffff;
+    padding: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 18px;
+    border-top-left-radius: 30px;
+}
+.nome-prato-texto{
+    width: 280px;
+    margin-bottom: 6px;
 }
 nav{
     margin-right: 30px;
@@ -149,14 +179,16 @@ nav ul li:hover{
     text-align: center;
     margin-top: 18px;
     color: #000000;
-    font-family: "caviar bold";
+    font-family: "caviar";
 }
 .preco{
     color: #ff0000ff;
     font-size: 0.8rem;
+    font-weight: bold;
 }
 .quant-item{
     font-size: 0.8rem;
+    font-weight: bold;
 }
 .cont-img-text{
     display: flex;
@@ -256,6 +288,35 @@ main{
 .font-h2{
     font-family: "caviar bold";
 }
+.cont-marm{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+.bt-add-carrinho{
+    background-color: #9468c0ff;
+    padding: 10px 17px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+.bt-add-carrinho:hover{
+    box-shadow: 0 0 5px #000000;
+}
+.marm-1 select {
+    padding: 5px;
+    border:#9468c0ff 2px solid;
+}.marm-1 ul{
+    list-style: none;
+    padding: 0px;
+}
+.marm-1 ul li{
+    display: inline;
+}
+.texto-item-marm{
+    color: #1a7f1cff;
+}
 @font-face{
     font-family: "hunter";
     src: url('../fonts/hunters/Hunters.otf') format("opentype");
@@ -309,10 +370,18 @@ main{
     .imagem-whatsapp{
         margin-top: 10%;
     }
+    .marm-1 ul li{
+        display: block;
+        margin-bottom: 4px;
+    }
 }
 @media (min-width:768px) and (max-width:1024px){
     .cont-item{
         margin-bottom: 6%;
+    }
+    .marm-1 ul li{
+        display: block;
+        margin-bottom: 4px;
     }
 }
 @media (min-width:2560px){

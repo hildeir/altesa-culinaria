@@ -6,10 +6,10 @@ const jsonMontarPratos = [
 ];
 
 const jsonPratoFeito = [
-	{id:0,nome:"arroz vermelho com raspa de limão",preco:30.0,peso:"200gr",img:"imagens/grao.jpg",desc:"comida saborosa"},
-	{id:1,nome:"purê de baroa com ervas",preco:12.0,peso:"200gr",img:"imagens/pure.jpg",desc:"comida saborosa"},
-	{id:2,nome:"purê de baroa com pintada de gengibre",preco:42.0,peso:"200gr",img:"imagens/amarelo.jpg",desc:"comida saborosa"},
-	{id:3,nome:"purê de inhame com beterraba",preco:112.0,peso:"200gr",img:"imagens/vermelho.jpg",desc:"comida saborosa"}
+	{id:0,nome:"arroz com cenoura, grão de bico e purê batata doce",preco:30.0,peso:"200gr",img:"imagens/marmitas-prontas/arroz com cenoura, grão de bico e purê batata doce - vegano.jpg",desc:"comida saborosa"},
+	{id:1,nome:"arroz de amendoim com creme de abóbora, couve flor e feijão",preco:12.0,peso:"200gr",img:"imagens/marmitas-prontas/arroz de amendoim com creme de abóbora, couve flor e feijão - vegano.jpg",desc:"comida saborosa"},
+	{id:2,nome:"baião de 2 com grão de soja e purê de batata baroa",preco:42.0,peso:"200gr",img:"imagens/marmitas-prontas/baião de 2 com grão de soja e purê de batata baroa - vegano.jpg",desc:"comida saborosa"},
+	{id:3,nome:"pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora",preco:112.0,peso:"200gr",img:"imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg",desc:"comida saborosa"}
 ];
 
 const jsonPratoPromocao = [
