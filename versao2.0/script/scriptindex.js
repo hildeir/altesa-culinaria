@@ -279,7 +279,7 @@ function pratosPromocao(id){
 			sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
 		}	
 	}else{
-		alert("voce excedeu a quantidade de pedidos");
+		objAlerta.alerta("você excedeu a quantidade de pedido");
 	}
 	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
 	montarQuant(sessionStorage.getItem("pp"),"pp");
