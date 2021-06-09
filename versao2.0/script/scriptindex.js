@@ -1,4 +1,15 @@
 window.onload = inicia;
+/* box dde aalerta */
+var objAlerta = {
+	alerta: function(texto){
+		document.querySelector(".cont-box-model").style.display = "flex";
+		document.querySelector(".texto-boxmodel").innerHTML = texto;
+		document.querySelector(".bt-ok-boxmodel").addEventListener("click",function(){
+			document.querySelector(".cont-box-model").style.display = "none";
+		});
+	}
+};
+/* fimm */
 function inicia(){
 	let pratos2 = document.querySelectorAll(".bt-prato-feito");
 	pratos2.forEach((ele2)=>{
@@ -29,6 +40,8 @@ function inicia(){
 	document.querySelector(".bt-add-carrinho").addEventListener('click',function(){
 		montaMarmita();
 	});
+	
+
 }
 
 function montaMarmita(){
@@ -128,7 +141,9 @@ function montaMarmita(){
 			}
 
 		}else{
-			alert("apenass 4 marmita por pedido");
+			
+			objAlerta.alerta("apenas 4 marmita por pedido");
+			
 		}
 	}
 		
@@ -142,7 +157,7 @@ function pratosFeitos(id){
 		contaPratos();
 		
 
-	}else if(totalPratosFeitos < '4'){
+	}else if(totalPratosFeitos <= '6'){
 		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){
@@ -195,7 +210,7 @@ function pratosFeitos(id){
 			
 		}	
 	}else{
-		alert("voce excedeu a quantidade de pedidos");
+		objAlerta.alerta("você excedeu a quantidade de pedido");
 	}
 	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
 	montarQuant(sessionStorage.getItem("pf"),"pf");

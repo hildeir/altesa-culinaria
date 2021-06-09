@@ -317,6 +317,47 @@ main{
 .texto-item-marm{
     color: #1a7f1cff;
 }
+/* box model alerta */
+.cont-box-model{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.box{
+    width: auto;
+    padding: 30px 40px;
+    background-color: #bfa5d9;
+    box-shadow: 0 0 9px #000000;
+}
+.texto-boxmodel{
+    text-align: center;
+}
+.cont-bt-ok-boxmodel{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bt-ok-boxmodel{
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    background-color: #1a7f1cff;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+.bt-ok-boxmodel:hover{
+    box-shadow: 0 0 5px #000000;
+
+}
+/* fim */
 @font-face{
     font-family: "hunter";
     src: url('../fonts/hunters/Hunters.otf') format("opentype");
