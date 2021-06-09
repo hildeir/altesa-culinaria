@@ -415,6 +415,9 @@ main{
         display: block;
         margin-bottom: 4px;
     }
+    .marm-1{
+        margin-left: 10px;
+    }
 }
 @media (min-width:768px) and (max-width:1024px){
     .cont-item{
