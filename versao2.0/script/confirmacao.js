@@ -162,80 +162,48 @@ function enviar(){
         tituloMarmita = "MARMITAS:";
     }
     /* maarmitaas */
-    let textoM1 = '';
-    let marmita_1 = "";
-    if(sessionStorage.getItem('marmitas-1') != null){
-        let pratos = sessionStorage.getItem("marmitas-1");
-        let pratosArray = pratos.split("-");
-        pratosArray.map((ele)=>{
-            let obj = JSON.parse(ele);
-            let idInt = parseInt(obj.id,10);
-            if(idInt == jsonMontarPratos[idInt].id){
-                textoM1 = "MARMITA 1: ";
-                marmita_1 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
+    let marmita = [];
+    for (let i = 1; i <= 10; i++) {
+        let m = sessionStorage.getItem('marmitas-'+i);
+        if(m != null){
+            let pratos = sessionStorage.getItem("marmitas-"+i);
+            let pratosArray = pratos.split("-");
+            /*criar objeto ppaara cada maarmmita*/
+            let obj_marm = {
+                marmita: i,
+                pratos_array : []
             }
-           
-        });
-    
-    }
+            /* fim **/
+            pratosArray.map((ele)=>{
+                let obj = JSON.parse(ele);
+                let idInt = parseInt(obj.id,10);
+                if(idInt == jsonMontarPratos[idInt].id){//se o id for igual o do json
+                    let pratos_nomes = "";
+                    pratos_nomes += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
 
-    let textoM2 = '';
-    let marmita_2 = "";
-    if(sessionStorage.getItem('marmitas-2') != null){
-        let pratos = sessionStorage.getItem("marmitas-2");
-        let pratosArray = pratos.split("-");
-        pratosArray.map((ele)=>{
-            let obj = JSON.parse(ele);
-            let idInt = parseInt(obj.id,10);
-            if(idInt == jsonMontarPratos[idInt].id){
-                textoM2 = "MARMITA 2: ";
-                marmita_2 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
-            }
-           
-        });
-    
+                    if(obj_marm.marmita == i){//se foor aa mesma marmiita acreescenntaa os prratos
+                        obj_marm.pratos_array.push(pratos_nomes);
+                    }
+             
+                }
+               
+            });
+            marmita.push(obj_marm);//aadiciona a marmita no array
+        }
     }
-
-    let textoM3 = '';
-    let marmita_3 = "";
-    if(sessionStorage.getItem('marmitas-3') != null){
-        let pratos = sessionStorage.getItem("marmitas-3");
-        let pratosArray = pratos.split("-");
-        pratosArray.map((ele)=>{
-            let obj = JSON.parse(ele);
-            let idInt = parseInt(obj.id,10);
-            if(idInt == jsonMontarPratos[idInt].id){
-                textoM3 = "MARMITA 3: ";
-                marmita_3 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
-            }
-           
-        });
-    
+    /* fim marmitas */
+   /* guarda na variavel todas as marmitas prraa ser exebiidas no whatsapp */
+    let resultados_todas_marmitas = "";
+    for (let i = 0; i < marmita.length; i++) {
+        resultados_todas_marmitas += "MARMITA "+marmita[i].marmita+": "+marmita[i].pratos_array;
+        
     }
-
-    let textoM4 = '';
-    let marmita_4 = "";
-    if(sessionStorage.getItem('marmitas-4') != null){
-        let pratos = sessionStorage.getItem("marmitas-4");
-        let pratosArray = pratos.split("-");
-        pratosArray.map((ele)=>{
-            let obj = JSON.parse(ele);
-            let idInt = parseInt(obj.id,10);
-            if(idInt == jsonMontarPratos[idInt].id){
-                textoM4 = "MARMITA 4: S";
-                marmita_4 += jsonMontarPratos[idInt].nome+" quant:"+obj.quantidade+"; ";
-            }
-           
-        });
-    
-    }
-    //* fim */
-    
+    /* fimm */
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
-    
-    let texto = "DADOS DO PEDIDO:"+tituloMarmita+""+textoM1+""+marmita_1+""+textoM2+""+marmita_2+""+textoM3+""+marmita_3+""+textoM4+""+marmita_4+""+textoPf+""+pedidoPratoFeito+""+textoPp+""+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+"DADOS DE ENTREGA:"+entrega+" TOTAL:"+total;
+    let texto = "DADOS DO PEDIDO:"+tituloMarmita+""+resultados_todas_marmitas+""+pedidoPratoFeito+""+textoPp+""+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+" DADOS DE ENTREGA:"+entrega+" TOTAL: "+total;
     let url = "https://api.whatsapp.com/send?phone=5521968180811&text="+texto;
-    sessionStorage.clear();
+    
+    sessionStorage.clear();//remove todas sessoes
     location.href = url;
 }
