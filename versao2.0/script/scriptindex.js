@@ -225,7 +225,7 @@ function pratosPromocao(id){
 		sessionStorage.setItem("totalPratosPromocao",1);
 		contaPratos();
 
-	}else if(totalPratosFeitos < '4'){
+	}else if(parseInt(totalPratosFeitos, 10) < 10){
 		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){
