@@ -150,14 +150,14 @@ function montaMarmita(){
 }
 function pratosFeitos(id){
 	let pratos = sessionStorage.getItem("pf");
-	let totalPratosFeitos = parseInt(sessionStorage.getItem("totalPratosFeitos"), 10);
+	let totalPratosFeitos = sessionStorage.getItem("totalPratosFeitos");
 	if(totalPratosFeitos == null){
 		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
 		sessionStorage.setItem("totalPratosFeitos",1);
 		contaPratos();
 		
 
-	}else if(totalPratosFeitos < 10){
+	}else if(parseInt(totalPratosFeitos, 10) < 10){
 		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){
