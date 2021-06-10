@@ -56,8 +56,8 @@ function montaMarmita(){
 	const marm_1_item_3 = document.querySelector(".marm-1-item-3").value;
 
 	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
-		if(quantMarm < 4){
-
+		if(quantMarm < 10){
+			
 			const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
 			const encontrar_0 = marmitas_temp.filter((item)=>{
 				if(item == "0"){
@@ -79,7 +79,7 @@ function montaMarmita(){
 					return true;
 				}
 			});
-		
+			/* conta ass quantidaadde dos pratos*/
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
 			}
@@ -92,7 +92,7 @@ function montaMarmita(){
 			if(encontrar_3.length != "0"){
 				var m_1_item_3 = JSON.stringify({id:3,quantidade:encontrar_3.length});
 			}
-			
+			/* fimm */
 			let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3];
 			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
 			marmita_1.filter((item,index)=>{
@@ -142,7 +142,7 @@ function montaMarmita(){
 
 		}else{
 			
-			objAlerta.alerta("apenas 4 marmita por pedido");
+			objAlerta.alerta("apenas 10 marmita por pedido");
 			
 		}
 	}
@@ -157,7 +157,7 @@ function pratosFeitos(id){
 		contaPratos();
 		
 
-	}else if(totalPratosFeitos <= '6'){
+	}else if(totalPratosFeitos <= '10'){
 		contaPratos();
 		let result = pratos.indexOf("-");
 		if(result == -1){

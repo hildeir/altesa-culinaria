@@ -58,11 +58,17 @@ html{
 .total{
     color: #ff0000;
 }
-.dados-cliente, .dados-entrega, .dados-pedido-marmitas-1,.dados-pedido-marmitas-2,.dados-pedido-marmitas-3,.dados-pedido-marmitas-4, .dados-pedido-pf, .dados-pedido-pp{
+.dados-cliente, .dados-entrega, .dados-pedido-marmitas-1,
+.dados-pedido-marmitas-2,.dados-pedido-marmitas-3,
+.dados-pedido-marmitas-4,.dados-pedido-marmitas-5,
+.dados-pedido-marmitas-6,.dados-pedido-marmitas-7,
+.dados-pedido-marmitas-8,.dados-pedido-marmitas-9,
+.dados-pedido-marmitas-10, .dados-pedido-pf, .dados-pedido-pp{
     border: #1a7f1cff 2px solid;
     margin-right: 15px;
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 5px;
 }
 .cont-bts{
     display: flex;

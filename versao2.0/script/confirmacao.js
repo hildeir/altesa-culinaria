@@ -3,19 +3,26 @@ function inicia(){
 	sessionStorage.removeItem("dados");
 	let pf = sessionStorage.getItem("pf");
     let pp = sessionStorage.getItem("pp");
-    let m1 = sessionStorage.getItem("marmitas-1");
-	let m2 = sessionStorage.getItem("marmitas-2");
-	let m3 = sessionStorage.getItem("marmitas-3");
-	let m4 = sessionStorage.getItem("marmitas-4");
     let cliente = sessionStorage.getItem("dadosCliente");
     let entrega = sessionStorage.getItem("dadosEntrega");
-	if(pf == null && pp == null && cliente == null && entrega == null && m1 == null && m2 == null && m3 == null && m4 == null){
-		location.href = "/sitetair/versao2.0";
-	}else if(pf == "" && pp == "" && cliente == "" && entrega == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
-		location.href = "/sitetair/versao2.0";
+	
+    let cont_a = 0;
+	let cont_b = 0;
+	for (let i = 1; i <= 10; i++) {
+		if(sessionStorage.getItem("marmitas-"+[i]) == null){
+			cont_a += 1;
+		}
+		if(sessionStorage.getItem("marmitas-"+[i]) == ""){
+			cont_b += 1;
+		}
+	}
+	if(cont_a == 10 && pp == null && pf == null && cliente == null && entrega == null){
+		location.href = "/sitetair/versao2.0/";
+	}else if(cont_b == 10 && pp == "" && pf == null && cliente == "" && entrega == ""){
+		location.href = "/sitetair/versao2.0/";
 	}else{
-        exibir();
-    }
+		exibir();
+	}
 	document.querySelector(".voltar").addEventListener("click",()=>{
 		location.href = "/sitetair/versao2.0/etapa2.html";
 	});
@@ -26,12 +33,7 @@ function inicia(){
 function exibir(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
-    let m1 = sessionStorage.getItem("marmitas-1");
-    let m2 = sessionStorage.getItem("marmitas-2");
-    let m3 = sessionStorage.getItem("marmitas-3");
-    let m4 = sessionStorage.getItem("marmitas-4");
     const total = parseInt(sessionStorage.getItem("valorTotal"));
-    let pm  = sessionStorage.getItem("pm");
     let pf = sessionStorage.getItem("pf");
     let pp = sessionStorage.getItem("pp");
 
@@ -56,54 +58,23 @@ function exibir(){
     document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 
    /* marmitaas */
-   if(m1 != null){
-    let array = m1.split("-");
-        array.map((ele)=>{
-            let pfjson = JSON.parse(ele);
-            const  pedido = document.querySelector(".dados-pedido-marmitas-1");
-            pedido.innerHTML += "<b>prato</b><br>"+
-                            jsonMontarPratos[pfjson.id].nome+"<br>"+
-                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
-                           
-        });
-  
-    }
-    if(m2 != null){
-    let array = m2.split("-");
-        array.map((ele)=>{
-            let pfjson = JSON.parse(ele);
-            const  pedido = document.querySelector(".dados-pedido-marmitas-2");
-            pedido.innerHTML += "<b>prato</b><br>"+
-                            jsonMontarPratos[pfjson.id].nome+"<br>"+
-                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
-                            
-        });
+   for (let i = 1; i <= 10; i++) {
+       let m = sessionStorage.getItem("marmitas-"+i);
+       if(m != null){
+        let array = m.split("-");
+            array.map((ele)=>{
+                let pfjson = JSON.parse(ele);
+                const  pedido = document.querySelector(".dados-pedido-marmitas-"+i);
+                pedido.innerHTML += "<b>prato</b><br>"+
+                                jsonMontarPratos[pfjson.id].nome+"<br>"+
+                                "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
+                               
+            });
       
-    }
-    if(m3 != null){
-    let array = m3.split("-");
-        array.map((ele)=>{
-            let pfjson = JSON.parse(ele);
-            const  pedido = document.querySelector(".dados-pedido-marmitas-3");
-            pedido.innerHTML += "<b>prato</b><br>"+
-                            jsonMontarPratos[pfjson.id].nome+"<br>"+
-                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
-                            
-        });
-        
-    }
-    if(m4 != null){
-    let array = m4.split("-");
-        array.map((ele)=>{
-            let pfjson = JSON.parse(ele);
-            const  pedido = document.querySelector(".dados-pedido-marmitas-4");
-            pedido.innerHTML += "<b>prato</b><br>"+
-                            jsonMontarPratos[pfjson.id].nome+"<br>"+
-                            "<b>Quantidade:</b>"+pfjson.quantidade+"<br><br>";
-                            
-        });
-        
-    }
+        }
+       
+   }
+ 
    /* fim mmarmitas */
     if(pf != null){
         let array = pf.split("-");
@@ -133,18 +104,15 @@ function exibir(){
     if(pf == null){
         document.querySelector(".dados-pedido-pf").style.display = "none";
     }
-    if(m1 == null){
-        document.querySelector(".dados-pedido-marmitas-1").style.display = "none";
+    /* se a marmita nao existe oculta a div */
+    for (let i = 1; i <= 10; i++) {
+        let m = sessionStorage.getItem("marmitas-"+i);
+        if(m == null){
+            document.querySelector(".dados-pedido-marmitas-"+i).style.display = "none";
+           
+        }
     }
-    if(m2 == null){
-        document.querySelector(".dados-pedido-marmitas-2").style.display = "none";
-    }
-    if(m3 == null){
-        document.querySelector(".dados-pedido-marmitas-3").style.display = "none";
-    }
-    if(m4 == null){
-        document.querySelector(".dados-pedido-marmitas-4").style.display = "none";
-    }
+    /* fim */
 }
 function enviar(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
@@ -187,7 +155,8 @@ function enviar(){
     }
     /* fim */
     let tituloMarmita = "";
-    if(sessionStorage.getItem('marmitas-1') ==  null && sessionStorage.getItem('marmitas-2') == null && sessionStorage.getItem('marmitas-3') == null && sessionStorage.getItem('marmitas-4') == null){
+    if(sessionStorage.getItem('marmitas-1') ==  null && 
+    sessionStorage.getItem('marmitas-2') == null && sessionStorage.getItem('marmitas-3') == null && sessionStorage.getItem('marmitas-4') == null){
         tituloMarmita = "";
     }else{
         tituloMarmita = "MARMITAS:";
