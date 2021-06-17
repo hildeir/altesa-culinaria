@@ -79,6 +79,16 @@ function montaMarmita(){
 					return true;
 				}
 			});
+			const encontrar_4 = marmitas_temp.filter((item)=>{
+				if(item == "4"){
+					return true;
+				}
+			});
+			const encontrar_5 = marmitas_temp.filter((item)=>{
+				if(item == "5"){
+					return true;
+				}
+			});
 			/* conta ass quantidaadde dos pratos*/
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -92,26 +102,39 @@ function montaMarmita(){
 			if(encontrar_3.length != "0"){
 				var m_1_item_3 = JSON.stringify({id:3,quantidade:encontrar_3.length});
 			}
+			if(encontrar_4.length != "0"){
+				var m_1_item_4 = JSON.stringify({id:4,quantidade:encontrar_4.length});
+			}
+			if(encontrar_5.length != "0"){
+				var m_1_item_5 = JSON.stringify({id:5,quantidade:encontrar_5.length});
+			}
 			/* fimm */
-			let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3];
+			let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3, m_1_item_4, m_1_item_5];
 			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
-			marmita_1.filter((item,index)=>{
-				if(item == undefined){
-					marmita_1.splice(index,1);
+			let continua = true;
+			while(continua == true){
+				for (let i = 0; i <= marmita_1.length; i++) {
+					if(marmita_1[i] == undefined){
+						marmita_1.filter((item,index)=>{
+							if(item === undefined){
+								marmita_1.splice(index,1);
+								continua = true;
+							}
+						});
+					}else{
+						continua = false;
+					}
 				}
-			});
-			marmita_1.filter((item,index)=>{
-				if(item == undefined){
-					marmita_1.splice(index,1);
-				}
-			});
+			}
 			/* fim */
+			/* coloca os praatos em uma so string */
 			let uni = "";
 			if(marmita_1.length == 1){
 				uni = marmita_1.join("");
 			}else if(marmita_1.length > 1){
 				uni = marmita_1.join("-");
 			}
+			/* fim */
 			if(quantMarm == 0){
 				sessionStorage.setItem("quantMarm",quantMarm += 1);
 				sessionStorage.setItem("marmitas-"+quantMarm,uni);
@@ -135,8 +158,8 @@ function montaMarmita(){
 				if(outro == true){
 
 					sessionStorage.setItem("quantMarm",quantMarm += 1);
-						sessionStorage.setItem("marmitas-"+quantMarm,uni);
-						contaPratos();
+					sessionStorage.setItem("marmitas-"+quantMarm,uni);
+					contaPratos();
 				}
 			}
 

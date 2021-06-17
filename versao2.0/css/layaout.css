@@ -19,9 +19,8 @@ a:hover{
 }
 .cont-pratos-feitos, .cont-pratos, .cont-pratos-promocao{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .cont-pratos-feitos input, .cont-pratos input, .cont-pratos-promocao input{
     cursor: pointer;
@@ -75,7 +74,7 @@ a:hover{
     margin-top: 14px;
     margin-left: 3px;
 }
-.pm-1,.pm-2,.pm-3,.pm-4{
+.pm-1,.pm-2,.pm-3,.pm-4,.pm-5,.pm-6{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -91,6 +90,14 @@ a:hover{
 .pm-4{
     background-image: url("../imagens/vermelho.jpg");
 }
+.pm-5{
+    background-image: url("../imagens/arroz branco.jpg");
+}
+.pm-6{
+    background-image: url("../imagens/arroz integral.jpg");
+
+}
+
 .pf-1, .pf-2, .pf-3, .pf-4{
     background-size: cover;
     background-repeat: no-repeat;
@@ -401,6 +408,7 @@ main{
     .cont-item{
         margin-bottom: 23%;
     }
+   
     nav ul{
         padding: 0px;
     }
@@ -427,6 +435,19 @@ main{
         display: block;
         margin-bottom: 4px;
     }
+   
+}
+@media (min-width:1440px) and (max-width:2040px){
+    .cont-item{
+        margin-bottom: 6%;
+    }
+   
+}
+@media (min-width:1920px){
+    .cont-item{
+        margin-bottom: 3%;
+    }
+   
 }
 @media (min-width:2560px){
     .cont-msg-foto{
@@ -442,4 +463,5 @@ main{
     .cont-peca-o-seu{
         width: 500px;
     }
+   
 }
