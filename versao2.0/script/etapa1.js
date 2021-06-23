@@ -269,7 +269,7 @@ function removerPrato(e){
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	//subtrai o valor do prato excluido no total 
-	let valorTotal = parseInt(sessionStorage.getItem("valorTotal"));
+	let valorTotal = parseFloat(sessionStorage.getItem("valorTotal"));
 	let preco = json[parseInt(idPrato)].preco;
 	
 	let quant = objQuantPratoFeitos;
