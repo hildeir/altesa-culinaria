@@ -98,7 +98,7 @@ a:hover{
 
 }
 
-.pf-1, .pf-2, .pf-3, .pf-4{
+.pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -113,6 +113,12 @@ a:hover{
 }
 .pf-4{
     background-image: url("../imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg");
+}
+.pf-5{
+    background-image: url("../imagens/marmitas-prontas/cubo de frango saltiado com caldo de laranja.jpg");
+}
+.pf-6{
+    background-image: url("../imagens/marmitas-prontas/peito de frango com pure de abobora e baiao de dois vegano.jpg");
 }
 .tipo-prato{
     background-color: rgba(26, 127, 28, 0.7);
