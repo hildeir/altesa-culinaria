@@ -17,14 +17,17 @@ function inicia(){
 		}
 	}
 	if(cont_a == 10 && pp == null && pf == null && cliente == null && entrega == null){
-		location.href = "/sitetair/versao2.0/";
+		//location.href = "/sitetair/versao2.0/";
+        location.href = "/tair/";
 	}else if(cont_b == 10 && pp == "" && pf == null && cliente == "" && entrega == ""){
-		location.href = "/sitetair/versao2.0/";
+		//location.href = "/sitetair/versao2.0/";
+        location.href = "/tair/";
 	}else{
 		exibir();
 	}
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		location.href = "/sitetair/versao2.0/etapa2.html";
+		//location.href = "/sitetair/versao2.0/etapa2.html";
+        location.href = "/tair/etapa2.html";
 	});
 	document.querySelector(".enviar").addEventListener("click",()=>{
 		enviar();

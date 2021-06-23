@@ -10,13 +10,16 @@ function inicia(){
 	let m4 = sessionStorage.getItem("marmitas-4");
 	
 	if(pf == null && pp == null && m1 == null && m2 == null && m3 == null && m4 == null){
-		location.href = "/sitetair/versao2.0/";
+		//location.href = "/sitetair/versao2.0/";
+		location.href = "/tair/";
 	}else if(pf == "" && pp == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
-		location.href = "/sitetair/versao2.0/";
+		//location.href = "/sitetair/versao2.0/";
+		location.href = "/tair/";
 	}
 	
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		location.href = "etapa1.html";
+		//location.href = "etapa1.html";
+		location.href = "/tair/etapa1.html";
 	});
 	document.querySelector(".avancar").addEventListener("click",()=>{
 		avanca();

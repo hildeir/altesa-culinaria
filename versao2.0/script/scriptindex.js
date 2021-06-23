@@ -139,6 +139,7 @@ function montaMarmita(){
 				sessionStorage.setItem("quantMarm",quantMarm += 1);
 				sessionStorage.setItem("marmitas-"+quantMarm,uni);
 				contaPratos();
+				objAlerta.alerta("Marmita adicionado ao carrinho");
 			}else{
 				let outro = false;
 				let i = 1;
@@ -150,6 +151,7 @@ function montaMarmita(){
 						contaPratos();
 						outro = false;
 						i = quantMarm + 1;
+						objAlerta.alerta("Marmita adicionado ao carrinho");
 					}else{
 						i++;
 						outro = true;
@@ -160,6 +162,7 @@ function montaMarmita(){
 					sessionStorage.setItem("quantMarm",quantMarm += 1);
 					sessionStorage.setItem("marmitas-"+quantMarm,uni);
 					contaPratos();
+					objAlerta.alerta("Marmita adicionado ao carrinho");
 				}
 			}
 
