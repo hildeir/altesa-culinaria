@@ -11,38 +11,18 @@ var objAlerta = {
 };
 /* fimm */
 function inicia(){
-	/*
 	let pratos2 = document.querySelectorAll(".bt-prato-feito");
-	pratos2.forEach((ele2)=>{
-		let id2 = ele2.getAttribute("data-id");
-		ele2.addEventListener('click',()=>{
-			pratosFeitos(id2);
-		});
+	pratos2.forEach((elem)=>{
+		elem.addEventListener('click',pratosFeitos);
 	});
-	*/
-	let pratos2 = document.querySelectorAll(".bt-prato-feito");
-	pratos2.forEach((ele2)=>{
-		ele2.addEventListener('click',pratosFeitos);
+	let pratosPr = document.querySelectorAll(".bt-prato-promocao");
+	pratosPr.forEach((elem)=>{
+		elem.addEventListener('click',pratosPromocao);
 	});
 
-	let pratos3 = document.querySelectorAll(".bt-prato-promocao");
-	pratos3.forEach((ele3)=>{
-		let id3 = ele3.getAttribute("data-id");
-		ele3.addEventListener('click',()=>{
-			pratosPromocao(id3);
-			
-		});
-	});
 	if(sessionStorage.getItem("quantidade") != null){
 		document.querySelector(".quant-carr").innerHTML = sessionStorage.getItem("quantidade");
 	}
-	if(sessionStorage.getItem("pf") != null){
-		montarQuant(sessionStorage.getItem("pf"),"pf");
-	}
-	if(sessionStorage.getItem("pp") != null){
-		montarQuant(sessionStorage.getItem("pp"),"pp");
-	}
-	
 	document.querySelector(".bt-add-carrinho").addEventListener('click',function(){
 		montaMarmita();
 	});
@@ -212,8 +192,9 @@ function pratosFeitos(e){
 	
 	let pratos = sessionStorage.getItem("pf");
 	let totalPratosFeitos = sessionStorage.getItem("totalPratosFeitos");
+	let total_pratos = parseInt(totalPratosFeitos) + quant_item;
 	if(totalPratosFeitos == null){
-		if(quant_item < 10){
+		if(quant_item <= 100){
 
 			sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:quant_item}));
 			sessionStorage.setItem("totalPratosFeitos",quant_item);
@@ -222,8 +203,8 @@ function pratosFeitos(e){
 			objAlerta.alerta("excedeu a quantidade");
 		}
 
-	}else if(parseInt(totalPratosFeitos, 10) < 10){
-		contaPratos();
+	}else if(total_pratos <= 100){
+		
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pf"));
@@ -237,7 +218,7 @@ function pratosFeitos(e){
 
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pf');
-				let novoPrato = JSON.stringify({id:id,quantidade:1});
+				let novoPrato = JSON.stringify({id:id,quantidade:quant_item});
 				sessionStorage.setItem('pf',pratoAnterior+"-"+novoPrato);
 
 				let totalPFint = parseInt(totalPratosFeitos,10);
@@ -246,14 +227,14 @@ function pratosFeitos(e){
 		
 		}else{
 			//se existe ssessao ocom mais de 1 json desmembra e seta a session com vallor aatualizado
-			//let pratoUpdate = [];
+			
 			let outroPrato = [];
 			let pratos2 = pratos.split("-");
 			let idExistente;
 			pratos2.map((ele)=>{
 				let obj = JSON.parse(ele);
 				if(obj.id == id){
-					let updateQuant = obj.quantidade += 1;
+					let updateQuant = obj.quantidade += quant_item;
 					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
 					idExistente = obj.id;
 
@@ -264,7 +245,7 @@ function pratosFeitos(e){
 
 			});
 			if(id != idExistente){
-				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+				outroPrato.push(JSON.stringify({id:id,quantidade:quant_item}));
 			}
 			
 			let x = outroPrato.join("-");
@@ -274,55 +255,62 @@ function pratosFeitos(e){
 			
 			
 		}	
+		contaPratos(quant_item);
 	}else{
 		objAlerta.alerta("você excedeu a quantidade de pedido");
 	}
-	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
-	//montarQuant(sessionStorage.getItem("pf"),"pf");
-	/* fim */
+	
 	
 }
-function pratosPromocao(id){
+function pratosPromocao(e){
+	let id = parseInt(e.target.getAttribute("data-id"));
+	let cont = e.target.closest(".cont-bts");
+	let quant_item = parseInt(cont.querySelector(".quant").innerText);
+
 	let pratos = sessionStorage.getItem("pp");
 	let totalPratosFeitos = sessionStorage.getItem("totalPratosPromocao");
+	let total_pratos = parseInt(totalPratosFeitos) + quant_item;
 	if(totalPratosFeitos == null){
-		sessionStorage.setItem("pp",JSON.stringify({id:id,quantidade:1}));
-		sessionStorage.setItem("totalPratosPromocao",1);
-		contaPratos();
+		if(quant_item <= 100){
+			sessionStorage.setItem("pp",JSON.stringify({id:id,quantidade:quant_item}));
+			sessionStorage.setItem("totalPratosPromocao",1);
+			contaPratos(quant_item);
+		}else{
+			objAlerta.alerta("excedeu a quantidade");
+		}
 
-	}else if(parseInt(totalPratosFeitos, 10) < 10){
-		contaPratos();
+	}else if(total_pratos <= 100){
+		
 		let result = pratos.indexOf("-");
 		if(result == -1){
 			let x = JSON.parse(sessionStorage.getItem("pp"));
 			if(x.id == id){
 				//se enconttra oo mesmo prato, acrescenta a quantidadde
-				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=1});
+				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=quant_item});
 				sessionStorage.setItem("pp",updatePrato);
 				
 				let totalPFint = parseInt(totalPratosFeitos,10);
-				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+				sessionStorage.setItem("totalPratosPromocao",totalPFint+=quant_item);
 				
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pp');
-				let novoPrato = JSON.stringify({id:id,quantidade:1});
+				let novoPrato = JSON.stringify({id:id,quantidade:quant_item});
 				sessionStorage.setItem('pp',pratoAnterior+"-"+novoPrato);
 
 				let totalPFint = parseInt(totalPratosFeitos,10);
-				sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+				sessionStorage.setItem("totalPratosPromocao",totalPFint+=quant_item);
 				
 			}
 		
 		}else{
 			//se existe ssessao ocom mais de 1 json desmembra e seta a session com vallor aatualizado
-			//let pratoUpdate = [];
 			let outroPrato = [];
 			let pratos2 = pratos.split("-");
 			let idExistente;
 			pratos2.map((ele)=>{
 				let obj = JSON.parse(ele);
 				if(obj.id == id){
-					let updateQuant = obj.quantidade += 1;
+					let updateQuant = obj.quantidade += quant_item;
 					outroPrato.push(JSON.stringify({id:obj.id,quantidade:updateQuant}));
 					idExistente = obj.id;
 					
@@ -334,21 +322,19 @@ function pratosPromocao(id){
 
 			});
 			if(id != idExistente){
-				outroPrato.push(JSON.stringify({id:id,quantidade:1}));
+				outroPrato.push(JSON.stringify({id:id,quantidade:quant_item}));
 				
 			}
 			
 			let x = outroPrato.join("-");
 			sessionStorage.setItem("pp",x);
 			let totalPFint = parseInt(totalPratosFeitos,10);
-			sessionStorage.setItem("totalPratosPromocao",totalPFint+=1);
+			sessionStorage.setItem("totalPratosPromocao",totalPFint+=quant_item);
 		}	
+		contaPratos(quant_item);
 	}else{
 		objAlerta.alerta("você excedeu a quantidade de pedido");
 	}
-	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
-	montarQuant(sessionStorage.getItem("pp"),"pp");
-	/* fim */
 }
 function contaPratos(quant_item){	
 	let quant = sessionStorage.getItem("quantidade");
@@ -362,51 +348,4 @@ function contaPratos(quant_item){
 		document.querySelector(".quant-carr").innerHTML = y;
 	}
 	
-}
-function montarQuant(pratos,categoria){
-	if(categoria == "pf"){
-		let pratoFeito = document.querySelectorAll(".cont-pratos-feitos .quant-item");
-		let identificaQuantPratos = pratos.indexOf("-");
-		
-		if(identificaQuantPratos == -1){
-			let obj = JSON.parse(pratos);
-			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-		}else{
-			let array = pratos.split("-");
-			array.forEach((elem)=>{
-				let obj = JSON.parse(elem);
-				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-			});
-		}
-	}
-	if(categoria == "pp"){
-		let pratoFeito = document.querySelectorAll(".cont-pratos-promocao .quant-item");
-		let identificaQuantPratos = pratos.indexOf("-");
-		
-		if(identificaQuantPratos == -1){
-			let obj = JSON.parse(pratos);
-			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-		}else{
-			let array = pratos.split("-");
-			array.forEach((elem)=>{
-				let obj = JSON.parse(elem);
-				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-			});
-		}
-	}
-	if(categoria == "pm"){
-		let pratoFeito = document.querySelectorAll(".cont-pratos .quant-item");
-		let identificaQuantPratos = pratos.indexOf("-");
-		
-		if(identificaQuantPratos == -1){
-			let obj = JSON.parse(pratos);
-			pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-		}else{
-			let array = pratos.split("-");
-			array.forEach((elem)=>{
-				let obj = JSON.parse(elem);
-				pratoFeito[obj.id].innerHTML = `Quant: ${obj.quantidade}`;
-			});
-		}
-	}
 }
