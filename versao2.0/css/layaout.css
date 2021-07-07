@@ -5,16 +5,16 @@ body{
     margin: 0;
     background-color: #efd8bbff;
 }
-a{
+.link-nav-desktop{
     text-decoration: none;
 }
-a:link{
+.link-nav-desktop:link{
     color: #1a7f1cff;
 }
 a:visited{
     color: #1a7f1cff;
 }
-a:hover{
+.link-nav-desktop:hover{
     color:#633194ff;
 }
 .cont-pratos-feitos, .cont-pratos, .cont-pratos-promocao{
@@ -189,6 +189,7 @@ nav ul li:hover{
     font-family: "caviar";
     color: #1a7f1cff;
     padding-right: 60px;
+    position: relative;
 }
 
 .bt-mais{
@@ -468,6 +469,54 @@ main{
     flex-direction: column;
     align-items: center;
 }
+.bt-mobile div{
+    height: 3px;
+    margin-bottom: 3px;
+    background-color: #9468c0ff;
+    width: 100%;
+}
+.bt-mobile{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    align-items: center;
+    height: 100%;
+    display: none;
+}
+.nav-mobile ul{
+    padding: 0px;
+    margin-top: 0px;
+}
+.nav-mobile ul li{
+    list-style: none;
+    margin-bottom: 6px;
+    color: #fff;
+}
+.nav-mobile{
+    position: fixed;
+    right: -250px;
+    background-color:#d79642;
+    padding: 20px;
+    transition: right 1s;
+    height: 100vh;
+    z-index: 1;
+}
+.nav-ul-mobile li a{
+    text-decoration: none;
+    color: #fff;
+}
+.bt-fechar-mobile-nav{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9168bb;
+    width: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+}
 /* fim */
 @font-face{
     font-family: "hunter";
@@ -484,6 +533,12 @@ main{
     font-weight: normal;
 }
 @media (min-width:320px) and (max-width:425px){
+    .nav-desktop{
+        display: none;
+    }
+    .bt-mobile{
+        display: flex;
+    }
     .cont-peca-o-seu{
         width: 300px;
         margin: 0;
@@ -539,7 +594,7 @@ main{
         display: block;
         margin-bottom: 4px;
     }
-   
+    
 }
 @media (min-width:1440px) and (max-width:2040px){
     .cont-item{

@@ -40,12 +40,24 @@ function inicia(){
 		elem.addEventListener("click",diminui);
 	});
 	/** ffiim */
-	document.querySelector(".onde-entregamos").addEventListener("click",function(){
-		document.querySelector(".cont-entrega").style.display = "flex";
+	/* abre e fecha o box dde ondde entregamos*/
+	let entrega = document.querySelectorAll(".onde-entregamos");
+	entrega.forEach((elem)=>{
+		elem.addEventListener("click",function(){
+			document.querySelector(".cont-entrega").style.display = "flex"});
 	});
 	document.querySelector(".bt-entrega-fechar").addEventListener("click",function(){
 		document.querySelector(".cont-entrega").style.display = "none";
 	});
+	/* fim */
+	//* aabre e fecha o naav mobile */
+	document.querySelector('.bt-mobile').addEventListener("click",()=>{
+		document.querySelector(".nav-mobile").style.right = "0px";
+	});
+	document.querySelector(".bt-fechar-mobile-nav").addEventListener("click",()=>{
+		document.querySelector(".nav-mobile").style.right = "-250px";
+	});
+	/* fim */
 }
 function aumenta(e){
 	let cont = e.target.closest(".cont-bts");
