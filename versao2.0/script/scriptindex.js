@@ -11,12 +11,18 @@ var objAlerta = {
 };
 /* fimm */
 function inicia(){
+	/*
 	let pratos2 = document.querySelectorAll(".bt-prato-feito");
 	pratos2.forEach((ele2)=>{
 		let id2 = ele2.getAttribute("data-id");
 		ele2.addEventListener('click',()=>{
 			pratosFeitos(id2);
 		});
+	});
+	*/
+	let pratos2 = document.querySelectorAll(".bt-prato-feito");
+	pratos2.forEach((ele2)=>{
+		ele2.addEventListener('click',pratosFeitos);
 	});
 
 	let pratos3 = document.querySelectorAll(".bt-prato-promocao");
@@ -40,10 +46,35 @@ function inicia(){
 	document.querySelector(".bt-add-carrinho").addEventListener('click',function(){
 		montaMarmita();
 	});
-	
-
+	/* bbotao ddee aumenttar e diminuirr a quantidadae  ddee itteenss */
+	let aumentar = document.querySelectorAll(".aumentar");
+	aumentar.forEach((elem)=>{
+		elem.addEventListener("click",aumenta);
+	});
+	let diminuir = document.querySelectorAll(".diminuir");
+	diminuir.forEach((elem)=>{
+		elem.addEventListener("click",diminui);
+	});
 }
-
+function aumenta(e){
+	let cont = e.target.closest(".cont-bts");
+	let quant = cont.querySelector(".quant");
+	let valor =  parseInt(quant.innerText);
+	let aumenta = valor + 1;
+	quant.innerHTML = aumenta;
+	
+}
+function diminui(e){
+	let cont = e.target.closest(".cont-bts");
+	let quant = cont.querySelector(".quant");
+	let valor =  parseInt(quant.innerText);
+	if(valor > 1){
+		var diminuir = valor - 1;
+		quant.innerHTML = diminuir;
+	}
+	
+	
+}
 function montaMarmita(){
 	let x = sessionStorage.getItem("quantMarm");
 	if(x == null){
@@ -138,7 +169,7 @@ function montaMarmita(){
 			if(quantMarm == 0){
 				sessionStorage.setItem("quantMarm",quantMarm += 1);
 				sessionStorage.setItem("marmitas-"+quantMarm,uni);
-				contaPratos();
+				contaPratos(1);
 				objAlerta.alerta("Marmita adicionado ao carrinho");
 			}else{
 				let outro = false;
@@ -148,7 +179,7 @@ function montaMarmita(){
 					if(marmmAtual == null){
 						sessionStorage.setItem("quantMarm",quantMarm += 1);
 						sessionStorage.setItem("marmitas-"+i,uni);
-						contaPratos();
+						contaPratos(1);
 						outro = false;
 						i = quantMarm + 1;
 						objAlerta.alerta("Marmita adicionado ao carrinho");
@@ -161,7 +192,7 @@ function montaMarmita(){
 
 					sessionStorage.setItem("quantMarm",quantMarm += 1);
 					sessionStorage.setItem("marmitas-"+quantMarm,uni);
-					contaPratos();
+					contaPratos(1);
 					objAlerta.alerta("Marmita adicionado ao carrinho");
 				}
 			}
@@ -174,14 +205,22 @@ function montaMarmita(){
 	}
 		
 }
-function pratosFeitos(id){
+function pratosFeitos(e){
+	let id = parseInt(e.target.getAttribute("data-id"));
+	let cont = e.target.closest(".cont-bts");
+	let quant_item = parseInt(cont.querySelector(".quant").innerText);
+	
 	let pratos = sessionStorage.getItem("pf");
 	let totalPratosFeitos = sessionStorage.getItem("totalPratosFeitos");
 	if(totalPratosFeitos == null){
-		sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:1}));
-		sessionStorage.setItem("totalPratosFeitos",1);
-		contaPratos();
-		
+		if(quant_item < 10){
+
+			sessionStorage.setItem("pf",JSON.stringify({id:id,quantidade:quant_item}));
+			sessionStorage.setItem("totalPratosFeitos",quant_item);
+			contaPratos(quant_item);
+		}else{
+			objAlerta.alerta("excedeu a quantidade");
+		}
 
 	}else if(parseInt(totalPratosFeitos, 10) < 10){
 		contaPratos();
@@ -190,11 +229,11 @@ function pratosFeitos(id){
 			let x = JSON.parse(sessionStorage.getItem("pf"));
 			if(x.id == id){
 				//se enconttra oo mesmo prato, acrescenta a quantidadde
-				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=1});
+				let updatePrato = JSON.stringify({id:id,quantidade:x.quantidade+=quant_item});
 				sessionStorage.setItem("pf",updatePrato);
 				
 				let totalPFint = parseInt(totalPratosFeitos,10);
-				sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
+				sessionStorage.setItem("totalPratosFeitos",totalPFint+=quant_item);
 
 			}else{
 				let pratoAnterior = sessionStorage.getItem('pf');
@@ -202,7 +241,7 @@ function pratosFeitos(id){
 				sessionStorage.setItem('pf',pratoAnterior+"-"+novoPrato);
 
 				let totalPFint = parseInt(totalPratosFeitos,10);
-				sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
+				sessionStorage.setItem("totalPratosFeitos",totalPFint+=quant_item);
 			}
 		
 		}else{
@@ -231,7 +270,7 @@ function pratosFeitos(id){
 			let x = outroPrato.join("-");
 			sessionStorage.setItem("pf",x);
 			let totalPFint = parseInt(totalPratosFeitos,10);
-			sessionStorage.setItem("totalPratosFeitos",totalPFint+=1);
+			sessionStorage.setItem("totalPratosFeitos",totalPFint+=quant_item);
 			
 			
 		}	
@@ -239,7 +278,7 @@ function pratosFeitos(id){
 		objAlerta.alerta("você excedeu a quantidade de pedido");
 	}
 	/* aparecer a quaantidade no proprio item quando o usuarioo clica no itemm */
-	montarQuant(sessionStorage.getItem("pf"),"pf");
+	//montarQuant(sessionStorage.getItem("pf"),"pf");
 	/* fim */
 	
 }
@@ -311,14 +350,14 @@ function pratosPromocao(id){
 	montarQuant(sessionStorage.getItem("pp"),"pp");
 	/* fim */
 }
-function contaPratos(){	
+function contaPratos(quant_item){	
 	let quant = sessionStorage.getItem("quantidade");
 	if(quant == null){
-		sessionStorage.setItem("quantidade",1);
-		document.querySelector(".quant-carr").innerHTML = 1;
+		sessionStorage.setItem("quantidade",quant_item);
+		document.querySelector(".quant-carr").innerHTML = quant_item;
 	}else{
 		let x = parseInt(quant);
-		let y = x+=1;
+		let y = x+=quant_item;
 		sessionStorage.setItem("quantidade",y);
 		document.querySelector(".quant-carr").innerHTML = y;
 	}
