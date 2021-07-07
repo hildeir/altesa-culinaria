@@ -425,6 +425,49 @@ main{
     box-shadow: 0 0 5px #000000;
 
 }
+.entrega ul li{
+    list-style: none;
+}
+.entrega{
+    width: 300px;
+    height: auto;
+    background-color: #f6e8d5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.entrega h3{
+    margin: 0px;
+}
+.cont-entrega{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+.bt-entrega-fechar{
+    align-self: flex-end;
+    margin-top: 7px;
+    margin-right: 7px;
+    background-color:#e0ad6c;
+    padding: 0px 6px;
+    cursor: pointer;
+}
+.entrega-lista ul{
+    padding: 0;
+}
+
+.entrega-lista{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* fim */
 @font-face{
     font-family: "hunter";
