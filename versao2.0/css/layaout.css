@@ -480,7 +480,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 40px;
+    margin-left: 20px;
     align-items: center;
     height: 100%;
     display: none;
