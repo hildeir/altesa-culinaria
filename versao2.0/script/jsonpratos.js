@@ -13,7 +13,8 @@ const jsonPratoFeito = [
 	{id:2,nome:"baião de 2 com grão de soja e purê de batata baroa",preco:42.0,peso:"200gr",img:"imagens/marmitas-prontas/baião de 2 com grão de soja e purê de batata baroa - vegano.jpg",desc:"comida saborosa"},
 	{id:3,nome:"pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora",preco:112.0,peso:"200gr",img:"imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg",desc:"comida saborosa"},
 	{id:4,nome:"cubo de frango saltiado com caldo de laranja",preco:30.75,peso:"200gr",img:"imagens/marmitas-prontas/cubo de frango saltiado com caldo de laranja.jpg",desc:"comida saborosa"},
-	{id:5,nome:"peito de frango com pure de abobora e baiao de dois",preco:22.6,img:"imagens/marmitas-prontas/peito de frango com pure de abobora e baiao de dois.jpg",desc:"comida saborosa"}
+	{id:5,nome:"peito de frango com pure de abobora e baiao de dois",preco:22.6,img:"imagens/marmitas-prontas/peito de frango com pure de abobora e baiao de dois.jpg",desc:"comida saborosa"},
+	{id:6,nome:"carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor",preco:22.20,peso:"200gr",img:"imagens/marmitas-prontas/carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor.jpg",desc:"comida saborosa"}
 ];
 
 const jsonPratoPromocao = [
