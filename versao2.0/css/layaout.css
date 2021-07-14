@@ -95,7 +95,7 @@ a:visited{
     margin-top: 14px;
     margin-left: 3px;
 }
-.pm-1,.pm-2,.pm-3,.pm-4,.pm-5,.pm-6,.pm-7{
+.pm-1,.pm-2,.pm-3,.pm-4,.pm-5,.pm-6,.pm-7,.pm-8{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -122,7 +122,10 @@ a:visited{
     background-image: url("../imagens/carne louca de maminha.jpg");
 
 }
+.pm-8{
+    background-image: url("../imagens/frango desfiado cremoso.jpg");
 
+}
 .pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7{
     background-size: cover;
     background-repeat: no-repeat;

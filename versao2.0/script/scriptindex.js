@@ -128,6 +128,11 @@ function montaMarmita(){
 					return true;
 				}
 			});
+			const encontrar_7 = marmitas_temp.filter((item)=>{
+				if(item == "7"){
+					return true;
+				}
+			});
 			/* conta ass quantidaadde dos pratos*/
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -150,9 +155,12 @@ function montaMarmita(){
 			if(encontrar_6.length != "0"){
 				var m_1_item_6 = JSON.stringify({id:6,quantidade:encontrar_6.length});
 			}
+			if(encontrar_7.length != "0"){
+				var m_1_item_7 = JSON.stringify({id:7,quantidade:encontrar_7.length});
+			}
 			/* fimm */
 			let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3, m_1_item_4, 
-				m_1_item_5,m_1_item_6];
+				m_1_item_5,m_1_item_6,m_1_item_7];
 			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
 			let continua = true;
 			while(continua == true){
