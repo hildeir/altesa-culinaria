@@ -267,7 +267,7 @@ function removerPrato(e){
 		
 	}
 	/* fim */
-	if(sessionStorage.getItem('valorTotal') == "0"){
+	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
 	}

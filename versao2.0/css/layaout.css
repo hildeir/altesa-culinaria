@@ -45,11 +45,8 @@ a:visited{
     position: relative;
   
 }
-.cont-pratos-feitos input:hover{
-    /*
-    box-shadow: 0px 0px 5px #000000;
-    background-color: #7d52a7ff;
-    */
+.item-promo{
+    position: relative;
 }
 .cont-pratos input:hover{
     box-shadow: 0px 0px 5px #000000;
@@ -71,12 +68,7 @@ a:visited{
     width: 300px;
     
 }
-/*
-.cont-item-prato-feito{
-    border: 2px solid #edd0ab;
-    border-radius: 30px 30px 0px 0px;
-}
-*/
+
 .quant-carr{
     background-color: #1a7f1cff;
     height: 24px;
@@ -126,7 +118,7 @@ a:visited{
     background-image: url("../imagens/frango desfiado cremoso.jpg");
 
 }
-.pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7{
+.pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7, .pf-8, .pf-9{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -150,6 +142,12 @@ a:visited{
 }
 .pf-7{
     background-image: url("../imagens/marmitas-prontas/carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor.jpg");
+}
+.pf-8{
+    background-image: url("../imagens/marmitas-prontas/Picadinho de maminha com farofa de milho com legumes gratinado.jpeg");
+}
+.pf-9{
+    background-image: url("../imagens/marmitas-prontas/frango desfiado cremoso com lentilha e couve-flor tostada.jpeg");
 }
 .tipo-prato{
     background-color: rgba(26, 127, 28, 0.7);
