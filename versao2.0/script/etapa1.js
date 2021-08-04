@@ -67,7 +67,7 @@ function montar(){
 				clone.setAttribute("id",pratosObj.id);
 				clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
 				clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
-				clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+				clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
 				clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
 				clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
 				document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
@@ -93,7 +93,7 @@ function montar(){
 			clone.setAttribute("id",pratosObj.id);
 			clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
 			clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
-			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
+			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
 			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
 			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
 			document.querySelector(".cont-pratos-feitos").appendChild(clone);
