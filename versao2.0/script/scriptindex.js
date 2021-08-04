@@ -90,7 +90,7 @@ function montaMarmita(){
 	const marm_1_item_3 = document.querySelector(".marm-1-item-3").value;
 
 	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
-		if(quantMarm < 10){
+		if(quantMarm < 100){
 			
 			const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
 			const encontrar_0 = marmitas_temp.filter((item)=>{
@@ -133,6 +133,31 @@ function montaMarmita(){
 					return true;
 				}
 			});
+			const encontrar_8 = marmitas_temp.filter((item)=>{
+				if(item == "8"){
+					return true;
+				}
+			});
+			const encontrar_9 = marmitas_temp.filter((item)=>{
+				if(item == "9"){
+					return true;
+				}
+			});
+			const encontrar_10 = marmitas_temp.filter((item)=>{
+				if(item == "10"){
+					return true;
+				}
+			});
+			const encontrar_11 = marmitas_temp.filter((item)=>{
+				if(item == "11"){
+					return true;
+				}
+			});
+			const encontrar_12 = marmitas_temp.filter((item)=>{
+				if(item == "12"){
+					return true;
+				}
+			});
 			/* conta ass quantidaadde dos pratos*/
 			if(encontrar_0.length != "0"){
 				var m_1_item_0 = JSON.stringify({id:0,quantidade:encontrar_0.length});
@@ -158,9 +183,25 @@ function montaMarmita(){
 			if(encontrar_7.length != "0"){
 				var m_1_item_7 = JSON.stringify({id:7,quantidade:encontrar_7.length});
 			}
+			if(encontrar_8.length != "0"){
+				var m_1_item_8 = JSON.stringify({id:8,quantidade:encontrar_8.length});
+			}
+			if(encontrar_9.length != "0"){
+				var m_1_item_9 = JSON.stringify({id:9,quantidade:encontrar_9.length});
+			}
+			if(encontrar_10.length != "0"){
+				var m_1_item_10 = JSON.stringify({id:10,quantidade:encontrar_10.length});
+			}
+			if(encontrar_11.length != "0"){
+				var m_1_item_11 = JSON.stringify({id:11,quantidade:encontrar_11.length});
+			}
+			if(encontrar_12.length != "0"){
+				var m_1_item_12 = JSON.stringify({id:12,quantidade:encontrar_12.length});
+			}
 			/* fimm */
 			let marmita_1 = [m_1_item_0, m_1_item_1, m_1_item_2, m_1_item_3, m_1_item_4, 
-				m_1_item_5,m_1_item_6,m_1_item_7];
+				m_1_item_5,m_1_item_6,m_1_item_7,m_1_item_8, m_1_item_9,
+				m_1_item_10, m_1_item_11, m_1_item_12];
 			/* remove os unndefined do array deixando no arraay apenas os prratos escolhidos*/
 			let continua = true;
 			while(continua == true){

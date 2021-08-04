@@ -87,7 +87,8 @@ a:visited{
     margin-top: 14px;
     margin-left: 3px;
 }
-.pm-1,.pm-2,.pm-3,.pm-4,.pm-5,.pm-6,.pm-7,.pm-8{
+.pm-1,.pm-2,.pm-3,.pm-4,.pm-5,.pm-6,.pm-7,.pm-8, .pm-9,
+.pm-10, .pm-11, .pm-12, .pm-13{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -116,6 +117,26 @@ a:visited{
 }
 .pm-8{
     background-image: url("../imagens/frango desfiado cremoso.jpg");
+
+}
+.pm-9{
+    background-image: url("../imagens/abobrinha refogado na manteiga.jpg");
+
+}
+.pm-10{
+    background-image: url("../imagens/abobora gratinada.jpg");
+
+}
+.pm-11{
+    background-image: url("../imagens/cenoura com ervas.jpg");
+
+}
+.pm-12{
+    background-image: url("../imagens/feijao carioca com tempero acolhedor.jpg");
+
+}
+.pm-13{
+    background-image: url("../imagens/lentilha com alho poro acebolado.jpg");
 
 }
 .pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7, .pf-8, .pf-9{
@@ -199,7 +220,22 @@ nav ul li:hover{
     padding-right: 60px;
     position: relative;
 }
-
+.cont-header{
+    display: flex;
+    justify-content: space-between;
+    background-color:  #ffffff;;
+    align-items: center;
+}
+.cont-logo{
+    margin-left: 60px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-image: url('../imagens/logo3.jpeg');
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .bt-mais{
     position: absolute;
     bottom: -15px;
@@ -593,6 +629,9 @@ main{
     .marm-1{
         margin-left: 10px;
     }
+    .cont-logo{
+        margin-left: 15px;
+    }
 }
 @media (min-width:768px) and (max-width:1024px){
     .cont-item{
@@ -602,7 +641,9 @@ main{
         display: block;
         margin-bottom: 4px;
     }
-    
+    .cont-logo{
+        background-position-y: center;
+    }
 }
 @media (min-width:1440px) and (max-width:2040px){
     .cont-item{

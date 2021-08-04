@@ -6,7 +6,12 @@ const jsonMontarPratos = [
 	{id:4,nome:"arroz branco",preco:10.0,peso:"100gr",img:"imagens/arroz branco.jpg",desc:"comida saborosa"},
 	{id:5,nome:"arroz integral",preco:10.0,peso:"100gr",img:"imagens/arroz integral",desc:"comida saborosa"},
 	{id:6,nome:"carne louca de maminha",preco:125.25,peso:"100gr",img:"imagens/carne louca de maminha.jpg",desc:"comida saborosa"},
-	{id:7,nome:"frango desfiado",preco:25.32,peso:"100gr",img:"imagens/frango desfiado cremoso.jpg",desc:"comida saborosa"}
+	{id:7,nome:"frango desfiado",preco:25.32,peso:"100gr",img:"imagens/frango desfiado cremoso.jpg",desc:"comida saborosa"},
+	{id:8,nome:"abobrinha refogado na manteiga",preco:10.20,peso:"100gr",img:"imagens/abobrinha refogado na manteiga.jpg",desc:"comida saborosa"},
+	{id:9,nome:"abobora gratinada",preco:10.20,peso:"100gr",img:"imagens/abobora gratinada.jpg",desc:"comida saborosa"},
+	{id:10,nome:"cenoura com ervas",preco:10.20,peso:"100gr",img:"imagens/cenoura com ervas.jpg",desc:"comida saborosa"},
+	{id:11,nome:"feijão carioca com tempero acolhedor",preco:10.20,peso:"100gr",img:"imagens/feijao carioca com tempero acolhedor.jpg",desc:"comida saborosa"},
+	{id:12,nome:"lentilha com alho poró acebolado",preco:10.20,peso:"100gr",img:"imagens/lentilha com alho poro acebolado.jpg",desc:"comida saborosa"}
 ];
 
 const jsonPratoFeito = [
