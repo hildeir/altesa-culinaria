@@ -546,6 +546,7 @@ main{
     transition: right 1s;
     height: 100vh;
     z-index: 1;
+    top: 0px;
 }
 .nav-ul-mobile li a{
     text-decoration: none;
