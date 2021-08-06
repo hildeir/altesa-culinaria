@@ -1,12 +1,16 @@
 html{
     font-family: "caladea";
 }
-.cont-pratos-feitos, .cont-pratos-promocao, .cont-marm-1, .cont-marm-2,
-.cont-marm-3, .cont-marm-4, .cont-marm-5, .cont-marm-6, .cont-marm-7,
-.cont-marm-8, .cont-marm-9, .cont-marm-10{
+.cont-pratos-feitos, .cont-pratos-promocao{
     display: flex;
     flex-wrap: wrap;
 }
+/*
+.cont-marm-1, .cont-marm-2,
+.cont-marm-3, .cont-marm-4, .cont-marm-5, .cont-marm-6, .cont-marm-7,
+.cont-marm-8, .cont-marm-9, .cont-marm-10
+*/
+
 .model-pratos-montados{
     border: #1a7f1cff solid 2px;
     margin-right: 20px;
@@ -90,6 +94,9 @@ html{
 .marmitas-1-h4, .marmitas-2-h4, .marmitas-3-h4, .marmitas-4-h4,
 .marmitas-5-h4, .marmitas-6-h4, .marmitas-7-h4, .marmitas-8-h4,
 .marmitas-9-h4, .marmitas-10-h4{
+    display: none;
+}
+.marmita-h4{
     display: none;
 }
 .cont-bts{

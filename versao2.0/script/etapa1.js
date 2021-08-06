@@ -10,7 +10,7 @@ function inicia(){
 	/* fim */
 	let cont_a = 0;
 	let cont_b = 0;
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= 100; i++) {
 		if(sessionStorage.getItem("marmitas-"+[i]) == null){
 			cont_a += 1;
 		}
@@ -18,7 +18,7 @@ function inicia(){
 			cont_b += 1;
 		}
 	}
-	if(cont_a == 10 && pp == null && pf == null){
+	if(cont_a == 100 && pp == null && pf == null){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
 	}else if(cont_b == 10 && pp == "" && pf == null){
@@ -51,10 +51,13 @@ function montar(){
 	let totalFeitos = 0;
 	let totalPromocao = 0;
 	/* marmmitas */
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= 100; i++) {
 		let m = sessionStorage.getItem('marmitas-'+[i]);
+		
+		
 		if(m != null){
 			let pratosArray = m.split("-");
+			/*
 			pratosArray.map((ele)=>{
 				let pratosObj =	JSON.parse(ele);
 				let prato = jsonMontarPratos[pratosObj.id];
@@ -70,12 +73,57 @@ function montar(){
 				clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
 				clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
 				clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
-				document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
+				
+				let marmita_h4 = document.createElement("h4");
+				marmita_h4.setAttribute("class","marmitas-"+[i]+"-h4");
+				let conteudo = document.createTextNode("Marmita: "+[i]);
+				marmita_h4.appendChild(conteudo);
+
+				
+
+				document.querySelector(".cont-marmitas").appendChild(marmita_h4);
+				
+				//document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
 				totalM1 += (prato.preco*pratosObj.quantidade);
 				
 			});
-		}
-		
+			*/
+			if(pratosArray.length){
+				let div = document.createElement("div");
+				div.setAttribute("class","cont-marm-"+[i]);
+				div.style.display = "flex";
+				div.style.flexWrap = "wrap";
+
+				let marmita_h4 = document.createElement("h4");
+				marmita_h4.setAttribute("class","marmitas-"+[i]+"-h4");
+				let conteudo = document.createTextNode("Marmita: "+[i]);
+				marmita_h4.appendChild(conteudo);
+
+				pratosArray.map((ele)=>{
+					let pratosObj =	JSON.parse(ele);
+					let prato = jsonMontarPratos[pratosObj.id];
+					let modelo = document.querySelector(".model-pratos-montados");
+					let clone = modelo.cloneNode(true);
+					let caminhoImg = prato.img;
+					let img = clone.querySelector(".img-prato-montados img");
+					img.setAttribute("src",caminhoImg);
+					clone.style.display = "flex";
+					clone.setAttribute("id",pratosObj.id);
+					clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
+					clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
+					clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
+					clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
+					clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
+
+					document.querySelector(".cont-marmitas").appendChild(marmita_h4);
+					div.appendChild(clone);
+					document.querySelector(".cont-marmitas").appendChild(div);
+					//document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
+					totalM1 += (prato.preco*pratosObj.quantidade);
+					
+				});
+			}
+		}	
 	}
 	/*  ffim  maarmitaa **/
 	if(pf != null){
@@ -131,7 +179,7 @@ function montar(){
 		document.querySelector(".prt-feitos-h3").style.display = "block";
 	}
 	let contador = 0;
-	for (let i = 1; i <= 10 ; i++) {
+	for (let i = 1; i <= 100 ; i++) {
 		let m = sessionStorage.getItem("marmitas-"+[i]);
 		if(m != null){
 			document.querySelector(".marmitas-"+[i]+"-h4").style.display = "block";
@@ -151,7 +199,7 @@ function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
 	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
 	/* pegaa o prato daa maarmitaa  quee foii cliccadoo */ 
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= 100; i++) {
 		let elem = e.target.closest(".cont-marm-"+[i]);
 		if(elem != null){
 			var atual = i;
