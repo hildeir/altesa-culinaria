@@ -50,6 +50,7 @@ function montar(){
 	let totalM1 = 0;
 	let totalFeitos = 0;
 	let totalPromocao = 0;
+	let desconto = 10;
 	/* marmmitas */
 	for (let i = 1; i <= 100; i++) {
 		let m = sessionStorage.getItem('marmitas-'+[i]);
@@ -191,8 +192,17 @@ function montar(){
 	}
 	
 	let total = totalM1 + totalFeitos + totalPromocao;
-	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	sessionStorage.setItem("valorTotal",total);
+	
+	if(total > 130){
+		let valorDesconto = calculaDesconto(total,desconto);
+		let totalDesconto = total - valorDesconto;
+		document.querySelector(".total").innerHTML = `R$ ${totalDesconto.toFixed(2)} com (${desconto}% de desconto)`;
+		sessionStorage.setItem("valorTotal",totalDesconto);
+	}else{
+		document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+		sessionStorage.setItem("valorTotal",total);
+	}
+	
 
 }
 function removerPrato(e){
@@ -333,6 +343,6 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	document.querySelector(".total").innerHTML = `R$ ${totalPratoFeito.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",totalPratoFeito);
 }
-function desconto(total,desconto){
+function calculaDesconto(total,desconto){
 	return (total / 100) * desconto;
 }

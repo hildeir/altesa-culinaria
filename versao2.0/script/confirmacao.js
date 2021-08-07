@@ -36,7 +36,7 @@ function inicia(){
 function exibir(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
-    const total = parseInt(sessionStorage.getItem("valorTotal"));
+    const total = parseFloat(sessionStorage.getItem("valorTotal"));
     let pf = sessionStorage.getItem("pf");
     let pp = sessionStorage.getItem("pp");
 
@@ -120,7 +120,7 @@ function exibir(){
 function enviar(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
-    let total = parseInt(sessionStorage.getItem("valorTotal"),10).toFixed(2);
+    let total = parseFloat(sessionStorage.getItem("valorTotal"));
     let pedidoPratoFeito = '';
     let pedidoPratoPromocao = ""
 
@@ -204,7 +204,7 @@ function enviar(){
     /* fimm */
     let cliente = `Nome:${dadosCliente.nome}; email:${dadosCliente.email}; telefone:${dadosCliente.phone}`;
     let entrega = `Região:${dadosEntrega.regiao}; endereço:${dadosEntrega.ende}; Numero:${dadosEntrega.numero}; complemento:${dadosEntrega.complemento}`;
-    let texto = "DADOS DO PEDIDO:"+tituloMarmita+""+resultados_todas_marmitas+textoPf+pedidoPratoFeito+textoPp+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+" DADOS DE ENTREGA:"+entrega+" TOTAL: "+total;
+    let texto = "DADOS DO PEDIDO:"+tituloMarmita+""+resultados_todas_marmitas+textoPf+pedidoPratoFeito+textoPp+pedidoPratoPromocao+"DADOS DO CLIENTE:"+cliente+" DADOS DE ENTREGA:"+entrega+" TOTAL: "+total.toFixed(2);
     let url = "https://api.whatsapp.com/send?phone=5511990117453&text="+texto;
     
     sessionStorage.clear();//remove todas sessoes
