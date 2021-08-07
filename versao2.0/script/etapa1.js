@@ -8,22 +8,22 @@ function inicia(){
 		document.querySelector(".promocao-h3").style.display = "none";
 	}
 	/* fim */
-	let cont_a = 0;
-	let cont_b = 0;
+	let nulos = 0;
+	let vazios = 0;
 	for (let i = 1; i <= 100; i++) {
 		if(sessionStorage.getItem("marmitas-"+[i]) == null){
-			cont_a += 1;
+			nulos += 1; //se todos forem nulos
 		}
 		if(sessionStorage.getItem("marmitas-"+[i]) == ""){
-			cont_b += 1;
+			vazios += 1; //se totos forem vazios
 		}
 	}
-	if(cont_a == 100 && pp == null && pf == null){
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
-	}else if(cont_b == 10 && pp == "" && pf == null){
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
+	if(nulos == 100 && pp == null && pf == null){
+		location.href = "/sitetair/versao2.0/";
+		//location.href = "/tair/";
+	}else if(vazios == 100 && pp == "" && pf == ""){
+		location.href = "/sitetair/versao2.0/";
+		//location.href = "/tair/";
 	}else{
 		montar();
 	}
@@ -332,4 +332,7 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	/* fim */
 	document.querySelector(".total").innerHTML = `R$ ${totalPratoFeito.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",totalPratoFeito);
+}
+function desconto(total,desconto){
+	return (total / 100) * desconto;
 }

@@ -6,20 +6,20 @@ function inicia(){
     let cliente = sessionStorage.getItem("dadosCliente");
     let entrega = sessionStorage.getItem("dadosEntrega");
 	
-    let cont_a = 0;
-	let cont_b = 0;
-	for (let i = 1; i <= 10; i++) {
+    let nulos = 0;
+	let vazios = 0;
+	for (let i = 1; i <= 100; i++) {
 		if(sessionStorage.getItem("marmitas-"+[i]) == null){
-			cont_a += 1;
+			nulos += 1;
 		}
 		if(sessionStorage.getItem("marmitas-"+[i]) == ""){
-			cont_b += 1;
+			vazios += 1;
 		}
 	}
-	if(cont_a == 10 && pp == null && pf == null && cliente == null && entrega == null){
+	if(nulos == 100 && pp == null && pf == null && cliente == null && entrega == null){
 		//location.href = "/sitetair/versao2.0/";
         location.href = "/tair/";
-	}else if(cont_b == 10 && pp == "" && pf == null && cliente == "" && entrega == ""){
+	}else if(vazios == 100 && pp == "" && pf == null && cliente == "" && entrega == ""){
 		//location.href = "/sitetair/versao2.0/";
         location.href = "/tair/";
 	}else{
@@ -61,7 +61,7 @@ function exibir(){
     document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 
    /* marmitaas */
-   for (let i = 1; i <= 10; i++) {
+   for (let i = 1; i <= 100; i++) {
        let m = sessionStorage.getItem("marmitas-"+i);
        if(m != null){
         let array = m.split("-");

@@ -459,5 +459,4 @@ function contaPratos(quant_item){
 		sessionStorage.setItem("quantidade",y);
 		document.querySelector(".quant-carr").innerHTML = y;
 	}
-	
 }

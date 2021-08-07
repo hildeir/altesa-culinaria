@@ -4,15 +4,22 @@ function inicia(){
 	sessionStorage.removeItem("dadosEntrega");
 	let pp = sessionStorage.getItem("pp");
 	let pf = sessionStorage.getItem("pf");
-	let m1 = sessionStorage.getItem("marmitas-1");
-	let m2 = sessionStorage.getItem("marmitas-2");
-	let m3 = sessionStorage.getItem("marmitas-3");
-	let m4 = sessionStorage.getItem("marmitas-4");
 	
-	if(pf == null && pp == null && m1 == null && m2 == null && m3 == null && m4 == null){
+	let nulos = 0;
+	let vazios = 0;
+	for (let i = 1; i <= 100; i++) {
+		if(sessionStorage.getItem("marmitas-"+[i]) == null){
+			nulos += 1; //se todos forem nulos
+		}
+		if(sessionStorage.getItem("marmitas-"+[i]) == ""){
+			vazios += 1; //se totos forem vazios
+		}
+	}
+
+	if(pf == null && pp == null && nulos == 100){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
-	}else if(pf == "" && pp == "" && m1 == "" && m2 == "" && m3 == "" && m4 == ""){
+	}else if(pf == "" && pp == "" && vazios == 100){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
 	}
