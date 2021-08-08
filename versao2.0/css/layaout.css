@@ -33,7 +33,7 @@ a:visited{
 #monte,#promocao{
     margin-top: 70px;
 }
-.cont-pratos .item, .cont-pratos-promocao .item{
+.cont-pratos .item, .item{
     width: 300px;
     height: 350px;
     border-radius: 30px;
@@ -45,9 +45,7 @@ a:visited{
     position: relative;
   
 }
-.item-promo{
-    position: relative;
-}
+
 .cont-pratos input:hover{
     box-shadow: 0px 0px 5px #000000;
     background-color: #7d52a7ff;
@@ -68,7 +66,14 @@ a:visited{
     width: 300px;
     
 }
-
+.item-promocao{
+    position: relative;
+    background-image: url("../imagens/promocao.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 400px;
+}
 .quant-carr{
     background-color: #1a7f1cff;
     height: 24px;

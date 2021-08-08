@@ -2,12 +2,11 @@ window.onload = inicia;
 function inicia(){
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
-	
-	/* unica fforma de cconcerta o bug do h3 que encontrei foi essa*/
+
 	if(pp == null){
 		document.querySelector(".promocao-h3").style.display = "none";
 	}
-	/* fim */
+
 	let nulos = 0;
 	let vazios = 0;
 	for (let i = 1; i <= 100; i++) {
@@ -19,11 +18,11 @@ function inicia(){
 		}
 	}
 	if(nulos == 100 && pp == null && pf == null){
-		location.href = "/sitetair/versao2.0/";
-		//location.href = "/tair/";
+		//location.href = "/sitetair/versao2.0/";
+		location.href = "/tair/";
 	}else if(vazios == 100 && pp == "" && pf == ""){
-		location.href = "/sitetair/versao2.0/";
-		//location.href = "/tair/";
+		//location.href = "/sitetair/versao2.0/";
+		location.href = "/tair/";
 	}else{
 		montar();
 	}
