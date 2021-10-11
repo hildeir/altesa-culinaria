@@ -497,6 +497,9 @@ main{
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 10;
 }
+.cont-regiao{
+    text-align: center;
+}
 .bt-entrega-fechar{
     align-self: flex-end;
     margin-top: 7px;
