@@ -40,7 +40,7 @@ function avanca(){
 	let numero = document.querySelector("#numero").value;
 	let complemento = document.querySelector("#complemento").value;
 
-	if(nome == "" || email == "" || phone == "" || regiao == "" || ende == "" || numero == "" || complemento == ""){
+	if(nome == "" || email == "" || phone == "" || ende == "" || numero == "" || complemento == ""){
 		alert("preencha o ccampo");
 		
 	}else{
