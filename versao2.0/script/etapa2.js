@@ -36,7 +36,6 @@ function avanca(){
     let nome = document.querySelector("#nome").value;
 	let email  = document.querySelector("#email").value;
 	let phone = document.querySelector("#phone").value;
-	let regiao = document.querySelector("#regioes").value;
 	let ende = document.querySelector("#ende").value;
 	let numero = document.querySelector("#numero").value;
 	let complemento = document.querySelector("#complemento").value;
