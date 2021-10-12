@@ -57,37 +57,7 @@ function montar(){
 		
 		if(m != null){
 			let pratosArray = m.split("-");
-			/*
-			pratosArray.map((ele)=>{
-				let pratosObj =	JSON.parse(ele);
-				let prato = jsonMontarPratos[pratosObj.id];
-				let modelo = document.querySelector(".model-pratos-montados");
-				let clone = modelo.cloneNode(true);
-				let caminhoImg = prato.img;
-				let img = clone.querySelector(".img-prato-montados img");
-				img.setAttribute("src",caminhoImg);
-				clone.style.display = "flex";
-				clone.setAttribute("id",pratosObj.id);
-				clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
-				clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
-				clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
-				clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
-				clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
-				
-				let marmita_h4 = document.createElement("h4");
-				marmita_h4.setAttribute("class","marmitas-"+[i]+"-h4");
-				let conteudo = document.createTextNode("Marmita: "+[i]);
-				marmita_h4.appendChild(conteudo);
-
-				
-
-				document.querySelector(".cont-marmitas").appendChild(marmita_h4);
-				
-				//document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
-				totalM1 += (prato.preco*pratosObj.quantidade);
-				
-			});
-			*/
+		
 			if(pratosArray.length){
 				let div = document.createElement("div");
 				div.setAttribute("class","cont-marm-"+[i]);
