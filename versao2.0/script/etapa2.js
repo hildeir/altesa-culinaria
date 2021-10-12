@@ -51,7 +51,6 @@ function avanca(){
 			
 		};
 		let objEnd = {
-			regiao:regiao,
 			ende:ende,
 			numero:numero,
 			complemento:complemento
