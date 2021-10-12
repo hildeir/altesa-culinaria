@@ -49,9 +49,7 @@ function exibir(){
                        dadosCliente.phone +"<br/>";
 
     const entrega = document.querySelector(".dados-entrega");
-    entrega.innerHTML = "<b>regiao:</b> <br/>"+
-                        dadosEntrega.regiao +"<br/>"+
-                        "<b>Endereço:</b> <br/>"+
+    entrega.innerHTML = "<b>Endereço:</b> <br/>"+
                         dadosEntrega.ende +"<br/>"+
                         "<b>numero:</b> <br/>"+
                         dadosEntrega.numero +"<br/>"+
