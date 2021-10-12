@@ -190,19 +190,27 @@ function montar(){
 		document.querySelector(".prt-montados-h3").style.display = "block";
 	}
 	
-	let total = totalM1 + totalFeitos + totalPromocao;
-	
-	if(total > 130){
-		let valorDesconto = calculaDesconto(total,desconto);
-		let totalDesconto = total - valorDesconto;
+	let subtotal = totalM1 + totalFeitos + totalPromocao;
+	/* desconto */
+	if(subtotal > 130){
+		let valorDesconto = calculaDesconto(subtotal,desconto);
+		let totalDesconto = subtotal - valorDesconto;
 		document.querySelector(".total").innerHTML = `R$ ${totalDesconto.toFixed(2)} com (${desconto}% de desconto)`;
 		sessionStorage.setItem("valorTotal",totalDesconto);
 	}else{
-		document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-		sessionStorage.setItem("valorTotal",total);
+		document.querySelector(".total").innerHTML = `R$ ${subtotal.toFixed(2)}`;
+		sessionStorage.setItem("valorTotal",subtotal);
 	}
-	
+	/* fim */
 
+	/* calcula frete e coloca o novo valor no localstorage e na tela */
+	let frete = calculaFrete();
+	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
+	let total = subtotal + frete;
+	sessionStorage.setItem("valorTotal",total);
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
+	/* fim */
 }
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
@@ -344,4 +352,12 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 }
 function calculaDesconto(total,desconto){
 	return (total / 100) * desconto;
+}
+function calculaFrete(){
+	let quant = parseInt(sessionStorage.getItem("quantidade"));
+	if(quant < 10){
+		return 10.00;
+	}else{
+		return 0;
+	}
 }

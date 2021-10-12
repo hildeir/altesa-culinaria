@@ -85,6 +85,9 @@ html{
 .total{
     color: #ff0000;
 }
+.frete{
+    font-size: 25px;
+}
 .prt-montados-h3{
     display: none;
 }
