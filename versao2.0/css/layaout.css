@@ -612,6 +612,8 @@ main{
         padding-top: 3%;
         padding-left: 3%;
         padding-bottom: 8%;
+        background-image: url("../imagens/topo-mobile.jpg");
+        background-size: contain;
     }
     .cont-item{
         margin-bottom: 23%;
