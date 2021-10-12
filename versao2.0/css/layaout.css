@@ -552,7 +552,7 @@ main{
 }
 .nav-mobile{
     position: fixed;
-    right: -250px;
+    right: -275px;
     background-color:#d79642;
     padding: 20px;
     transition: right 1s;

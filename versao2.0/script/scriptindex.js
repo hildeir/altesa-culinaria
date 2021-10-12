@@ -55,7 +55,7 @@ function inicia(){
 		document.querySelector(".nav-mobile").style.right = "0px";
 	});
 	document.querySelector(".bt-fechar-mobile-nav").addEventListener("click",()=>{
-		document.querySelector(".nav-mobile").style.right = "-250px";
+		document.querySelector(".nav-mobile").style.right = "-275px";
 	});
 	/* fim */
 }
