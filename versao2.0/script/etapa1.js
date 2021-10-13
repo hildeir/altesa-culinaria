@@ -172,15 +172,8 @@ function montar(){
 		sessionStorage.setItem("valorTotal",subtotal);
 	}
 	/* fim */
-
-	/* calcula frete e coloca o novo valor no localstorage e na tela */
-	let frete = calculaFrete();
-	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
-	let total = subtotal + frete;
-	sessionStorage.setItem("valorTotal",total);
-	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
-	/* fim */
+	calculaFrete();
+	
 }
 
 function removerPrato(e){
@@ -304,18 +297,7 @@ function removerPrato(e){
 		
 	}
 	/* fim */
-	let quant = parseInt(sessionStorage.getItem("quantidade"));
-	if(quant < 10){
-		/* calcula frete e coloca o novo valor no localstorage e na tela */
-		let frete = calculaFrete();
-		subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
-		let total = subtotal + frete;
-		sessionStorage.setItem("valorTotal",total);
-		document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-		document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
-		/* fim */
-	}
-
+	calculaFrete();
 	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
@@ -340,11 +322,17 @@ function calculaDesconto(total,desconto){
 	return (total / 100) * desconto;
 }
 function calculaFrete(){
+	let frete = 0;
 	let quant = parseInt(sessionStorage.getItem("quantidade"));
 	if(quant < 10){
-		return 10.00;
+		frete = 10.00;
 	}else{
-		return 0;
+		frete = 0;
 	}
 	
+	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
+	let total = subtotal + frete;
+	sessionStorage.setItem("valorTotal",total);
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;	
 }
