@@ -174,8 +174,12 @@ function montar(){
 	/* fim */
 
 	/* calcula frete e coloca o novo valor no localstorage e na tela */
-	calculaFrete();
-	
+	let frete = calculaFrete();
+	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
+	let total = subtotal + frete;
+	sessionStorage.setItem("valorTotal",total);
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
 	/* fim */
 }
 
@@ -221,9 +225,10 @@ function removerPrato(e){
 			document.querySelector(".marmitas-"+atual+"-h4").style.display = "none";
 			sessionStorage.setItem("quantMarm",quantMarm -= 1);
 			sessionStorage.setItem("quantidade",quant -= 1);
-	
+			
 		}else{
 			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
+			
 		}
 	}
 	
@@ -299,7 +304,18 @@ function removerPrato(e){
 		
 	}
 	/* fim */
-	calculaFrete();
+	let quant = parseInt(sessionStorage.getItem("quantidade"));
+	if(quant < 10){
+		/* calcula frete e coloca o novo valor no localstorage e na tela */
+		let frete = calculaFrete();
+		subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
+		let total = subtotal + frete;
+		sessionStorage.setItem("valorTotal",total);
+		document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+		document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
+		/* fim */
+	}
+
 	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
@@ -313,26 +329,22 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	
 	let quant = objQuantPratoFeitos;
 	let subtrair = preco * quant;
-	let totalPratoFeito = valorTotal - subtrair;
+	let total = valorTotal - subtrair;
 	
 	/* fim */
-	document.querySelector(".total").innerHTML = `R$ ${totalPratoFeito.toFixed(2)}`;
-	sessionStorage.setItem("valorTotal",totalPratoFeito);
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	sessionStorage.setItem("valorTotal",total);
+	
 }
 function calculaDesconto(total,desconto){
 	return (total / 100) * desconto;
 }
 function calculaFrete(){
-	let frete = 0;
 	let quant = parseInt(sessionStorage.getItem("quantidade"));
 	if(quant < 10){
-		frete = 10.00;
+		return 10.00;
 	}else{
-		frete = 0;
+		return 0;
 	}
-	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
-	let total = subtotal + frete;
-	sessionStorage.setItem("valorTotal",total);
-	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
+	
 }
