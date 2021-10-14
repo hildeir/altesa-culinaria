@@ -88,11 +88,12 @@ function montaMarmita(){
 	const marm_1_item_1 = document.querySelector(".marm-1-item-1").value;
 	const marm_1_item_2 = document.querySelector(".marm-1-item-2").value;
 	const marm_1_item_3 = document.querySelector(".marm-1-item-3").value;
+	const marm_1_item_4 = document.querySelector(".marm-1-item-4").value;
 
-	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null"){
+	if(marm_1_item_1 != "null" || marm_1_item_2 != "null" || marm_1_item_3 != "null" || marm_1_item_4 != "null"){
 		if(quantMarm < 100){
 			
-			const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3];
+			const marmitas_temp = [marm_1_item_1, marm_1_item_2, marm_1_item_3, marm_1_item_4 ];
 			const encontrar_0 = marmitas_temp.filter((item)=>{
 				if(item == "0"){
 					return true;
