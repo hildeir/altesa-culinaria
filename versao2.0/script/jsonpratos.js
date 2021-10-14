@@ -1,17 +1,17 @@
 const jsonMontarPratos = [
-	{id:0,nome:"arroz vermelho com raspa de limão",preco:20.00,peso:"100gr",img:"imagens/grao.jpg",desc:"comida saborosa"},
-	{id:1,nome:"purê de baroa com pintada de gengibre",preco:30.0,peso:"100gr",img:"imagens/amarelo.jpg",desc:"comida saborosa"},
-	{id:2,nome:"purê de batata doce com ervas",preco:35.0,peso:"100gr",img:"imagens/pure.jpg",desc:"comida saborosa"},
-	{id:3,nome:"purê de inhame com beterraba",preco:55.0,peso:"100gr",img:"imagens/vermelho.jpg",desc:"comida saborosa"},
-	{id:4,nome:"arroz branco",preco:10.0,peso:"100gr",img:"imagens/arroz branco.jpg",desc:"comida saborosa"},
-	{id:5,nome:"arroz integral",preco:10.0,peso:"100gr",img:"imagens/arroz integral",desc:"comida saborosa"},
-	{id:6,nome:"carne louca de maminha",preco:125.25,peso:"100gr",img:"imagens/carne louca de maminha.jpg",desc:"comida saborosa"},
-	{id:7,nome:"frango desfiado",preco:25.32,peso:"100gr",img:"imagens/frango desfiado cremoso.jpg",desc:"comida saborosa"},
-	{id:8,nome:"abobrinha refogado na manteiga",preco:10.20,peso:"100gr",img:"imagens/abobrinha refogado na manteiga.jpg",desc:"comida saborosa"},
-	{id:9,nome:"abóbora gratinada",preco:10.20,peso:"100gr",img:"imagens/abobora gratinada.jpg",desc:"comida saborosa"},
-	{id:10,nome:"cenoura com ervas",preco:10.20,peso:"100gr",img:"imagens/cenoura com ervas.jpg",desc:"comida saborosa"},
-	{id:11,nome:"feijão carioca com tempero acolhedor",preco:10.20,peso:"100gr",img:"imagens/feijao carioca com tempero acolhedor.jpg",desc:"comida saborosa"},
-	{id:12,nome:"lentilha com alho poró acebolado",preco:10.20,peso:"100gr",img:"imagens/lentilha com alho poro acebolado.jpg",desc:"comida saborosa"}
+	{id:0,nome:"arroz vermelho com raspa de limão",preco:7.90,peso:"100gr",img:"imagens/grao.jpg",desc:"comida saborosa"},
+	{id:1,nome:"purê de baroa com pintada de gengibre",preco:3.80,peso:"100gr",img:"imagens/amarelo.jpg",desc:"comida saborosa"},
+	{id:2,nome:"purê de batata doce com ervas",preco:3.20,peso:"100gr",img:"imagens/pure.jpg",desc:"comida saborosa"},
+	{id:3,nome:"purê de inhame com beterraba",preco:3.75,peso:"100gr",img:"imagens/vermelho.jpg",desc:"comida saborosa"},
+	{id:4,nome:"arroz branco",preco:2.50,peso:"100gr",img:"imagens/arroz branco.jpg",desc:"comida saborosa"},
+	{id:5,nome:"arroz integral",preco:3.75,peso:"100gr",img:"imagens/arroz integral",desc:"comida saborosa"},
+	{id:6,nome:"carne louca de maminha",preco:9.90,peso:"100gr",img:"imagens/carne louca de maminha.jpg",desc:"comida saborosa"},
+	{id:7,nome:"frango desfiado",preco:5.60,peso:"100gr",img:"imagens/frango desfiado cremoso.jpg",desc:"comida saborosa"},
+	{id:8,nome:"abobrinha refogado na manteiga",preco:3.25,peso:"100gr",img:"imagens/abobrinha refogado na manteiga.jpg",desc:"comida saborosa"},
+	{id:9,nome:"abóbora gratinada",preco:3.25,peso:"100gr",img:"imagens/abobora gratinada.jpg",desc:"comida saborosa"},
+	{id:10,nome:"cenoura com ervas",preco:2.25,peso:"100gr",img:"imagens/cenoura com ervas.jpg",desc:"comida saborosa"},
+	{id:11,nome:"feijão carioca com tempero acolhedor",preco:2.50,peso:"100gr",img:"imagens/feijao carioca com tempero acolhedor.jpg",desc:"comida saborosa"},
+	{id:12,nome:"lentilha com alho poró acebolado",preco:4.75,peso:"100gr",img:"imagens/lentilha com alho poro acebolado.jpg",desc:"comida saborosa"}
 ];
 
 const jsonPratoFeito = [
