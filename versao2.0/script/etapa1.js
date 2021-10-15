@@ -1,5 +1,6 @@
-window.onload = inicia;
-function inicia(){
+//window.onload = inicia;
+//function inicia(){
+	var subtotal = "";
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
 
@@ -42,14 +43,13 @@ function inicia(){
 		});
 	})
 
-}	
+//}	
 function montar(){
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
 	let totalM1 = 0;
 	let totalFeitos = 0;
 	let totalPromocao = 0;
-	let desconto = 10;
 	/* marmmitas */
 	for (let i = 1; i <= 100; i++) {
 		let m = sessionStorage.getItem('marmitas-'+[i]);
@@ -160,22 +160,9 @@ function montar(){
 		document.querySelector(".prt-montados-h3").style.display = "block";
 	}
 	
-	let subtotal = totalM1 + totalFeitos + totalPromocao;
-	/* desconto */
-	if(subtotal > 130){
-		let valorDesconto = calculaDesconto(subtotal,desconto);
-		let totalDesconto = subtotal - valorDesconto;
-		document.querySelector(".total").innerHTML = `R$ ${totalDesconto.toFixed(2)} com (${desconto}% de desconto)`;
-		sessionStorage.setItem("valorTotal",totalDesconto);
-	}else{
-		document.querySelector(".total").innerHTML = `R$ ${subtotal.toFixed(2)}`;
-		sessionStorage.setItem("valorTotal",subtotal);
-	}
-	/* fim */
-	calculaFrete();
+	subtotal = totalM1 + totalFeitos + totalPromocao;
 	
 }
-
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
 	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
@@ -214,14 +201,15 @@ function removerPrato(e){
 		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
 		if(sessionStorage.getItem("marmitas-"+atual) == ""){
 			sessionStorage.removeItem("marmitas-"+atual);
-			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
+			subtotal = calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
 			document.querySelector(".marmitas-"+atual+"-h4").style.display = "none";
 			sessionStorage.setItem("quantMarm",quantMarm -= 1);
 			sessionStorage.setItem("quantidade",quant -= 1);
+			document.location.reload(true);//recarrega a pagina
 			
 		}else{
-			calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			
+			subtotal = calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
+			document.location.reload(true);//recarrega a pagina
 		}
 	}
 	
@@ -250,19 +238,22 @@ function removerPrato(e){
 		if(sessionStorage.getItem("pf") == ""){
 			sessionStorage.removeItem("pf");
 			sessionStorage.removeItem("totalPratosFeitos");
-			calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
+			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			document.querySelector(".prt-feitos-h3").style.display = "none";
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
+			document.location.reload(true);//recarrega a pagina
 
 		}else{
 			sessionStorage.setItem("totalPratosFeitos",totalPratosFeitos -= objQuantPratoFeitos);
-			calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
+			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
+			document.location.reload(true); // recarrega a pagina
 		}
 		
 	}
 	/* fim */
 	/* pratos de promocao */
+	
 	if(pratoPromocao != null){
 		let pp = sessionStorage.getItem('pp');
 		let pratosArrayFeitos = pp.split("-");
@@ -296,43 +287,73 @@ function removerPrato(e){
 		}
 		
 	}
+	
 	/* fim */
-	calculaFrete();
+	//calculaFrete();
+	/*
 	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
 		//location.href = "/sitetair/versao2.0/";
 		location.href = "/tair/";
 	}
-	
+	*/
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	//subtrai o valor do prato excluido no total 
-	let valorTotal = parseFloat(sessionStorage.getItem("valorTotal"));
+	//let valorTotal = parseFloat(sessionStorage.getItem("valorTotal"));
+	let valorTotal = subtotal;
 	let preco = json[parseInt(idPrato)].preco;
 	
 	let quant = objQuantPratoFeitos;
 	let subtrair = preco * quant;
 	let total = valorTotal - subtrair;
-	
+	return total;
 	/* fim */
-	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	sessionStorage.setItem("valorTotal",total);
+	//document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	//sessionStorage.setItem("valorTotal",total);
 	
 }
-function calculaDesconto(total,desconto){
-	return (total / 100) * desconto;
+function calculaDesconto(subtotal){
+	let valorDesconto = 10 //10 porcento
+	
+	if(subtotal > 130){
+		let desconto = (subtotal / 100) * valorDesconto;
+		return desconto;
+		//document.querySelector(".total").innerHTML = `R$ ${totalDesconto.toFixed(2)} com (${desconto}% de desconto)`;
+		//sessionStorage.setItem("valorTotal",totalDesconto);
+	}else{
+		return 0;
+		//document.querySelector(".total").innerHTML = `R$ ${subtotal.toFixed(2)}`;
+		//sessionStorage.setItem("valorTotal",subtotal);
+	}
 }
+
 function calculaFrete(){
-	let frete = 0;
+	//let frete = 0;
 	let quant = parseInt(sessionStorage.getItem("quantidade"));
 	if(quant < 10){
-		frete = 10.00;
+		//frete = 10.00;
+		return 10.00 //frete 10,00 reais
 	}else{
-		frete = 0;
+		//frete = 0;
+		return 0;
 	}
-	
+	/*
 	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
 	let total = subtotal + frete;
 	sessionStorage.setItem("valorTotal",total);
 	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;	
+	*/
 }
+
+let valordesconto = calculaDesconto(subtotal);
+let valorfrete = calculaFrete();
+
+function exibeTotalTela(subtotal,desconto,frete){
+	let total = (subtotal - desconto) + frete;
+	document.querySelector(".desconto").innerHTML = `Ganhou desconto de 10%: R$ ${desconto.toFixed(2)}`;
+	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
+	sessionStorage.setItem("valorTotal",total);	
+}
+exibeTotalTela(subtotal,valordesconto,valorfrete);

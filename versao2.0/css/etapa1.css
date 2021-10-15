@@ -85,7 +85,7 @@ html{
 .total{
     color: #ff0000;
 }
-.frete{
+.frete, .desconto{
     font-size: 25px;
 }
 .prt-montados-h3{
