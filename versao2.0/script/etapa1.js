@@ -1,5 +1,3 @@
-//window.onload = inicia;
-//function inicia(){
 	var subtotal = "";
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
@@ -42,8 +40,6 @@
 			removerPrato(event);
 		});
 	})
-
-//}	
 function montar(){
 	let pf = sessionStorage.getItem("pf");
 	let pp = sessionStorage.getItem("pp");
