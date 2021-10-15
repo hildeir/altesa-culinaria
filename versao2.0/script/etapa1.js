@@ -156,9 +156,6 @@ function montar(){
 		}
 		contador = i;
 	}
-	if(contador >= 1){
-		document.querySelector(".prt-montados-h3").style.display = "block";
-	}
 	
 	subtotal = totalM1 + totalFeitos + totalPromocao;
 	
