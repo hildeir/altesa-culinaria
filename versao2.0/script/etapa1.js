@@ -298,8 +298,6 @@ function removerPrato(e){
 	*/
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
-	//subtrai o valor do prato excluido no total 
-	//let valorTotal = parseFloat(sessionStorage.getItem("valorTotal"));
 	let valorTotal = subtotal;
 	let preco = json[parseInt(idPrato)].preco;
 	
@@ -308,8 +306,6 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	let total = valorTotal - subtrair;
 	return total;
 	/* fim */
-	//document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	//sessionStorage.setItem("valorTotal",total);
 	
 }
 function calculaDesconto(subtotal){
@@ -318,32 +314,18 @@ function calculaDesconto(subtotal){
 	if(subtotal > 130){
 		let desconto = (subtotal / 100) * valorDesconto;
 		return desconto;
-		//document.querySelector(".total").innerHTML = `R$ ${totalDesconto.toFixed(2)} com (${desconto}% de desconto)`;
-		//sessionStorage.setItem("valorTotal",totalDesconto);
 	}else{
 		return 0;
-		//document.querySelector(".total").innerHTML = `R$ ${subtotal.toFixed(2)}`;
-		//sessionStorage.setItem("valorTotal",subtotal);
 	}
 }
 
 function calculaFrete(){
-	//let frete = 0;
 	let quant = parseInt(sessionStorage.getItem("quantidade"));
 	if(quant < 10){
-		//frete = 10.00;
 		return 10.00 //frete 10,00 reais
 	}else{
-		//frete = 0;
 		return 0;
 	}
-	/*
-	subtotal = parseFloat(sessionStorage.getItem("valorTotal"));
-	let total = subtotal + frete;
-	sessionStorage.setItem("valorTotal",total);
-	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
-	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;	
-	*/
 }
 
 let valordesconto = calculaDesconto(subtotal);
