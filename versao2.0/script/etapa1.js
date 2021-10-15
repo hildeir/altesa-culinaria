@@ -252,49 +252,6 @@ function removerPrato(e){
 		
 	}
 	/* fim */
-	/* pratos de promocao */
-	
-	if(pratoPromocao != null){
-		let pp = sessionStorage.getItem('pp');
-		let pratosArrayFeitos = pp.split("-");
-		let objPexcluirFeitos;
-		let objQuantPratoFeitos;
-		pratosArrayFeitos.forEach((ele)=>{
-			let obj = JSON.parse(ele);
-			if(obj.id == idPrato){
-				objPexcluirFeitos = JSON.stringify(obj);
-				objQuantPratoFeitos = obj.quantidade;
-			}
-		});
-	
-		let posPratoFeitos = pratosArrayFeitos.indexOf(objPexcluirFeitos);
-		pratosArrayFeitos.splice(posPratoFeitos,1);
-		let updateFeitos = pratosArrayFeitos.join("-");
-		sessionStorage.setItem("pp",updateFeitos);
-		let totalPratosPromocao = parseInt(sessionStorage.getItem("totalPratosPromocao"));
-		
-		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
-		if(sessionStorage.getItem("pp") == ""){
-			sessionStorage.removeItem("pp");
-			sessionStorage.removeItem("totalPratosPromocao");
-			calculaTotalQuandoRemove(jsonPratoPromocao,idPrato,objQuantPratoFeitos);
-			document.querySelector(".promocao-h3").style.display = "none";
-			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-		}else{
-			sessionStorage.setItem("totalPratosPromocao",totalPratosPromocao -= objQuantPratoFeitos);
-			calculaTotalQuandoRemove(jsonPratoPromocao,idPrato,objQuantPratoFeitos);
-			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-		}
-		
-	}
-	
-	/* fim */
-	/*
-	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
-	}
-	*/
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	let valorTotal = subtotal;
