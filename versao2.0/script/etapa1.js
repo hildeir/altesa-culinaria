@@ -160,6 +160,9 @@ function montar(){
 	subtotal = totalM1 + totalFeitos + totalPromocao;
 	
 }
+let valordesconto = calculaDesconto(subtotal);
+let valorfrete = calculaFrete();
+
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
 	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
@@ -202,11 +205,11 @@ function removerPrato(e){
 			document.querySelector(".marmitas-"+atual+"-h4").style.display = "none";
 			sessionStorage.setItem("quantMarm",quantMarm -= 1);
 			sessionStorage.setItem("quantidade",quant -= 1);
-			document.location.reload(true);//recarrega a pagina
+			exibeTotalTela(subtotal,valordesconto,valorfrete);
 			
 		}else{
 			subtotal = calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			document.location.reload(true);//recarrega a pagina
+			exibeTotalTela(subtotal,valordesconto,valorfrete);
 		}
 	}
 	
@@ -238,13 +241,13 @@ function removerPrato(e){
 			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			document.querySelector(".prt-feitos-h3").style.display = "none";
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-			document.location.reload(true);//recarrega a pagina
+			exibeTotalTela(subtotal,valordesconto,valorfrete);
 
 		}else{
 			sessionStorage.setItem("totalPratosFeitos",totalPratosFeitos -= objQuantPratoFeitos);
 			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-			document.location.reload(true); // recarrega a pagina
+			exibeTotalTela(subtotal,valordesconto,valorfrete);
 		}
 		
 	}
@@ -281,8 +284,7 @@ function calculaFrete(){
 	}
 }
 
-let valordesconto = calculaDesconto(subtotal);
-let valorfrete = calculaFrete();
+
 
 function exibeTotalTela(subtotal,desconto,frete){
 	let total = (subtotal - desconto) + frete;
