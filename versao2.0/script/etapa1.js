@@ -289,7 +289,6 @@ function removerPrato(e){
 	}
 	
 	/* fim */
-	//calculaFrete();
 	/*
 	if(sessionStorage.getItem('valorTotal') <= "0" && sessionStorage.getItem('valorTotal') >= "-0" ){
 		//location.href = "/sitetair/versao2.0/";
