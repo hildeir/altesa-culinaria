@@ -17,17 +17,14 @@ function inicia(){
 		}
 	}
 	if(nulos == 100 && pp == null && pf == null && cliente == null && entrega == null){
-		//location.href = "/sitetair/versao2.0/";
-        location.href = "/tair/";
+        location.href = "altesaculinaria.com.br";
 	}else if(vazios == 100 && pp == "" && pf == null && cliente == "" && entrega == ""){
-		//location.href = "/sitetair/versao2.0/";
-        location.href = "/tair/";
+        location.href = "altesaculinaria.com.br";
 	}else{
 		exibir();
 	}
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		//location.href = "/sitetair/versao2.0/etapa2.html";
-        location.href = "/tair/etapa2.html";
+        location.href = "altesaculinaria/etapa2.html";
 	});
 	document.querySelector(".enviar").addEventListener("click",()=>{
 		enviar();

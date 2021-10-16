@@ -17,11 +17,9 @@
 		}
 	}
 	if(nulos == 100 && pp == null && pf == null){
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
+		location.href = "altesaculinaria.com.br";
 	}else if(vazios == 100 && pp == "" && pf == ""){
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
+		location.href = "altesaculinaria.com.br";
 	}else{
 		montar();
 	}
