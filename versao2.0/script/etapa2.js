@@ -23,7 +23,7 @@ function inicia(){
 	}
 	
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		location.href = "altesaculinaria.com.br/etapa1.html";
+		location.href = "etapa1.html";
 	});
 	document.querySelector(".avancar").addEventListener("click",()=>{
 		avanca();

@@ -25,12 +25,12 @@
 	}
 	
 	document.querySelector(".avancar").addEventListener("click",()=>{
-		//location.href = "/sitetair/versao2.0/etapa2.html";
-		location.href = "/tair/etapa2.html";
+		
+		location.href = "etapa2.html";
 	});
 	document.querySelector(".voltar").addEventListener("click",()=>{
-		//location.href = "/sitetair/versao2.0/";
-		location.href = "/tair/";
+		
+		location.href = "altesaculinaria.com.br";
 	});
 	let remover = document.querySelectorAll(".remover");
 	remover.forEach((ele)=>{
