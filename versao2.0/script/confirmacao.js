@@ -24,7 +24,7 @@ function inicia(){
 		exibir();
 	}
 	document.querySelector(".voltar").addEventListener("click",()=>{
-        location.href = "altesaculinaria/etapa2.html";
+        location.href = "etapa2.html";
 	});
 	document.querySelector(".enviar").addEventListener("click",()=>{
 		enviar();
