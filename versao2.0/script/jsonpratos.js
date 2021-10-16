@@ -4,7 +4,7 @@ const jsonMontarPratos = [
 	{id:2,nome:"purê de batata doce com ervas",preco:3.20,peso:"100gr",img:"imagens/pure.jpg",desc:"comida saborosa"},
 	{id:3,nome:"purê de inhame com beterraba",preco:3.75,peso:"100gr",img:"imagens/vermelho.jpg",desc:"comida saborosa"},
 	{id:4,nome:"arroz branco",preco:2.50,peso:"100gr",img:"imagens/arroz branco.jpg",desc:"comida saborosa"},
-	{id:5,nome:"arroz integral",preco:3.75,peso:"100gr",img:"imagens/arroz integral",desc:"comida saborosa"},
+	{id:5,nome:"arroz integral",preco:3.75,peso:"100gr",img:"imagens/arroz integral.jpg",desc:"comida saborosa"},
 	{id:6,nome:"carne louca de maminha",preco:9.90,peso:"100gr",img:"imagens/carne louca de maminha.jpg",desc:"comida saborosa"},
 	{id:7,nome:"frango desfiado",preco:5.60,peso:"100gr",img:"imagens/frango desfiado cremoso.jpg",desc:"comida saborosa"},
 	{id:8,nome:"abobrinha refogado na manteiga",preco:3.25,peso:"100gr",img:"imagens/abobrinha refogado na manteiga.jpg",desc:"comida saborosa"},
