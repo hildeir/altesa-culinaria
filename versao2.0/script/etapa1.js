@@ -30,7 +30,7 @@
 	});
 	document.querySelector(".voltar").addEventListener("click",()=>{
 		
-		location.href = "altesaculinaria.com.br";
+		location.href = "index.html";
 	});
 	let remover = document.querySelectorAll(".remover");
 	remover.forEach((ele)=>{
