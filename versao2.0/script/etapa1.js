@@ -17,9 +17,9 @@
 		}
 	}
 	if(nulos == 100 && pp == null && pf == null){
-		location.href = "altesaculinaria.com.br";
+		location.href = "index.html";
 	}else if(vazios == 100 && pp == "" && pf == ""){
-		location.href = "altesaculinaria.com.br";
+		location.href = "index.html";
 	}else{
 		montar();
 	}
