@@ -44,52 +44,6 @@ function montar(){
 	let totalM1 = 0;
 	let totalFeitos = 0;
 	let totalPromocao = 0;
-	/* marmmitas */
-	for (let i = 1; i <= 100; i++) {
-		let m = sessionStorage.getItem('marmitas-'+[i]);
-		
-		
-		if(m != null){
-			let pratosArray = m.split("-");
-		
-			if(pratosArray.length){
-				let div = document.createElement("div");
-				div.setAttribute("class","cont-marm-"+[i]);
-				div.style.display = "flex";
-				div.style.flexWrap = "wrap";
-
-				let marmita_h4 = document.createElement("h4");
-				marmita_h4.setAttribute("class","marmitas-"+[i]+"-h4");
-				let conteudo = document.createTextNode("Marmita: "+[i]);
-				marmita_h4.appendChild(conteudo);
-
-				pratosArray.map((ele)=>{
-					let pratosObj =	JSON.parse(ele);
-					let prato = jsonMontarPratos[pratosObj.id];
-					let modelo = document.querySelector(".model-pratos-montados");
-					let clone = modelo.cloneNode(true);
-					let caminhoImg = prato.img;
-					let img = clone.querySelector(".img-prato-montados img");
-					img.setAttribute("src",caminhoImg);
-					clone.style.display = "flex";
-					clone.setAttribute("id",pratosObj.id);
-					clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
-					clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
-					clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso+"(uni)";
-					clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
-					clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
-
-					document.querySelector(".cont-marmitas").appendChild(marmita_h4);
-					div.appendChild(clone);
-					document.querySelector(".cont-marmitas").appendChild(div);
-					//document.querySelector(".cont-marm-"+[i]+"").appendChild(clone);
-					totalM1 += (prato.preco*pratosObj.quantidade);
-					
-				});
-			}
-		}	
-	}
-	/*  ffim  maarmitaa **/
 	if(pf != null){
 		let pratosArrayFeitos = pf.split("-");
 			/* pratos feitos */
@@ -160,54 +114,10 @@ let valorfrete = calculaFrete();
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
 	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
-	/* pegaa o prato daa maarmitaa  quee foii cliccadoo */ 
-	for (let i = 1; i <= 100; i++) {
-		let elem = e.target.closest(".cont-marm-"+[i]);
-		if(elem != null){
-			var atual = i;
-		}
-	}
-	/* fim */
 	let p = e.target.closest(".model-pratos-montados");
 	let idPrato = p.id;
 	p.remove();//rremovve prrato
 	
-	/*marmitaas */
-	let marmita = sessionStorage.getItem('marmitas-'+atual);
-	if(marmita != undefined){
-		let pratosArray = marmita.split("-");
-		let objPexcluir;
-		let objQuantPrato;
-		pratosArray.forEach((ele)=>{
-			let obj = JSON.parse(ele);
-			if(obj.id == idPrato){
-				objPexcluir = JSON.stringify(obj);
-				objQuantPrato = obj.quantidade;
-			}
-		});
-	
-		let posPrato = pratosArray.indexOf(objPexcluir);
-		pratosArray.splice(posPrato,1);
-		let update = pratosArray.join("-");
-		sessionStorage.setItem("marmitas-"+atual,update);
-	
-		let quantMarm = parseInt(sessionStorage.getItem("quantMarm"));//quantidade das marmitas
-		let quant = parseInt(sessionStorage.getItem("quantidade"));//quantidade dos prratos
-		if(sessionStorage.getItem("marmitas-"+atual) == ""){
-			sessionStorage.removeItem("marmitas-"+atual);
-			subtotal = calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			document.querySelector(".marmitas-"+atual+"-h4").style.display = "none";
-			sessionStorage.setItem("quantMarm",quantMarm -= 1);
-			sessionStorage.setItem("quantidade",quant -= 1);
-			exibeTotalTela(subtotal,valordesconto,valorfrete);
-			
-		}else{
-			subtotal = calculaTotalQuandoRemove(jsonMontarPratos,idPrato,objQuantPrato);
-			exibeTotalTela(subtotal,valordesconto,valorfrete);
-		}
-	}
-	
-	/* fim marmitas */
 	/* pratos feitos */
 	if(pratoFeito != null){
 		let pf = sessionStorage.getItem('pf');
