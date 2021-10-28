@@ -278,7 +278,7 @@ nav ul li:hover{
 }
 .cont-legenda-e-bts-etc{
     padding: 5px;
-    border: 2px solid #edd0ab;
+    border: 2px solid rgba(26, 127, 28, 0.7);;
     border-top: 0px;
 }
 .bt-mais input{
