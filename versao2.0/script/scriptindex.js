@@ -27,9 +27,7 @@ function inicia(){
 	if(sessionStorage.getItem("quantidade") != null){
 		document.querySelector(".quant-carr").innerHTML = sessionStorage.getItem("quantidade");
 	}
-	document.querySelector(".bt-add-carrinho").addEventListener('click',function(){
-		montaMarmita();
-	});
+	
 	/* bbotao ddee aumenttar e diminuirr a quantidadae  ddee itteenss */
 	let aumentar = document.querySelectorAll(".aumentar");
 	aumentar.forEach((elem)=>{
