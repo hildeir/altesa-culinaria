@@ -145,6 +145,7 @@ function removerPrato(e){
 			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			document.querySelector(".prt-feitos-h3").style.display = "none";
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
+			valorfrete = 0;
 			exibeTotalTela(subtotal,valordesconto,valorfrete);
 
 		}else{
@@ -156,6 +157,9 @@ function removerPrato(e){
 		
 	}
 	/* fim */
+	if(sessionStorage.getItem('valorTotal') == 0){
+		location.href = "index.html";
+	}
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	let valorTotal = subtotal;
