@@ -9,9 +9,3 @@ const jsonPratoFeito = [
 	{id:7,nome:"Picadinho de maminha com farofa de milho com legumes gratinado",preco:21.90,peso:"400gr",img:"imagens/marmitas-prontas/Picadinho de maminha com farofa de milho com legumes gratinado.jpeg",desc:"comida saborosa"},
 	{id:8,nome:"frango desfiado cremoso com lentilha e couve-flor tostada com ervas",preco:17.00,peso:"400gr",img:"imagens/marmitas-prontas/frango desfiado cremoso com lentilha e couve-flor tostada.jpeg",desc:"comida saborosa"}
 ];
-
-const jsonPratoPromocao = [
-	{id:0,nome:"promocao 1",preco:50.0,img:"imagens/demo_foto_promocao.png",peso:"120gr",desc:["feijao","arroz","carne","ovo"]},
-	{id:1,nome:"promocao 2",preco:25.0,img:"imagens/demo_foto_promocao.png",peso:"125gr",desc:["batata frita","arroz","carne","brocolis"]},
-	{id:2,nome:"promocao 3",preco:22.0,img:"imagens/demo_foto_promocao.png",peso:"120gr",desc:["parmegiana","carre","arroz","ovo"]}
-];
