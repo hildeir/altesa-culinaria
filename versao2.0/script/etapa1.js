@@ -1,24 +1,9 @@
 	var subtotal = "";
 	let pf = sessionStorage.getItem("pf");
-	let pp = sessionStorage.getItem("pp");
 
-	if(pp == null){
-		document.querySelector(".promocao-h3").style.display = "none";
-	}
-
-	let nulos = 0;
-	let vazios = 0;
-	for (let i = 1; i <= 100; i++) {
-		if(sessionStorage.getItem("marmitas-"+[i]) == null){
-			nulos += 1; //se todos forem nulos
-		}
-		if(sessionStorage.getItem("marmitas-"+[i]) == ""){
-			vazios += 1; //se totos forem vazios
-		}
-	}
-	if(nulos == 100 && pp == null && pf == null){
+	if(pf == null){
 		location.href = "index.html";
-	}else if(vazios == 100 && pp == "" && pf == ""){
+	}else if(pf == ""){
 		location.href = "index.html";
 	}else{
 		montar();
@@ -40,10 +25,7 @@
 	})
 function montar(){
 	let pf = sessionStorage.getItem("pf");
-	let pp = sessionStorage.getItem("pp");
-	let totalM1 = 0;
 	let totalFeitos = 0;
-	let totalPromocao = 0;
 	if(pf != null){
 		let pratosArrayFeitos = pf.split("-");
 			/* pratos feitos */
@@ -67,45 +49,12 @@ function montar(){
 		});
 		/* FIM */
 	}
-	/* prato promocao */
-	if(pp != null){
-		let pratosArray = pp.split("-");
-		pratosArray.map((ele)=>{
-			let pratosObj =	JSON.parse(ele);
-			let prato = jsonPratoPromocao[pratosObj.id];
-			let modelo = document.querySelector(".model-pratos-montados");
-			let clone = modelo.cloneNode(true);
-			let caminhoImg = prato.img;
-			let img = clone.querySelector(".img-prato-montados img");
-			img.setAttribute("src",caminhoImg);
-			clone.style.display = "flex";
-			clone.setAttribute("id",pratosObj.id);
-			clone.querySelector('.inf-pratos-montados .nome').innerHTML = prato.nome;
-			clone.querySelector('.inf-pratos-montados .desc').innerHTML = prato.desc;
-			clone.querySelector('.inf-pratos-montados .peso').innerHTML = prato.peso;
-			clone.querySelector('.quantidade').innerHTML = `Quant: ${pratosObj.quantidade}`;
-			clone.querySelector('.inf-pratos-montados .valor').innerHTML = `R$: ${prato.preco.toFixed(2)}(uni)`;
-			document.querySelector(".cont-pratos-promocao").appendChild(clone);
-			totalPromocao += (prato.preco*pratosObj.quantidade);
-		});
-	}
+
 	
-	if(pp != null){
-		document.querySelector(".promocao-h3").style.display = "block";
-	}
 	if(pf != null){
 		document.querySelector(".prt-feitos-h3").style.display = "block";
 	}
-	let contador = 0;
-	for (let i = 1; i <= 100 ; i++) {
-		let m = sessionStorage.getItem("marmitas-"+[i]);
-		if(m != null){
-			document.querySelector(".marmitas-"+[i]+"-h4").style.display = "block";
-		}
-		contador = i;
-	}
-	
-	subtotal = totalM1 + totalFeitos + totalPromocao;
+	subtotal = totalFeitos;
 	
 }
 let valordesconto = calculaDesconto(subtotal);
@@ -113,7 +62,6 @@ let valorfrete = calculaFrete();
 
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
-	let pratoPromocao = e.target.closest(".cont-pratos-promocao");
 	let p = e.target.closest(".model-pratos-montados");
 	let idPrato = p.id;
 	p.remove();//rremovve prrato
