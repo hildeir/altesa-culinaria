@@ -152,7 +152,8 @@ a:visited{
     background-image: url("../imagens/lentilha com alho poro acebolado.jpg");
 
 }
-.pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7, .pf-8, .pf-9{
+.pf-1, .pf-2, .pf-3, .pf-4, .pf-5, .pf-6, .pf-7, .pf-8, .pf-9,
+.pf-10, .pf-11, .pf-12, .pf-13, .pf-15{
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -182,6 +183,22 @@ a:visited{
 }
 .pf-9{
     background-image: url("../imagens/marmitas-prontas/frango desfiado cremoso com lentilha e couve-flor tostada.jpeg");
+}
+/* PRATOS NOVOS */
+.pf-10{
+    background-image: url("../imagens/marmitas-prontas/carne louca com arroz de brócolis acompanhado com vagem temperada com alho-poró e alho torrado.jpg");
+}
+.pf-11{
+    background-image: url("../imagens/marmitas-prontas/iscas de carne acebolado com arroz cremoso de tomate e chuchu grelhado e berinjela tostada.jpg");
+}
+.pf-12{
+    background-image: url("../imagens/marmitas-prontas/file de tilapia com arroz de agriao acompanhado com chuchu grelhado e berinjela tostada.jpg");
+}
+.pf-13{
+    background-image: url("../imagens/marmitas-prontas/file de tilapia com salada de brocolis com abrobrinha e cogumelo.jpg");
+}
+.pf-14{
+    background-image: url("../imagens/marmitas-prontas/file de tilapia com arroz cremoso de tomate com vagem temperada com alho-poro e alho torrado.jpg");
 }
 .tipo-prato{
     background-color: rgba(26, 127, 28, 0.7);
