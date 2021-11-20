@@ -6,7 +6,7 @@ const jsonPratoFeito = [
 	
 	{id:4,nome:"cubo de frango salteado com calda de laranja e farofa de milho com legumes",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/cubo de frango saltiado com caldo de laranja.jpg",desc:"comida saborosa"},
 	{id:5,nome:"frango grelhado com purê de abóbora e baiao de dois",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/peito de frango com pure de abobora e baiao de dois.jpg",desc:"comida saborosa"},
-	{id:6,nome:"carne louca de maminha com arroz integral de abóbora e legumes de brócolis e couve-flor",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor.jpg",desc:"comida saborosa"},
+	{id:6,nome:"carne louca com arroz integral de abóbora e legumes de brócolis e couve-flor",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor.jpg",desc:"comida saborosa"},
 	{id:7,nome:"Picadinho de maminha com farofa de milho com legumes gratinado",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/Picadinho de maminha com farofa de milho com legumes gratinado.jpeg",desc:"comida saborosa"},
 	{id:8,nome:"frango desfiado cremoso com lentilha e couve-flor tostada com ervas",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/frango desfiado cremoso com lentilha e couve-flor tostada.jpeg",desc:"comida saborosa"},
 	/* pratos novos */
