@@ -2,7 +2,7 @@ const jsonPratoFeito = [
 	{id:0,nome:"arroz com cenoura, grão de bico e purê batata doce",preco:12.00,peso:"300gr",img:"imagens/marmitas-prontas/arroz com cenoura, grão de bico e purê batata doce - vegano.jpg",desc:"comida saborosa"},
 	{id:1,nome:"couve-flor com creme de abóbora, arroz de amendoim e feijão",preco:12.00,peso:"300gr",img:"imagens/marmitas-prontas/arroz de amendoim com creme de abóbora, couve flor e feijão - vegano.jpg",desc:"comida saborosa"},
 	{id:2,nome:"baião de dois com grão de soja e purê de batata baroa",preco:12.00,peso:"300gr",img:"imagens/marmitas-prontas/baião de 2 com grão de soja e purê de batata baroa - vegano.jpg",desc:"comida saborosa"},
-	{id:3,nome:"pene com molho branco com brócolis, queijo quale em cubos e purê de abóbora",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg",desc:"comida saborosa"},
+	{id:3,nome:"pene com molho branco com brócolis, queijo coalho em cubos e purê de abóbora",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/pene com molho branco, brocolis, queijo quale em cubos e purê de abóbora - vegetariano.jpg",desc:"comida saborosa"},
 	
 	{id:4,nome:"cubo de frango salteado com calda de laranja e farofa de milho com legumes",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/cubo de frango saltiado com caldo de laranja.jpg",desc:"comida saborosa"},
 	{id:5,nome:"frango grelhado com purê de abóbora e baiao de dois",preco:17.00,peso:"300gr",img:"imagens/marmitas-prontas/peito de frango com pure de abobora e baiao de dois.jpg",desc:"comida saborosa"},
