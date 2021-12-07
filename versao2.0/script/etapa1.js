@@ -132,12 +132,7 @@ function calculaDesconto(subtotal){
 }
 
 function calculaFrete(){
-	let quant = parseInt(sessionStorage.getItem("quantidade"));
-	if(quant < 10){
-		return 8.00 //frete 10,00 reais
-	}else{
-		return 0;
-	}
+	return 8;
 }
 
 
