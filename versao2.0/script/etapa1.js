@@ -110,12 +110,17 @@ function removerPrato(e){
 	}
 }
 function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
+	document.location.reload();
 	let valorTotal = subtotal;
 	let preco = json[parseInt(idPrato)].preco;
 	
 	let quant = objQuantPratoFeitos;
 	let subtrair = preco * quant;
 	let total = valorTotal - subtrair;
+	if(total < 0){
+		total = 0;
+	}
+
 	return total;
 	/* fim */
 	
