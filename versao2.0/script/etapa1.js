@@ -58,7 +58,6 @@ function montar(){
 	
 }
 let valordesconto = calculaDesconto(subtotal);
-let valorfrete = calculaFrete();
 
 function removerPrato(e){
 	let pratoFeito = e.target.closest(".cont-pratos-feitos");
@@ -93,14 +92,13 @@ function removerPrato(e){
 			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			document.querySelector(".prt-feitos-h3").style.display = "none";
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-			valorfrete = 0;
-			exibeTotalTela(subtotal,valordesconto,valorfrete);
+			exibeTotalTelaTotal(subtotal,valordesconto);
 
 		}else{
 			sessionStorage.setItem("totalPratosFeitos",totalPratosFeitos -= objQuantPratoFeitos);
 			subtotal = calculaTotalQuandoRemove(jsonPratoFeito,idPrato,objQuantPratoFeitos);
 			sessionStorage.setItem("quantidade",quant -= objQuantPratoFeitos);
-			exibeTotalTela(subtotal,valordesconto,valorfrete);
+			exibeTotalTelaTotal(subtotal,valordesconto);
 		}
 		
 	}
@@ -117,9 +115,6 @@ function calculaTotalQuandoRemove(json,idPrato,objQuantPratoFeitos){
 	let quant = objQuantPratoFeitos;
 	let subtrair = preco * quant;
 	let total = valorTotal - subtrair;
-	if(total < 0){
-		total = 0;
-	}
 
 	return total;
 	/* fim */
@@ -142,7 +137,7 @@ function calculaFrete(){
 
 
 
-function exibeTotalTela(subtotal,desconto){
+function exibeTotalTelaTotal(subtotal,desconto){
 	let frete = calculaFrete();
 	let sub = subtotal - desconto;
 	let total = frete + sub;
@@ -155,4 +150,4 @@ function exibeTotalTela(subtotal,desconto){
 	sessionStorage.setItem("valorTotal",total);	
 	sessionStorage.setItem("frete",frete);
 }
-exibeTotalTela(subtotal,valordesconto,valorfrete);
+exibeTotalTelaTotal(subtotal,valordesconto);
