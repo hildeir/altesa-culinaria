@@ -7,7 +7,7 @@ const jsonPratoFeito = [
 	{id:4,nome:"frango grelhado com purê de abóbora e feijão tropeiro de frango",preco:17.90,peso:"300gr",img:"imagens/marmitas-prontas/frango grelhado com purê de abóbora e feijão tropeiro de frango.jpg",desc:"comida saborosa"},
 	{id:5,nome:"frango desfiado cremoso com lentilha e couve-flor tostada com ervas",preco:17.90,peso:"300gr",img:"imagens/marmitas-prontas/frango desfiado cremoso com lentilha e couve-flor tostada.jpeg",desc:"comida saborosa"},
 	{id:6,nome:"carne louca com arroz integral de abóbora e legumes de brócolis e couve-flor",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/carne louca de maminha com arroz integral de abobora e legumes de brocolis e couve-flor.jpg",desc:"comida saborosa"},
-	{id:7,nome:"Picadinho de maminha com farofa de milho com legumes gratinado",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/Picadinho de maminha com farofa de milho com legumes gratinado.jpeg",desc:"comida saborosa"},
+	{id:7,nome:"Picadinho com farofa de milho com legumes gratinado",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/Picadinho de maminha com farofa de milho com legumes gratinado.jpeg",desc:"comida saborosa"},
 
 	/* pratos novos */
 	{id:8,nome:"carne louca com arroz de brócolis acompanhado com vagem temperada com alho-poró e alho torrado",preco:21.90,peso:"300gr",img:"imagens/marmitas-prontas/carne louca com arroz de brócolis acompanhado com vagem temperada com alho-poró e alho torrado.jpg",desc:"comida saborosa"},
