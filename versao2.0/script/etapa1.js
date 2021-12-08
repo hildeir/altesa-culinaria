@@ -142,8 +142,10 @@ function calculaFrete(){
 
 
 
-function exibeTotalTela(subtotal,desconto,frete){
-	let total = (subtotal - desconto) + frete;
+function exibeTotalTela(subtotal,desconto){
+	let frete = calculaFrete();
+	let sub = subtotal - desconto;
+	let total = frete + sub;
 	if(desconto != 0){
 		document.querySelector(".desconto").innerHTML = `Ganhou desconto de 10%: R$ ${desconto.toFixed(2)}`;
 	}
@@ -151,5 +153,6 @@ function exibeTotalTela(subtotal,desconto,frete){
 	document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
 	document.querySelector(".frete").innerHTML = `frete: R$ ${frete.toFixed(2)}`;
 	sessionStorage.setItem("valorTotal",total);	
+	sessionStorage.setItem("frete",frete);
 }
 exibeTotalTela(subtotal,valordesconto,valorfrete);

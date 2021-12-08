@@ -23,6 +23,7 @@ function exibir(){
     const dadosCliente = JSON.parse(sessionStorage.getItem("dadosCliente"));
     const dadosEntrega = JSON.parse(sessionStorage.getItem("dadosEntrega"));
     const total = parseFloat(sessionStorage.getItem("valorTotal"));
+    const frete = parseFloat(sessionStorage.getItem("frete"));
     let pf = sessionStorage.getItem("pf");
 
     const cliente = document.querySelector(".dados-cliente");
@@ -42,6 +43,7 @@ function exibir(){
                         dadosEntrega.complemento +"<br/>";
     
     document.querySelector(".total").innerHTML = `R$ ${total.toFixed(2)}`;
+    document.querySelector(".frete").innerHTML = `R$ ${frete.toFixed(2)}`;
 
     if(pf != null){
         let array = pf.split("-");
